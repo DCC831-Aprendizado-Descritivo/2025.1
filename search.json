@@ -1,0 +1,79 @@
+[
+  {
+    "objectID": "seminario3.html",
+    "href": "seminario3.html",
+    "title": "Introdução",
+    "section": "",
+    "text": "Os seminários da disciplina consistem em uma apresentação coletiva (da turma) de um artigo mais recente sobre tópicos diretamente relacionados ao conteúdo visto em sala. A ideia é que a turma como um todo estude os artigos mais recentes da área e discuta esses trabalhos em sala. Em cada sessão, discutimos dois artigos recentes relacionados aos tópicos abordados nas aulas teóricas.\nPara isso, adotamos um formato adaptado da proposta apresentada pelos Profs. Alec Jacobson e Colin Raffel, ambos da Universidade de Toronto (Canadá) – veja a proposta original em https://colinraffel.com/blog/role-playing-seminar.html. A proposta consiste em fazer uma encenação de papéis (role play) científicos para a apresentação do seminário. Nessa proposta, cada grupo cumprirá um papel na apresentação. Ao final, uma apresentação em formato de slides e um documento textual são produzidos. A apresentação é usada em sala de aula para fomentar as discussões, enquanto o documento fornece uma descrição textual das impressões da turma com a intenção de descrever o tema do artigo para um público amplo interessado em aprendizado de máquina e mineração de dados.\nSão apresentados a seguir os artigos discutidos no semestre 2025/1, com os respectivos links para os slides e documentos textuais apresentando os artigos.\n\n\nModeling Match Performance in Elite Volleyball Players: Importance of Jump Load and Strength Training Characteristics\nA.-W. de Leeuw, R. van Baar, A. Knobbe, and S. van der Zwaard. 2022\nhttps://doi.org/10.3390/s22207996\n\n\n\nExceptional Subitizing Patterns: Exploring Mathematical Abilities of Finnish Primary School Children with Piecewise Linear Regression\nR. M. Schouten, W. Duivesteijn, P. Räsänen, J. M. Paul, and M. Pechenizkiy. 2024\nhttps://doi.org/10.1007/978-3-031-70381-2_5"
+  },
+  {
+    "objectID": "seminario3.html#artigo-5",
+    "href": "seminario3.html#artigo-5",
+    "title": "Introdução",
+    "section": "",
+    "text": "Modeling Match Performance in Elite Volleyball Players: Importance of Jump Load and Strength Training Characteristics\nA.-W. de Leeuw, R. van Baar, A. Knobbe, and S. van der Zwaard. 2022\nhttps://doi.org/10.3390/s22207996"
+  },
+  {
+    "objectID": "seminario3.html#artigo-6",
+    "href": "seminario3.html#artigo-6",
+    "title": "Introdução",
+    "section": "",
+    "text": "Exceptional Subitizing Patterns: Exploring Mathematical Abilities of Finnish Primary School Children with Piecewise Linear Regression\nR. M. Schouten, W. Duivesteijn, P. Räsänen, J. M. Paul, and M. Pechenizkiy. 2024\nhttps://doi.org/10.1007/978-3-031-70381-2_5"
+  },
+  {
+    "objectID": "seminario1.html",
+    "href": "seminario1.html",
+    "title": "Introdução",
+    "section": "",
+    "text": "Os seminários da disciplina consistem em uma apresentação coletiva (da turma) de um artigo mais recente sobre tópicos diretamente relacionados ao conteúdo visto em sala. A ideia é que a turma como um todo estude os artigos mais recentes da área e discuta esses trabalhos em sala. Em cada sessão, discutimos dois artigos recentes relacionados aos tópicos abordados nas aulas teóricas.\nPara isso, adotamos um formato adaptado da proposta apresentada pelos Profs. Alec Jacobson e Colin Raffel, ambos da Universidade de Toronto (Canadá) – veja a proposta original em https://colinraffel.com/blog/role-playing-seminar.html. A proposta consiste em fazer uma encenação de papéis (role play) científicos para a apresentação do seminário. Nessa proposta, cada grupo cumprirá um papel na apresentação. Ao final, uma apresentação em formato de slides e um documento textual são produzidos. A apresentação é usada em sala de aula para fomentar as discussões, enquanto o documento fornece uma descrição textual das impressões da turma com a intenção de descrever o tema do artigo para um público amplo interessado em aprendizado de máquina e mineração de dados.\nSão apresentados a seguir os artigos discutidos no semestre 2025/1, com os respectivos links para os slides e documentos textuais apresentando os artigos.\n\n\nDifferentiable Pattern Set Mining\nJ. Fischer and J. Vreeken. 2021\nhttps://doi.org/10.1145/3447548.3467348\n\n\n\nDiscovering frequent parallel episodes in complex event sequences by counting distinct occurrences\nO. Ouarem, F. Nouioua, and P. Fournier-Viger. 2024\nhttps://doi.org/10.1007/s10489-023-05187-y"
+  },
+  {
+    "objectID": "seminario1.html#artigo-1",
+    "href": "seminario1.html#artigo-1",
+    "title": "Introdução",
+    "section": "",
+    "text": "Differentiable Pattern Set Mining\nJ. Fischer and J. Vreeken. 2021\nhttps://doi.org/10.1145/3447548.3467348"
+  },
+  {
+    "objectID": "seminario1.html#artigo-2",
+    "href": "seminario1.html#artigo-2",
+    "title": "Introdução",
+    "section": "",
+    "text": "Discovering frequent parallel episodes in complex event sequences by counting distinct occurrences\nO. Ouarem, F. Nouioua, and P. Fournier-Viger. 2024\nhttps://doi.org/10.1007/s10489-023-05187-y"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Aprendizado Descritivo",
+    "section": "",
+    "text": "Aprendizado Descritivo (2025/1) — DCC/UFMG   Prof. Renato Vimieiro \n\nEssa disciplina é ofertada no Programa de Pós-Graduação em Ciência da Computação da Universidade Federal de Minas Gerais. Ela tem como objetivo apresentar técnicas avançadas para identificação de padrões descritivos em bases de dados. A(o) aluna(o) terá contato com técnicas para aprendizado de padrões não-supervisionados e supervisionados. Serão discutidas as dificuldades computacionais da busca por tais padrões, bem como sua utilidade para análise exploratória de dados.\nOs tópicos abordados na disciplina são:\n\nDiferenças entre aprendizado descritivo e preditivo.\nAprendizado descritivo não-supervisionado.\nAprendizado descritivo supervisionado.\nRepresentações condensadas.\nMétricas de qualidade de padrões descritivos.\nAlgoritmos de aprendizado de padrões descritivos supervisionados e não-supervisionados.\nEstudos de casos e aplicações em problemas reais.\n\nOs tópicos são apresentados através de aulas expositivas sobre o assunto, leitura e apresentação de seminários sobre artigos recentes na literatura, e projetos de aplicação dos métodos estudados para extração de conhecimento de bases de dados.\nUtilize o menu acima ou o link a seguir para visualizar o conteúdo produzido nos seminários e projetos desenvolvidos pelos alunos na oferta de 2025/1.\n\nSeminários: Padrões frequentes; Descoberta de subgrupos; Aplicações\n\nUma página similar também foi construída para ofertas anteriores do curso. Os links estão a seguir:\n\n2024/1."
+  },
+  {
+    "objectID": "projetos.html",
+    "href": "projetos.html",
+    "title": "Projetos apresentados pelos alunos na disciplina Aprendizado Descritivo 2025/1",
+    "section": "",
+    "text": "O projeto da disciplina de Aprendizado Descritivo é uma atividade avaliativa conduzida pelos alunos da turma divididos em grupos. O objetivo do projeto é analisar um conjunto de dados escolhido pelo grupo, usando as técnicas vistas em sala de aula (aulas expositivas e seminários). Os links a seguir redirecionam para os repositórios dos respectivos projetos. É importante ressaltar que, embora tenha sido exigido rigor científico na execução do projeto, os resultados cumprem apenas um papel didático."
+  },
+  {
+    "objectID": "seminario2.html",
+    "href": "seminario2.html",
+    "title": "Introdução",
+    "section": "",
+    "text": "Os seminários da disciplina consistem em uma apresentação coletiva (da turma) de um artigo mais recente sobre tópicos diretamente relacionados ao conteúdo visto em sala. A ideia é que a turma como um todo estude os artigos mais recentes da área e discuta esses trabalhos em sala. Em cada sessão, discutimos dois artigos recentes relacionados aos tópicos abordados nas aulas teóricas.\nPara isso, adotamos um formato adaptado da proposta apresentada pelos Profs. Alec Jacobson e Colin Raffel, ambos da Universidade de Toronto (Canadá) – veja a proposta original em https://colinraffel.com/blog/role-playing-seminar.html. A proposta consiste em fazer uma encenação de papéis (role play) científicos para a apresentação do seminário. Nessa proposta, cada grupo cumprirá um papel na apresentação. Ao final, uma apresentação em formato de slides e um documento textual são produzidos. A apresentação é usada em sala de aula para fomentar as discussões, enquanto o documento fornece uma descrição textual das impressões da turma com a intenção de descrever o tema do artigo para um público amplo interessado em aprendizado de máquina e mineração de dados.\nSão apresentados a seguir os artigos discutidos no semestre 2025/1, com os respectivos links para os slides e documentos textuais apresentando os artigos.\n\n\nFinding interpretable class-specific patterns through efficient neural search\nN. P. Walter, J. Fischer, and J. Vreeken. 2024\nhttps://doi.org/10.1609/aaai.v38i8.28756\n\n\n\nLocal Subgroup Discovery on Attributed Network Graphs\nC. V. Heinrich, T. Lombarts, J. Mallens, L. Tortike, D. Wolf, and W. Duivesteijn. 2025\nhttps://doi.org/10.1007/978-3-031-91398-3_15"
+  },
+  {
+    "objectID": "seminario2.html#artigo-3",
+    "href": "seminario2.html#artigo-3",
+    "title": "Introdução",
+    "section": "",
+    "text": "Finding interpretable class-specific patterns through efficient neural search\nN. P. Walter, J. Fischer, and J. Vreeken. 2024\nhttps://doi.org/10.1609/aaai.v38i8.28756"
+  },
+  {
+    "objectID": "seminario2.html#artigo-4",
+    "href": "seminario2.html#artigo-4",
+    "title": "Introdução",
+    "section": "",
+    "text": "Local Subgroup Discovery on Attributed Network Graphs\nC. V. Heinrich, T. Lombarts, J. Mallens, L. Tortike, D. Wolf, and W. Duivesteijn. 2025\nhttps://doi.org/10.1007/978-3-031-91398-3_15"
+  }
+]
