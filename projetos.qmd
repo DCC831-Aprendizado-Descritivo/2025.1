@@ -1,0 +1,13 @@
+---
+title: "Projetos apresentados pelos alunos na disciplina Aprendizado Descritivo 2025/1"
+page-layout: full
+---
+
+O projeto da disciplina de Aprendizado Descritivo é uma atividade avaliativa conduzida pelos
+alunos da turma divididos em grupos. O objetivo do projeto é analisar um conjunto de dados
+escolhido pelo grupo, usando as técnicas vistas em sala de aula (aulas expositivas e seminários).
+Os links a seguir redirecionam para os repositórios dos respectivos projetos. É importante
+ressaltar que, embora tenha sido exigido rigor científico na execução do projeto, os resultados
+cumprem apenas um papel didático.
+
+

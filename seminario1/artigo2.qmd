@@ -1,0 +1,11 @@
+---
+title: 'Artigo 2: Discovering frequent parallel episodes in complex event sequences by counting distinct occurrences'
+page-layout: full
+crossref:
+    lof-title: "List of Figures"
+format: 
+    html:
+        code-fold: true
+execute:
+    freeze: true
+---

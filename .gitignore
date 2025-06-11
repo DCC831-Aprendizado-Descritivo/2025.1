@@ -1,0 +1,6 @@
+.DS_Store
+docs/
+/.quarto/
+/_site/
+/index_files/
+/site_libs/

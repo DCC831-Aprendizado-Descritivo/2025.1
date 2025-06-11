@@ -1,0 +1,4 @@
+---
+title: 'Artigo 4: Local Subgroup Discovery on Attributed Network Graphs'
+page-layout: full
+---
