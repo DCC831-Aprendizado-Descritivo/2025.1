@@ -5,38 +5,30 @@ page-layout: full
 
 # Introdução
 
-Os seminários da disciplina consistem em uma apresentação coletiva (da turma) de um artigo mais recente
-sobre tópicos diretamente relacionados ao conteúdo visto em sala. A ideia é que a turma
-como um todo estude os artigos mais recentes da área e discuta esses trabalhos em sala.
-Em cada sessão, discutimos dois artigos recentes relacionados aos tópicos abordados
-nas aulas teóricas.
+Os seminários da disciplina consistem em uma apresentação coletiva (da turma) de um artigo mais recente sobre tópicos diretamente relacionados ao conteúdo visto em sala. A ideia é que a turma como um todo estude os artigos mais recentes da área e discuta esses trabalhos em sala. Em cada sessão, discutimos dois artigos recentes relacionados aos tópicos abordados nas aulas teóricas.
 
-Para isso, adotamos um formato adaptado da proposta apresentada pelos Profs. Alec Jacobson
-e Colin Raffel, ambos da Universidade de Toronto (Canadá) -- veja a proposta original
-em <https://colinraffel.com/blog/role-playing-seminar.html>. A proposta consiste em
-fazer uma encenação de papéis (role play) científicos para a apresentação do seminário.
-Nessa proposta, cada grupo cumprirá um papel na apresentação. Ao final, uma apresentação
-em formato de slides e um documento textual são produzidos. A apresentação é usada em sala
-de aula para fomentar as discussões, enquanto o documento fornece uma descrição textual
-das impressões da turma com a intenção de descrever o tema do artigo para um público 
-amplo interessado em aprendizado de máquina e mineração de dados.
+Para isso, adotamos um formato adaptado da proposta apresentada pelos Profs. Alec Jacobson e Colin Raffel, ambos da Universidade de Toronto (Canadá) -- veja [aqui][URL_Seminário] a proposta original. A proposta consiste em fazer uma encenação de papéis (role play) científicos para a apresentação do seminário. Nessa proposta, cada grupo cumprirá um papel na apresentação. Ao final, uma apresentação em formato de slides e um documento textual são produzidos. A apresentação é usada em sala de aula para fomentar as discussões, enquanto o documento fornece uma descrição textual das impressões da turma com a intenção de descrever o tema do artigo para um público  amplo interessado em aprendizado de máquina e mineração de dados.
 
-São apresentados a seguir os artigos discutidos no semestre 2025/1, com os respectivos
-links para os slides e documentos textuais apresentando os artigos.
+São apresentados a seguir os artigos discutidos no semestre 2025/1, com os respectivos links para os slides e documentos textuais apresentando os artigos.
 
-## Artigo 3
+## [Artigo 3][Seminario_Art3]
 
-[Finding interpretable class-specific patterns through efficient neural search](seminario2/artigo3.qmd)
+- [Finding interpretable class-specific patterns through efficient neural search][Seminario_Art3]
+- **Autores:** N. P. Walter; J. Fischer; J. Vreeken. 2024
+- **DOI:** [10.1609/aaai.v38i8.28756][DOI_Art3]
 
-N. P. Walter, J. Fischer, and J. Vreeken. 2024
+## [Artigo 4][Seminario_Art4]
 
-<https://doi.org/10.1609/aaai.v38i8.28756>
+- [Local Subgroup Discovery on Attributed Network Graphs][Seminario_Art4]
+- **Autores:** C. V. Heinrich; T. Lombarts; J. Mallens; L. Tortike; D. Wolf; W. Duivesteijn. 2025
+- **DOI:** [10.1007/978-3-031-91398-3_15][DOI_Art4]
 
+<!-- URLs -->
 
-## Artigo 4
+[URL_Seminário]: https://colinraffel.com/blog/role-playing-seminar.html
 
-[Local Subgroup Discovery on Attributed Network Graphs](seminario2/artigo4.qmd)
+[DOI_Art3]: https://doi.org/10.1609/aaai.v38i8.28756
+[DOI_Art4]: https://doi.org/10.1007/978-3-031-91398-3_15
 
-C. V. Heinrich, T. Lombarts, J. Mallens, L. Tortike, D. Wolf, and W. Duivesteijn. 2025
-
-<https://doi.org/10.1007/978-3-031-91398-3_15>
+[Seminario_Art3]: seminario2/artigo3.qmd
+[Seminario_Art4]: seminario2/artigo4.qmd
