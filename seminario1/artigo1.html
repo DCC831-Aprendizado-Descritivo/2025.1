@@ -39,7 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d0eee84908effde45992ddd4914ebb36.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-941d7e14017e1a43777b60853515243b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -148,11 +148,29 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução">Introdução</a>
+  <ul class="collapse">
+  <li><a href="#o-que-é-mineração-de-padrões" id="toc-o-que-é-mineração-de-padrões" class="nav-link" data-scroll-target="#o-que-é-mineração-de-padrões">O que é Mineração de padrões?</a></li>
+  <li><a href="#binaps" id="toc-binaps" class="nav-link" data-scroll-target="#binaps">BinaPs</a>
+  <ul class="collapse">
+  <li><a href="#funcionamento" id="toc-funcionamento" class="nav-link" data-scroll-target="#funcionamento">Funcionamento</a></li>
+  </ul></li>
+  <li><a href="#experimentos" id="toc-experimentos" class="nav-link" data-scroll-target="#experimentos">Experimentos</a>
+  <ul class="collapse">
+  <li><a href="#sintéticos" id="toc-sintéticos" class="nav-link" data-scroll-target="#sintéticos">Sintéticos</a></li>
+  <li><a href="#reais" id="toc-reais" class="nav-link" data-scroll-target="#reais">Reais</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -161,7 +179,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -173,8 +191,63 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introdução" class="level1">
+<h1>Introdução</h1>
+<section id="o-que-é-mineração-de-padrões" class="level2">
+<h2 class="anchored" data-anchor-id="o-que-é-mineração-de-padrões">O que é Mineração de padrões?</h2>
+<p>Mineração de padrões é uma área de Aprendizado Descritivo que objetiva encontrar informações interpretáveis de grandes bancos de dados. Tal objetivo é alcançado por meio da mineração de “padrões” ou “regras” que definem conjuntos relevantes, seja em frequência ou em importância.</p>
+<p>As aplicações de mineração de padrões são variadas, desde ciências naturais como Biologia e Química para estudos estatísticos e matemáticos e por estudos societais e comportamentais.</p>
+<p><em>citar exemplos talvez</em></p>
+<p>Infelizmente, os algoritmos para mineração de padrões são extremamente custosos, sendo duplamente exponenciais no <em>número de atributos</em>. Além disso, eles sofrem de redundância nas respostas, muitas vezes repetindo padrões similares e de relevância das respostas, sofrendo com overfitting ou underfitting.</p>
+</section>
+<section id="binaps" class="level2">
+<h2 class="anchored" data-anchor-id="binaps">BinaPs</h2>
+<p>Para resolver a problemática acima, o algoritmo introduz o BinaPs, uma solução que vê o problema por meio da lente de aprendizado de máquina ao invés de construção de conjuntos. Para entender melhor as duas perspectivas, considere as diferenças principais do BinaPs para algoritmos tradicionais:</p>
+<ul>
+<li><strong>Apriori, Eclat, FP-Growth</strong>:
+<ul>
+<li>Padrões escolhidos por frequência</li>
+<li>Padrões redundantes encontrados</li>
+<li>Apenas otimizados por heurísticas</li>
+<li>Calculado na CPU</li>
+</ul></li>
+<li><strong>BinaPs</strong>:
+<ul>
+<li>Funções diferenciáveis para descoberta de padrões</li>
+<li>Padrões menos redundantes</li>
+<li>GPU para cálculos</li>
+<li>Significativamente mais escalável</li>
+<li>Otimizável por parâmetros de entrada como learning rate</li>
+</ul></li>
+</ul>
+<section id="funcionamento" class="level3">
+<h3 class="anchored" data-anchor-id="funcionamento">Funcionamento</h3>
+<p>Inspirado por decoders e encoders, o algoritmo tem como objetivo pegar os atributos de um item, codificar eles em o mesmo número ou menos de neurônios no processo e retornar para o número inicial. Considere a imagem a seguir:</p>
+<p>![[Pasted image 20250610171515.png]]</p>
+<p>O BinaPs contém algumas otimizações e considerações quando considerado com outras rede neurais, dentre elas:</p>
+<ul>
+<li>Os neurônios e pesos finais são binários {0, 1}</li>
+<li>Viês é usado para evitar overfitting</li>
+<li>Normalização da função de perda para evitar saídas de apenas {1} ou {0} em bases densas e esparsas.</li>
+<li>Gated Straight-Through Estimator para não penalizar os neurônios desligados</li>
+</ul>
+<p>Após essas mudanças, o algoritmo funciona como descrito por esta imagem (<em>Figure 1</em> do artigo):</p>
+<p>![[Pasted image 20250611212801.png]]</p>
+</section>
+</section>
+<section id="experimentos" class="level2">
+<h2 class="anchored" data-anchor-id="experimentos">Experimentos</h2>
+<p>O BinaPs foi comparado com três outros competidores na área de mineração de dados: <strong>Asso, Slim e Desc</strong>, que usam matrizes booleanas, mineração de conjuntos por MDL e maximum entropy modeling respectivamente. Os experimentos foram divididos em duas categorias: sintéticos e reais.</p>
+<section id="sintéticos" class="level3">
+<h3 class="anchored" data-anchor-id="sintéticos">Sintéticos</h3>
+</section>
+<section id="reais" class="level3">
+<h3 class="anchored" data-anchor-id="reais">Reais</h3>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
