@@ -2,3 +2,57 @@
 title: 'Artigo 1: Differentiable Pattern Set Mining'
 page-layout: full
 ---
+
+# Introdução
+
+## O que é Mineração de padrões?
+
+Mineração de padrões é uma área de Aprendizado Descritivo que objetiva encontrar informações interpretáveis de grandes bancos de dados. Tal objetivo é alcançado por meio da mineração de "padrões" ou "regras" que definem conjuntos relevantes, seja em frequência ou em importância. 
+ 
+As aplicações de mineração de padrões são variadas, desde ciências naturais como Biologia e Química para estudos estatísticos e matemáticos e por estudos societais e comportamentais.
+ 
+_citar exemplos talvez_
+ 
+Infelizmente, os algoritmos para mineração de padrões são extremamente custosos, sendo duplamente exponenciais no _número de atributos_. Além disso, eles sofrem de redundância nas respostas, muitas vezes repetindo padrões similares e de relevância das respostas, sofrendo com overfitting ou underfitting.
+ 
+## BinaPs
+
+Para resolver a problemática acima, o algoritmo introduz o BinaPs, uma solução que vê o problema por meio da lente de aprendizado de máquina ao invés de construção de conjuntos. Para entender melhor as duas perspectivas, considere as diferenças principais do BinaPs para algoritmos tradicionais:
+ 
+- **Apriori, Eclat, FP-Growth**:
+  - Padrões escolhidos por frequência
+  - Padrões redundantes encontrados
+  - Apenas otimizados por heurísticas
+  - Calculado na CPU
+ 
+- **BinaPs**:
+  - Funções diferenciáveis para descoberta de padrões
+  - Padrões menos redundantes
+  - GPU para cálculos
+  - Significativamente mais escalável
+  - Otimizável por parâmetros de entrada como learning rate
+
+### Funcionamento
+
+Inspirado por decoders e encoders, o algoritmo tem como objetivo pegar os atributos de um item, codificar eles em o mesmo número ou menos de neurônios no processo e retornar para o número inicial. Considere a imagem a seguir: 
+
+![[Pasted image 20250610171515.png]]
+
+O BinaPs contém algumas otimizações e considerações quando considerado com outras rede neurais, dentre elas:
+
+- Os neurônios e pesos finais são binários {0, 1}
+- Viês é usado para evitar overfitting 
+- Normalização da função de perda para evitar saídas de apenas {1} ou {0} em bases densas e esparsas. 
+- Gated Straight-Through Estimator para não penalizar os  neurônios desligados
+
+Após essas mudanças, o algoritmo funciona como descrito por esta imagem (_Figure 1_ do artigo):
+
+![[Pasted image 20250611212801.png]]
+ 
+## Experimentos
+
+O BinaPs foi comparado com três outros competidores na área de mineração de dados: **Asso, Slim e Desc**, que usam matrizes booleanas, mineração de conjuntos por MDL e maximum entropy modeling respectivamente. Os experimentos foram divididos em duas categorias: sintéticos e reais.
+
+### Sintéticos
+ 
+### Reais
