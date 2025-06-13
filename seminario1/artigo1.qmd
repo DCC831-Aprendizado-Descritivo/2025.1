@@ -168,7 +168,7 @@ Foi feita uma análise quantitativa em 3 dos bancos de dados listados acima. Dua
 ## Referências
 
 - **Título:** Differentiable Pattern Set Mining
-- [Artigo][Link_artigo]
+- [Artigo][Link_artigo] (@Fischer_2021)
   - [PDF][Link_artigo_pdf]
   - [Apresentação dos Autores][Apresentação dos Autores]
 - [Apresentação][Slide_art1]
