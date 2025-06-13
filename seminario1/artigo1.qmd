@@ -17,7 +17,7 @@ format:
     fig-align: center
     fig-format: png
 
-bibliography: src\art1\referencias.bib
+bibliography: src/art1/referencias.bib
 crossref:
   fig-prefix: Figura
   tbl-prefix: Tabela
@@ -56,11 +56,11 @@ Para resolver a problemática acima, o algoritmo introduz o BinaPs, uma soluçã
 
 ### Funcionamento
 
-Inspirado por decoders e encoders, o algoritmo tem como objetivo pegar os atributos de um item, codificar eles em o mesmo número ou menos de neurônios no processo e retornar para o número inicial. Considere a imagem a seguir:
+Inspirado por decoders e encoders, o algoritmo tem como objetivo pegar os atributos de um item, codificar eles em o mesmo número ou menos de neurônios no processo e retornar para o número inicial. Considere a @fig-1 a seguir:
 
-|             **Figura X:** Enconder e Decoder              |
-| :-------------------------------------------------------: |
-| ![Imagem: Enconder e Decoder][Imagem: Enconder e Decoder] |
+|                 **Figura X:** Enconder e Decoder                  |
+| :---------------------------------------------------------------: |
+| ![Imagem: Enconder e Decoder][Imagem: Enconder e Decoder]{#fig-1} |
 
 O BinaPs contém algumas otimizações e considerações quando considerado com outras rede neurais, dentre elas:
 
