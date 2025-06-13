@@ -56,7 +56,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -585,7 +605,7 @@ window.Quarto = {
 <h2 data-number="1.4" class="anchored" data-anchor-id="referências"><span class="header-section-number">1.4</span> Referências</h2>
 <ul>
 <li><strong>Título:</strong> Differentiable Pattern Set Mining</li>
-<li><a href="https://doi.org/10.1145/3447548.3467348">Artigo</a>
+<li><a href="https://doi.org/10.1145/3447548.3467348">Artigo</a> (<span class="citation" data-cites="Fischer_2021">Fischer e Vreeken (<a href="#ref-Fischer_2021" role="doc-biblioref">2021</a>)</span>)
 <ul>
 <li><a href="https://dl.acm.org/doi/pdf/10.1145/3447548.3467348">PDF</a></li>
 <li><a href="https://dl.acm.org/action/downloadSupplement?doi=10.1145%2F3447548.3467348&amp;file=differentiable_pattern_set_mining-jonas_fischer-jilles_vreeken-38957922-489z.mp4">Apresentação dos Autores</a></li>
@@ -601,10 +621,15 @@ window.Quarto = {
 
 <!-- -->
 
+
 </section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referências</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Fischer_2021" class="csl-entry" role="listitem">
+Fischer, Jonas, e Jilles Vreeken. 2021. <span>“Differentiable Pattern Set Mining”</span>. Em <em>Proceedings of the 27th ACM SIGKDD Conference on Knowledge Discovery &amp; Data Mining</em>, 383–92. KDD ’21. New York, NY, USA: Association for Computing Machinery. <a href="https://doi.org/10.1145/3447548.3467348">https://doi.org/10.1145/3447548.3467348</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1225,7 +1250,7 @@ window.Quarto = {
 <span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referências</span></span>
 <span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Título:** Differentiable Pattern Set Mining</span>
-<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Artigo</span><span class="co">][Link_artigo]</span></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Artigo</span><span class="co">][Link_artigo]</span> (@Fischer_2021)</span>
 <span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">PDF</span><span class="co">][Link_artigo_pdf]</span></span>
 <span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Apresentação dos Autores</span><span class="co">][Apresentação dos Autores]</span></span>
 <span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Apresentação</span><span class="co">][Slide_art1]</span></span>
