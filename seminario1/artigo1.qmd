@@ -1,5 +1,5 @@
 ---
-title: 'Artigo 1: Differentiable Pattern Set Mining'
+title: "Artigo 1: Differentiable Pattern Set Mining"
 page-layout: full
 ---
 
