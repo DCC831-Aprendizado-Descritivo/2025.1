@@ -68,6 +68,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -165,6 +194,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#sintéticos" id="toc-sintéticos" class="nav-link" data-scroll-target="#sintéticos">Sintéticos</a></li>
   <li><a href="#reais" id="toc-reais" class="nav-link" data-scroll-target="#reais">Reais</a></li>
   </ul></li>
+  <li><a href="#referências" id="toc-referências" class="nav-link" data-scroll-target="#referências">Referências</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -197,21 +227,23 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="o-que-é-mineração-de-padrões">O que é Mineração de padrões?</h2>
 <p>Mineração de padrões é uma área de Aprendizado Descritivo que objetiva encontrar informações interpretáveis de grandes bancos de dados. Tal objetivo é alcançado por meio da mineração de “padrões” ou “regras” que definem conjuntos relevantes, seja em frequência ou em importância.</p>
 <p>As aplicações de mineração de padrões são variadas, desde ciências naturais como Biologia e Química para estudos estatísticos e matemáticos e por estudos societais e comportamentais.</p>
-<p><em>citar exemplos talvez</em></p>
+<ul>
+<li><em>citar exemplos talvez</em></li>
+</ul>
 <p>Infelizmente, os algoritmos para mineração de padrões são extremamente custosos, sendo duplamente exponenciais no <em>número de atributos</em>. Além disso, eles sofrem de redundância nas respostas, muitas vezes repetindo padrões similares e de relevância das respostas, sofrendo com overfitting ou underfitting.</p>
 </section>
 <section id="binaps" class="level2">
 <h2 class="anchored" data-anchor-id="binaps">BinaPs</h2>
 <p>Para resolver a problemática acima, o algoritmo introduz o BinaPs, uma solução que vê o problema por meio da lente de aprendizado de máquina ao invés de construção de conjuntos. Para entender melhor as duas perspectivas, considere as diferenças principais do BinaPs para algoritmos tradicionais:</p>
 <ul>
-<li><strong>Apriori, Eclat, FP-Growth</strong>:
+<li><p><strong>Apriori, Eclat, FP-Growth</strong>:</p>
 <ul>
 <li>Padrões escolhidos por frequência</li>
 <li>Padrões redundantes encontrados</li>
 <li>Apenas otimizados por heurísticas</li>
 <li>Calculado na CPU</li>
 </ul></li>
-<li><strong>BinaPs</strong>:
+<li><p><strong>BinaPs</strong>:</p>
 <ul>
 <li>Funções diferenciáveis para descoberta de padrões</li>
 <li>Padrões menos redundantes</li>
@@ -223,16 +255,38 @@ ul.task-list li input[type="checkbox"] {
 <section id="funcionamento" class="level3">
 <h3 class="anchored" data-anchor-id="funcionamento">Funcionamento</h3>
 <p>Inspirado por decoders e encoders, o algoritmo tem como objetivo pegar os atributos de um item, codificar eles em o mesmo número ou menos de neurônios no processo e retornar para o número inicial. Considere a imagem a seguir:</p>
-<p>![[Pasted image 20250610171515.png]]</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Figura X:</strong> Enconder e Decoder</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><img src="https://www.mdpi.com/applsci/applsci-13-12413/article_deploy/html/images/applsci-13-12413-g001.png" class="img-fluid" alt="Imagem: Enconder e Decoder"></td>
+</tr>
+</tbody>
+</table>
 <p>O BinaPs contém algumas otimizações e considerações quando considerado com outras rede neurais, dentre elas:</p>
 <ul>
-<li>Os neurônios e pesos finais são binários {0, 1}</li>
+<li>Os neurônios e pesos finais são binários <span class="math inline">\(\{0, 1\}\)</span></li>
 <li>Viês é usado para evitar overfitting</li>
-<li>Normalização da função de perda para evitar saídas de apenas {1} ou {0} em bases densas e esparsas.</li>
+<li>Normalização da função de perda para evitar saídas de apenas <span class="math inline">\(\{1\}\)</span> ou <span class="math inline">\(\{0\}\)</span> em bases densas e esparsas.</li>
 <li>Gated Straight-Through Estimator para não penalizar os neurônios desligados</li>
 </ul>
 <p>Após essas mudanças, o algoritmo funciona como descrito por esta imagem (<em>Figure 1</em> do artigo):</p>
-<p>![[Pasted image 20250611212801.png]]</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Figura 1:</strong> Funcionamento do BinaPs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><img src="src\art1\Figura1.png" class="img-fluid" alt="Imagem: Figura 1"></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 <section id="experimentos" class="level2">
@@ -240,12 +294,263 @@ ul.task-list li input[type="checkbox"] {
 <p>O BinaPs foi comparado com três outros competidores na área de mineração de dados: <strong>Asso, Slim e Desc</strong>, que usam matrizes booleanas, mineração de conjuntos por MDL e maximum entropy modeling respectivamente. Os experimentos foram divididos em duas categorias: sintéticos e reais.</p>
 <section id="sintéticos" class="level3">
 <h3 class="anchored" data-anchor-id="sintéticos">Sintéticos</h3>
+<p>Dados sintéticos foram escolhidos pois é possível inserir ou estudar padrões reais nos dados previamente, podendo assim comparar os resultados dos algoritmos com o “ground truth”, ou seja, o que assumimos ser a verdade.</p>
+<p>Para medir a performance dos algoritmos foi usado a <strong>F1-score</strong>, uma medida calculada pela média harmonica do <em>precision</em> e do <em>recall</em>, comumente usada em machine learning para avaliar a performance de modelos.</p>
+<section id="escalabilidade" class="level4">
+<h4 class="anchored" data-anchor-id="escalabilidade">Escalabilidade</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Figura 2a</strong></th>
+<th style="text-align: center;"><strong>Figura 2b</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><img src="src\art1\Figura2a.png" class="img-fluid" alt="Imagem: Figura 2a"></td>
+<td style="text-align: center;"><img src="src\art1\Figura2b.png" class="img-fluid" alt="Imagem: Figura 2b"></td>
+</tr>
+</tbody>
+</table>
+<p>Com um número crescente de features (atributos), o BinaPs se mostra mais preciso e menos custoso em tempo que os outros três, com o Asso se assemelhando a ele em resultados, mas não em performance, eventualmente não sendo capaz de rodar datasets maiores.</p>
+</section>
+<section id="resistência-a-ruídos" class="level4">
+<h4 class="anchored" data-anchor-id="resistência-a-ruídos">Resistência a ruídos</h4>
+<p>Muitas vezes dados reais possuem ruídos, seja de medidas errôneas, problemas no dataset ou imprevisibilidade dos dados. Para testar se os algoritmos são resistentes a tais cenários foram inseridos quantidades crescentes de ruídos nos databases testados com os seguintes resultados:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Figura 4a</strong></th>
+<th style="text-align: center;"><strong>Figura 4b</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><img src="src\art1\Figura4a.png" class="img-fluid" alt="Imagem: Figura 4a"></td>
+<td style="text-align: center;"><img src="src\art1\Figura4b.png" class="img-fluid" alt="Imagem: Figura 4b"></td>
+</tr>
+</tbody>
+</table>
+<p>Ao analisar os gráficos, ambos o BinaPs e o Asso são resistentes a ruídos em ambos F1-score e tempo de execução. Já ambos Slim e Desc são afetados por ruídos no F1-score e o Slim em tempo de execução também.</p>
+</section>
+<section id="operabilidade-com-samples" class="level4">
+<h4 class="anchored" data-anchor-id="operabilidade-com-samples">Operabilidade com Samples</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Figura 3</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><img src="src\art1\Figura3.png" class="img-fluid" alt="Imagem: Figura 3"></td>
+</tr>
+</tbody>
+</table>
+<p>Para testar a capacidade do BinaPs de operar com poucos samples, também foi feito testes com quantidades crescentes de dados para ver sua performance.</p>
+<p>Mesmo com um número bem reduzido de samples o BinaPs foi capaz de conseguir uma pontuação boa, melhorando marginalmente com mais samples até estabilizar perto do final do gráfico.</p>
+</section>
 </section>
 <section id="reais" class="level3">
 <h3 class="anchored" data-anchor-id="reais">Reais</h3>
-
-
+<p>Foram usados 5 bases de dados reais para o comparativo entre os algoritmos:</p>
+<ul>
+<li><strong>DNA:</strong> Dados de amplificação de DNA</li>
+<li><strong>Accidents:</strong> Dados de acidentes belgas</li>
+<li><strong>Instacart:</strong> Dados de compras de supermercado online</li>
+<li><strong>Korsarak:</strong> Dados de cliques em um site de notícias hungaro</li>
+<li><strong>Genomes:</strong> Dados de indivíduos no projeto 1000 genomes</li>
+</ul>
+<section id="análise-qualitativa" class="level4">
+<h4 class="anchored" data-anchor-id="análise-qualitativa">Análise Qualitativa</h4>
+<p>Ao contrário dos dados sintéticos, não temos como saber quais padrões são “corretos” ou “incorretos”. Dessa forma, a análise é mais subjetiva. Primeiro comparamos o número de padrões encontrados nos 5 bancos de dados:</p>
+<ul>
+<li><strong>Tabela 1a:</strong> <span class="math inline">\(\#\ Patterns\)</span></li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 10%">
+<col style="width: 20%">
+<col style="width: 10%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(Dataset\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(\#\ rows\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(\#\ cols\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(Asso\)</span></th>
+<th style="text-align: right;"><strong><span class="math inline">\(BinaPs\)</span></strong></th>
+<th style="text-align: right;"><span class="math inline">\(Desc\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(Slim\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">DNA</td>
+<td style="text-align: right;"><span class="math inline">\(2458\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(391\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(134\)</span></td>
+<td style="text-align: right;"><strong><span class="math inline">\(131\)</span></strong></td>
+<td style="text-align: right;"><span class="math inline">\(345\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(281\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Accidents</td>
+<td style="text-align: right;"><span class="math inline">\(340183\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(468\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(133\)</span></td>
+<td style="text-align: right;"><strong><span class="math inline">\(78\)</span></strong></td>
+<td style="text-align: right;"><span class="math inline">\(215\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(12261\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Instacart</td>
+<td style="text-align: right;"><span class="math inline">\(2704831\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(1235\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(n/a\)</span></td>
+<td style="text-align: right;"><strong><span class="math inline">\(328\)</span></strong></td>
+<td style="text-align: right;"><span class="math inline">\(712\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(8119\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kosarak</td>
+<td style="text-align: right;"><span class="math inline">\(990002\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(41270\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(n/a\)</span></td>
+<td style="text-align: right;"><strong><span class="math inline">\(302\)</span></strong></td>
+<td style="text-align: right;"><span class="math inline">\(n/a\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(n/a\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Genomes</td>
+<td style="text-align: right;"><span class="math inline">\(2504\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(226623\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(n/a\)</span></td>
+<td style="text-align: right;"><strong><span class="math inline">\(42\)</span></strong></td>
+<td style="text-align: right;"><span class="math inline">\(n/a\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(n/a\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Tabela 1b:</strong> <span class="math inline">\(Runtime\)</span></li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 12%">
+<col style="width: 18%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(Dataset\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(\#\ rows\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(\#\ cols\)</span></th>
+<th style="text-align: right;">$ Asso$</th>
+<th style="text-align: right;"><strong><span class="math inline">\(BinaPs\)</span></strong></th>
+<th style="text-align: right;"><span class="math inline">\(Desc\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(Slim\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">DNA</td>
+<td style="text-align: right;"><span class="math inline">\(2458\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(391\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(4 m\)</span></td>
+<td style="text-align: right;"><strong><span class="math inline">\(26 s\)</span></strong></td>
+<td style="text-align: right;"><span class="math inline">\(20 s\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(2 s\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Accidents</td>
+<td style="text-align: right;"><span class="math inline">\(340183\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(468\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(12 h\)</span></td>
+<td style="text-align: right;"><strong><span class="math inline">\(6 m\)</span></strong></td>
+<td style="text-align: right;"><span class="math inline">\(14 m\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(21 h\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Instacart</td>
+<td style="text-align: right;"><span class="math inline">\(2704831\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(1235\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\infty\)</span></td>
+<td style="text-align: right;"><strong><span class="math inline">\(44 m\)</span></strong></td>
+<td style="text-align: right;"><span class="math inline">\(25 m\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(8 h\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kosarak</td>
+<td style="text-align: right;"><span class="math inline">\(990002\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(41270\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\infty\)</span></td>
+<td style="text-align: right;"><strong><span class="math inline">\(5 h\)</span></strong></td>
+<td style="text-align: right;"><span class="math inline">\(\infty\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\infty\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Genomes</td>
+<td style="text-align: right;"><span class="math inline">\(2504\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(226623\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\infty\)</span></td>
+<td style="text-align: right;"><strong><span class="math inline">\(9 m\)</span></strong></td>
+<td style="text-align: right;"><span class="math inline">\(\infty\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\infty\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Em alguns casos, os outros algoritmos não conseguiram rodar em até 3 dias ou dentre 256GB de RAM. Tais cenários foram marcados com n/a ou infinito.</p>
+<p>O BinaPs retornou resultados menos redundantes, facilitando interpretabilidade. Além disso, foram notados algumas falhas em outros algoritmos, dentre eles:</p>
+<ul>
+<li><strong>Asso</strong> não conseguiu escalar bem</li>
+<li><strong>Slim</strong> encontrou milhares de resultados redundantes</li>
+<li><strong>Desc</strong> sofre de underfitting e só retornou padrões de tamanho 2 no Instacart.</li>
+</ul>
 </section>
+<section id="análise-quantitativa" class="level4">
+<h4 class="anchored" data-anchor-id="análise-quantitativa">Análise Quantitativa</h4>
+<p>Foi feita uma análise quantitativa em 3 dos bancos de dados listados acima. Duas comparativas (DNA, Instacart) e uma individual.</p>
+<p><strong>DNA:</strong> BinaPs e Asso encontraram blocos de DNA e conjuntos desses blocos como estruturas, representando elementos biologicamente relevantes. Slim começa a encontrar blocos, mas faz um overfitting para padrões grandes demais que acontecem raramente e não tem estrutura evidente de blocos. Desc encontra padrões pequenos apenas graças a um underfitting.</p>
+<p><strong>Instacart:</strong> BinaPs encontra padrões grandes com combinações arbitrárias como um conjunto de 12 frutas comprados de formas diferentes. O Slim quebra este conjunto em milhares de padrões menores. Desc faz underfitting novamente, encontrando padrões de tamanho 2 apenas. Além disso, o BinaPs também encontrou padrões pequenos que se assemelham à lista de ingredientes de pratos culinários, mostrando relevância novamente.</p>
+<p><strong>Genomes:</strong> Foi possível encontrar padrões antes conhecidos de genes relacionados, como os NUCB2 e ABCC8 relacionados à diabetes tipo 2 e pressão alta em populações japonesas. Porém, muitas vezes esses grupos conhecidos estavam adjuntos a outros elementos, como o NCR3LG1 e ROMO1. Isso demonstra a possibilidade do uso do algoritmo para estabelecer relações novas que podem ser estudadas no futuro.</p>
+</section>
+</section>
+</section>
+<section id="referências" class="level2">
+<h2 class="anchored" data-anchor-id="referências">Referências</h2>
+<ul>
+<li><strong>Título:</strong> Differentiable Pattern Set Mining</li>
+<li><a href="https://doi.org/10.1145/3447548.3467348">Artigo</a>
+<ul>
+<li><a href="https://dl.acm.org/doi/pdf/10.1145/3447548.3467348">PDF</a></li>
+<li><a href="https://dl.acm.org/action/downloadSupplement?doi=10.1145%2F3447548.3467348&amp;file=differentiable_pattern_set_mining-jonas_fischer-jilles_vreeken-38957922-489z.mp4">Apresentação dos Autores</a></li>
+</ul></li>
+<li><a href="https://ufmgbr-my.sharepoint.com/:p:/g/personal/rvimieiro_ufmg_br/ESSM0mBDMNZFj7vzopqACYIBKOi3ChX9tsyje_2RroiT4Q">Apresentação</a>
+<ul>
+<li><a href="seminario1\src\artigo1 - Apresentação.pdf">PDF</a></li>
+</ul></li>
+</ul>
+<!-- Links -->
+<!-- Imagens -->
+
+
 </section>
 </section>
 
