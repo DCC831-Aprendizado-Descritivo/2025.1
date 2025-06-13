@@ -1,6 +1,26 @@
 ---
 title: "Artigo 1: Differentiable Pattern Set Mining"
 page-layout: full
+
+author: "João Vítor Fernandes Dias, Kael Soares Augusto"
+date: "2025-06-13"
+date-format: long
+lang: "pt-BR"
+format:
+  html:
+    number-sections: true
+    code-fold: true
+    code-tools: true
+    highlight-style: github
+    fig-width: 8
+    fig-height: 6
+    fig-align: center
+    fig-format: png
+
+crossref:
+  fig-prefix: Figura
+  tbl-prefix: Tabela
+  eq-prefix: Equação
 ---
 
 # Introdução
