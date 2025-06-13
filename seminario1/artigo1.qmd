@@ -17,6 +17,7 @@ format:
     fig-align: center
     fig-format: png
 
+bibliography: src\art1\referencias.bib
 crossref:
   fig-prefix: Figura
   tbl-prefix: Tabela
