@@ -7,24 +7,25 @@ page-layout: full
 
 ## O que é Mineração de padrões?
 
-Mineração de padrões é uma área de Aprendizado Descritivo que objetiva encontrar informações interpretáveis de grandes bancos de dados. Tal objetivo é alcançado por meio da mineração de "padrões" ou "regras" que definem conjuntos relevantes, seja em frequência ou em importância. 
- 
+Mineração de padrões é uma área de Aprendizado Descritivo que objetiva encontrar informações interpretáveis de grandes bancos de dados. Tal objetivo é alcançado por meio da mineração de "padrões" ou "regras" que definem conjuntos relevantes, seja em frequência ou em importância.
+
 As aplicações de mineração de padrões são variadas, desde ciências naturais como Biologia e Química para estudos estatísticos e matemáticos e por estudos societais e comportamentais.
- 
-_citar exemplos talvez_
- 
+
+- _citar exemplos talvez_
+
 Infelizmente, os algoritmos para mineração de padrões são extremamente custosos, sendo duplamente exponenciais no _número de atributos_. Além disso, eles sofrem de redundância nas respostas, muitas vezes repetindo padrões similares e de relevância das respostas, sofrendo com overfitting ou underfitting.
- 
+
 ## BinaPs
 
 Para resolver a problemática acima, o algoritmo introduz o BinaPs, uma solução que vê o problema por meio da lente de aprendizado de máquina ao invés de construção de conjuntos. Para entender melhor as duas perspectivas, considere as diferenças principais do BinaPs para algoritmos tradicionais:
- 
+
 - **Apriori, Eclat, FP-Growth**:
+
   - Padrões escolhidos por frequência
   - Padrões redundantes encontrados
   - Apenas otimizados por heurísticas
   - Calculado na CPU
- 
+
 - **BinaPs**:
   - Funções diferenciáveis para descoberta de padrões
   - Padrões menos redundantes
@@ -34,25 +35,138 @@ Para resolver a problemática acima, o algoritmo introduz o BinaPs, uma soluçã
 
 ### Funcionamento
 
-Inspirado por decoders e encoders, o algoritmo tem como objetivo pegar os atributos de um item, codificar eles em o mesmo número ou menos de neurônios no processo e retornar para o número inicial. Considere a imagem a seguir: 
+Inspirado por decoders e encoders, o algoritmo tem como objetivo pegar os atributos de um item, codificar eles em o mesmo número ou menos de neurônios no processo e retornar para o número inicial. Considere a imagem a seguir:
 
-![[Pasted image 20250610171515.png]]
+|             **Figura X:** Enconder e Decoder              |
+| :-------------------------------------------------------: |
+| ![Imagem: Enconder e Decoder][Imagem: Enconder e Decoder] |
 
 O BinaPs contém algumas otimizações e considerações quando considerado com outras rede neurais, dentre elas:
 
-- Os neurônios e pesos finais são binários {0, 1}
-- Viês é usado para evitar overfitting 
-- Normalização da função de perda para evitar saídas de apenas {1} ou {0} em bases densas e esparsas. 
-- Gated Straight-Through Estimator para não penalizar os  neurônios desligados
+- Os neurônios e pesos finais são binários $\{0, 1\}$
+- Viês é usado para evitar overfitting
+- Normalização da função de perda para evitar saídas de apenas $\{1\}$ ou $\{0\}$ em bases densas e esparsas.
+- Gated Straight-Through Estimator para não penalizar os neurônios desligados
 
 Após essas mudanças, o algoritmo funciona como descrito por esta imagem (_Figure 1_ do artigo):
 
-![[Pasted image 20250611212801.png]]
- 
+| **Figura 1:** Funcionamento do BinaPs |
+| :-----------------------------------: |
+| ![Imagem: Figura 1][Imagem: Figura 1] |
+
 ## Experimentos
 
 O BinaPs foi comparado com três outros competidores na área de mineração de dados: **Asso, Slim e Desc**, que usam matrizes booleanas, mineração de conjuntos por MDL e maximum entropy modeling respectivamente. Os experimentos foram divididos em duas categorias: sintéticos e reais.
 
 ### Sintéticos
- 
+
+Dados sintéticos foram escolhidos pois é possível inserir ou estudar padrões reais nos dados previamente, podendo assim comparar os resultados dos algoritmos com o "ground truth", ou seja, o que assumimos ser a verdade.
+
+Para medir a performance dos algoritmos foi usado a **F1-score**, uma medida calculada pela média harmonica do _precision_ e do _recall_, comumente usada em machine learning para avaliar a performance de modelos.
+
+#### Escalabilidade
+
+|              **Figura 2a**              |              **Figura 2b**              |
+| :-------------------------------------: | :-------------------------------------: |
+| ![Imagem: Figura 2a][Imagem: Figura 2a] | ![Imagem: Figura 2b][Imagem: Figura 2b] |
+
+Com um número crescente de features (atributos), o BinaPs se mostra mais preciso e menos custoso em tempo que os outros três, com o Asso se assemelhando a ele em resultados, mas não em performance, eventualmente não sendo capaz de rodar datasets maiores.
+
+#### Resistência a ruídos
+
+Muitas vezes dados reais possuem ruídos, seja de medidas errôneas, problemas no dataset ou imprevisibilidade dos dados. Para testar se os algoritmos são resistentes a tais cenários foram inseridos quantidades crescentes de ruídos nos databases testados com os seguintes resultados:
+
+|              **Figura 4a**              |              **Figura 4b**              |
+| :-------------------------------------: | :-------------------------------------: |
+| ![Imagem: Figura 4a][Imagem: Figura 4a] | ![Imagem: Figura 4b][Imagem: Figura 4b] |
+
+Ao analisar os gráficos, ambos o BinaPs e o Asso são resistentes a ruídos em ambos F1-score e tempo de execução. Já ambos Slim e Desc são afetados por ruídos no F1-score e o Slim em tempo de execução também.
+
+#### Operabilidade com Samples
+
+|             **Figura 3**              |
+| :-----------------------------------: |
+| ![Imagem: Figura 3][Imagem: Figura 3] |
+
+Para testar a capacidade do BinaPs de operar com poucos samples, também foi feito testes com quantidades crescentes de dados para ver sua performance.
+
+Mesmo com um número bem reduzido de samples o BinaPs foi capaz de conseguir uma pontuação boa, melhorando marginalmente com mais samples até estabilizar perto do final do gráfico.
+
 ### Reais
+
+Foram usados 5 bases de dados reais para o comparativo entre os algoritmos:
+
+- **DNA:** Dados de amplificação de DNA
+- **Accidents:** Dados de acidentes belgas
+- **Instacart:** Dados de compras de supermercado online
+- **Korsarak:** Dados de cliques em um site de notícias hungaro
+- **Genomes:** Dados de indivíduos no projeto 1000 genomes
+
+#### Análise Qualitativa
+
+Ao contrário dos dados sintéticos, não temos como saber quais padrões são "corretos" ou "incorretos". Dessa forma, a análise é mais subjetiva. Primeiro comparamos o número de padrões encontrados nos 5 bancos de dados:
+
+- **Tabela 1a:** $\#\ Patterns$
+
+| $Dataset$ | $\#\ rows$ | $\#\ cols$ | $Asso$ | **$BinaPs$** | $Desc$ |  $Slim$ |
+| :-------- | ---------: | ---------: | -----: | -----------: | -----: | ------: |
+| DNA       |     $2458$ |      $391$ |  $134$ |    **$131$** |  $345$ |   $281$ |
+| Accidents |   $340183$ |      $468$ |  $133$ |     **$78$** |  $215$ | $12261$ |
+| Instacart |  $2704831$ |     $1235$ |  $n/a$ |    **$328$** |  $712$ |  $8119$ |
+| Kosarak   |   $990002$ |    $41270$ |  $n/a$ |    **$302$** |  $n/a$ |   $n/a$ |
+| Genomes   |     $2504$ |   $226623$ |  $n/a$ |     **$42$** |  $n/a$ |   $n/a$ |
+
+- **Tabela 1b:** $Runtime$
+
+| $Dataset$ | $\#\ rows$ | $\#\ cols$ |  $ Asso$ | **$BinaPs$** |   $Desc$ |   $Slim$ |
+| :-------- | ---------: | ---------: | -------: | -----------: | -------: | -------: |
+| DNA       |     $2458$ |      $391$ |    $4 m$ |   **$26 s$** |   $20 s$ |    $2 s$ |
+| Accidents |   $340183$ |      $468$ |   $12 h$ |    **$6 m$** |   $14 m$ |   $21 h$ |
+| Instacart |  $2704831$ |     $1235$ | $\infty$ |   **$44 m$** |   $25 m$ |    $8 h$ |
+| Kosarak   |   $990002$ |    $41270$ | $\infty$ |    **$5 h$** | $\infty$ | $\infty$ |
+| Genomes   |     $2504$ |   $226623$ | $\infty$ |    **$9 m$** | $\infty$ | $\infty$ |
+
+Em alguns casos, os outros algoritmos não conseguiram rodar em até 3 dias ou dentre 256GB de RAM. Tais cenários foram marcados com n/a ou infinito.
+
+O BinaPs retornou resultados menos redundantes, facilitando interpretabilidade. Além disso, foram notados algumas falhas em outros algoritmos, dentre eles:
+
+- **Asso** não conseguiu escalar bem
+- **Slim** encontrou milhares de resultados redundantes
+- **Desc** sofre de underfitting e só retornou padrões de tamanho 2 no Instacart.
+
+#### Análise Quantitativa
+
+Foi feita uma análise quantitativa em 3 dos bancos de dados listados acima. Duas comparativas (DNA, Instacart) e uma individual.
+
+**DNA:** BinaPs e Asso encontraram blocos de DNA e conjuntos desses blocos como estruturas, representando elementos biologicamente relevantes. Slim começa a encontrar blocos, mas faz um overfitting para padrões grandes demais que acontecem raramente e não tem estrutura evidente de blocos. Desc encontra padrões pequenos apenas graças a um underfitting.
+
+**Instacart:** BinaPs encontra padrões grandes com combinações arbitrárias como um conjunto de 12 frutas comprados de formas diferentes. O Slim quebra este conjunto em milhares de padrões menores. Desc faz underfitting novamente, encontrando padrões de tamanho 2 apenas. Além disso, o BinaPs também encontrou padrões pequenos que se assemelham à lista de ingredientes de pratos culinários, mostrando relevância novamente.
+
+**Genomes:** Foi possível encontrar padrões antes conhecidos de genes relacionados, como os NUCB2 e ABCC8 relacionados à diabetes tipo 2 e pressão alta em populações japonesas. Porém, muitas vezes esses grupos conhecidos estavam adjuntos a outros elementos, como o NCR3LG1 e ROMO1. Isso demonstra a possibilidade do uso do algoritmo para estabelecer relações novas que podem ser estudadas no futuro.
+
+## Referências
+
+- **Título:** Differentiable Pattern Set Mining
+- [Artigo][Link_artigo]
+  - [PDF][Link_artigo_pdf]
+  - [Apresentação dos Autores][Apresentação dos Autores]
+- [Apresentação][Slide_art1]
+  - [PDF][Slide_art1_pdf]
+
+<!-- Links -->
+
+[Link_artigo]: https://doi.org/10.1145/3447548.3467348
+[Link_artigo_pdf]: https://dl.acm.org/doi/pdf/10.1145/3447548.3467348
+[Apresentação dos Autores]: https://dl.acm.org/action/downloadSupplement?doi=10.1145%2F3447548.3467348&file=differentiable_pattern_set_mining-jonas_fischer-jilles_vreeken-38957922-489z.mp4
+[Slide_art1]: https://ufmgbr-my.sharepoint.com/:p:/g/personal/rvimieiro_ufmg_br/ESSM0mBDMNZFj7vzopqACYIBKOi3ChX9tsyje_2RroiT4Q
+[Slide_art1_pdf]: <seminario1\src\artigo1 - Apresentação.pdf>
+
+<!-- Imagens -->
+
+[Imagem: Enconder e Decoder]: https://www.mdpi.com/applsci/applsci-13-12413/article_deploy/html/images/applsci-13-12413-g001.png
+[Imagem: Figura 1]: src\art1\Figura1.png
+[Imagem: Figura 2a]: src\art1\Figura2a.png
+[Imagem: Figura 2b]: src\art1\Figura2b.png
+[Imagem: Figura 3]: src\art1\Figura3.png
+[Imagem: Figura 4a]: src\art1\Figura4a.png
+[Imagem: Figura 4b]: src\art1\Figura4b.png
