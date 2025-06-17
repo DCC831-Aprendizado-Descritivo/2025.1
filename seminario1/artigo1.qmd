@@ -40,6 +40,7 @@ Infelizmente, os algoritmos para mineração de padrões são extremamente custo
 Para resolver a problemática acima, o algoritmo introduz o **BinaPs**, uma solução que vê o problema por meio da lente de aprendizado de máquina ao invés de construção de conjuntos. Para entender melhor as duas perspectivas, considere as diferenças principais do **BinaPs** para algoritmos tradicionais:
 
 - **Apriori, Eclat, FP-Growth**:
+
   - Padrões escolhidos por frequência
   - Padrões redundantes encontrados
   - Apenas otimizados por heurísticas
@@ -54,13 +55,11 @@ Para resolver a problemática acima, o algoritmo introduz o **BinaPs**, uma solu
 
 ### Funcionamento
 
-Inspirado por decoders e encoders, o algoritmo tem como objetivo pegar os atributos de um item, codificar eles em o mesmo número ou menos de neurônios no processo e retornar para o número inicial. Considere a @fig-1 a seguir:
-
-|                 **Figura X:** Enconder e Decoder                  |
-| :---------------------------------------------------------------: |
-| ![Imagem: Enconder e Decoder][Imagem: Enconder e Decoder]{#fig-1} |
+Inspirado por decoders e encoders, o algoritmo tem como objetivo pegar os atributos de um item, codificar eles em o mesmo número ou menos de neurônios no processo e retornar para o número inicial. Considere a @fig-encdec a seguir:
 
 <!-- Referenciar imagem depois -->
+
+![Enconder e Decoder][Imagem: Enconder e Decoder]{#fig-encdec}
 
 O BinaPs contém algumas otimizações e considerações quando considerado com outras rede neurais, dentre elas:
 
@@ -69,11 +68,9 @@ O BinaPs contém algumas otimizações e considerações quando considerado com 
 - Normalização da função de perda para evitar saídas de apenas $\{1\}$ ou $\{0\}$ em bases densas e esparsas.
 - Gated Straight-Through Estimator para não penalizar os neurônios desligados
 
-Após essas mudanças, o algoritmo funciona como descrito por esta imagem (_Figure 1_ do artigo):
+Após essas mudanças, o algoritmo funciona como descrito por esta imagem (@fig-binasps do artigo):
 
-| **Figura 1:** Funcionamento do **BinaPs** |
-| :---------------------------------------: |
-|   ![Imagem: Figura 1][Imagem: Figura 1]   |
+![Funcionamento do **BinaPs**][Imagem: Figura 1]{#fig-binasps}
 
 ## Experimentos
 
@@ -87,41 +84,36 @@ Para medir a performance dos algoritmos foi usado a **F1-score**, uma medida cal
 
 #### Escalabilidade
 
-|              **Figura 2a**              |              **Figura 2b**              |
-| :-------------------------------------: | :-------------------------------------: |
-| ![Imagem: Figura 2a][Imagem: Figura 2a] | ![Imagem: Figura 2b][Imagem: Figura 2b] |
+::: {#fig-graficos-A layout-ncol=2}
+![F1-Score][Imagem: Figura 2a]{#fig-F1-Score-features}
 
-<!--
-::: {#fig-elephants layout-ncol=2}
-![Surus](surus.png){#fig-surus}
+![Time in Seconds][Imagem: Figura 2b]{#fig-time-in-seconds-features}
 
-![Hanno](hanno.png){#fig-hanno}
-
-Famous Elephants
+Estatísticas BinaPs, Asso, Slim e Desc: Features
 :::
--->
 
-Com um número crescente de features (atributos), o **BinaPs** se mostra mais preciso e menos custoso em tempo que os outros três, com o **Asso** se assemelhando a ele em resultados, mas não em performance, eventualmente não sendo capaz de rodar datasets maiores.
+Com um número crescente de features (atributos), o **BinaPs** se mostra mais preciso (@fig-F1-Score-features) e menos custoso (@fig-time-in-seconds-features) em tempo que os outros três, com o **Asso** se assemelhando a ele em resultados, mas não em performance, eventualmente não sendo capaz de rodar datasets maiores.
 
 #### Resistência a ruídos
 
 Muitas vezes dados reais possuem ruídos, seja de medidas errôneas, problemas no dataset ou imprevisibilidade dos dados. Para testar se os algoritmos são resistentes a tais cenários foram inseridos quantidades crescentes de ruídos nos databases testados com os seguintes resultados:
 
-|              **Figura 4a**              |              **Figura 4b**              |
-| :-------------------------------------: | :-------------------------------------: |
-| ![Imagem: Figura 4a][Imagem: Figura 4a] | ![Imagem: Figura 4b][Imagem: Figura 4b] |
+::: {#fig-graficos-B layout-ncol=2}
+![Imagem: Figura 4a][Imagem: Figura 4a]{#fig-F1-Score-noise}
+![Imagem: Figura 4b][Imagem: Figura 4b]{#fig-time-in-seconds-noise}
 
-Ao analisar os gráficos, ambos o **BinaPs** e o **Asso** são resistentes a ruídos em ambos F1-score e tempo de execução. Já ambos **Slim** e **Desc** são afetados por ruídos no F1-score e o **Slim** em tempo de execução também.
+Estatísticas BinaPs, Asso, Slim e Desc: Ruídos
+:::
+
+Ao analisar os gráficos, ambos o **BinaPs** e o **Asso** são resistentes a ruídos em ambos F1-score (@fig-F1-Score-noise) e tempo de execução (@fig-time-in-seconds-noise). Já ambos **Slim** e **Desc** são afetados por ruídos no F1-score (@fig-F1-Score-noise) e o **Slim** em tempo de execução (@fig-time-in-seconds-noise) também.
 
 #### Operabilidade com Samples
 
-|             **Figura 3**              |
-| :-----------------------------------: |
-| ![Imagem: Figura 3][Imagem: Figura 3] |
+![F1-Score $\times$ Samples][Imagem: Figura 3]{#fig-F1-Score-samples}
 
 Para testar a capacidade do **BinaPs** de operar com poucos samples, também foi feito testes com quantidades crescentes de dados para ver sua performance.
 
-Mesmo com um número bem reduzido de samples o **BinaPs** foi capaz de conseguir uma pontuação boa, melhorando marginalmente com mais samples até estabilizar perto do final do gráfico.
+Mesmo com um número bem reduzido de samples o **BinaPs** foi capaz de conseguir uma pontuação boa (@fig-F1-Score-samples), melhorando marginalmente com mais samples até estabilizar perto do final do gráfico.
 
 ### Reais
 
@@ -179,7 +171,7 @@ Foi possível encontrar padrões antes conhecidos de genes relacionados, como os
 
 Outro exemplo foi o des genes SF3A1, RRP7A e Z82190 onde os dois primeiros codificam proteínas que são parte do ribossomo (que por sua conta é a fábrica de proteínas da célula), já o terceiro não é caracterizado. O padrão destes juntos é uma dica que pode guiar estudos futuros nessa área.
 
-Por final, ao analisar padrões de variantes entre alelos, o BinaPs sugere que variantes raras normalmente acompanhadas de comuns podem acontecer de um para o outro "0|1" como na literatura, mas muitas vezes também acontece em "1|0", ou seja, os raros no alelo que antes havia comuns e vice-versa. Os autores não sabem se isso têm significado biológico, sugerindo que isso seja analisado por profissionais da área.
+Por final, ao analisar padrões de variantes entre alelos, o BinaPs sugere que variantes raras normalmente acompanhadas de comuns podem acontecer de um para o outro "$0 \mid 1$" como na literatura, mas muitas vezes também acontece em "1 \mid 0", ou seja, os raros no alelo que antes havia comuns e vice-versa. Os autores não sabem se isso têm significado biológico, sugerindo que isso seja analisado por profissionais da área.
 
 ## Execução
 
