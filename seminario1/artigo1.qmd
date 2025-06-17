@@ -20,6 +20,7 @@ format:
 bibliography: src/art1/referencias.bib
 crossref:
   fig-prefix: Figura
+  fig-labels: arabic
   tbl-prefix: Tabela
   eq-prefix: Equação
 ---
@@ -30,18 +31,15 @@ crossref:
 
 Mineração de padrões é uma área de Aprendizado Descritivo que objetiva encontrar informações interpretáveis de grandes bancos de dados. Tal objetivo é alcançado por meio da mineração de "padrões" ou "regras" que definem conjuntos relevantes, seja em frequência ou em importância.
 
-As aplicações de mineração de padrões são variadas, desde ciências naturais como Biologia e Química para estudos estatísticos e matemáticos e por estudos societais e comportamentais.
-
-- _citar exemplos talvez_
+As aplicações de mineração de padrões são variadas, desde ciências naturais como Biologia e Química, estudos estatísticos e matemáticos e análises societais e comportamentais.
 
 Infelizmente, os algoritmos para mineração de padrões são extremamente custosos, sendo duplamente exponenciais no _número de atributos_. Além disso, eles sofrem de redundância nas respostas, muitas vezes repetindo padrões similares e de relevância das respostas, sofrendo com overfitting ou underfitting.
 
 ## BinaPs
 
-Para resolver a problemática acima, o algoritmo introduz o BinaPs, uma solução que vê o problema por meio da lente de aprendizado de máquina ao invés de construção de conjuntos. Para entender melhor as duas perspectivas, considere as diferenças principais do BinaPs para algoritmos tradicionais:
+Para resolver a problemática acima, o algoritmo introduz o **BinaPs**, uma solução que vê o problema por meio da lente de aprendizado de máquina ao invés de construção de conjuntos. Para entender melhor as duas perspectivas, considere as diferenças principais do **BinaPs** para algoritmos tradicionais:
 
 - **Apriori, Eclat, FP-Growth**:
-
   - Padrões escolhidos por frequência
   - Padrões redundantes encontrados
   - Apenas otimizados por heurísticas
@@ -62,6 +60,8 @@ Inspirado por decoders e encoders, o algoritmo tem como objetivo pegar os atribu
 | :---------------------------------------------------------------: |
 | ![Imagem: Enconder e Decoder][Imagem: Enconder e Decoder]{#fig-1} |
 
+<!-- Referenciar imagem depois -->
+
 O BinaPs contém algumas otimizações e considerações quando considerado com outras rede neurais, dentre elas:
 
 - Os neurônios e pesos finais são binários $\{0, 1\}$
@@ -71,13 +71,13 @@ O BinaPs contém algumas otimizações e considerações quando considerado com 
 
 Após essas mudanças, o algoritmo funciona como descrito por esta imagem (_Figure 1_ do artigo):
 
-| **Figura 1:** Funcionamento do BinaPs |
-| :-----------------------------------: |
-| ![Imagem: Figura 1][Imagem: Figura 1] |
+| **Figura 1:** Funcionamento do **BinaPs** |
+| :---------------------------------------: |
+|   ![Imagem: Figura 1][Imagem: Figura 1]   |
 
 ## Experimentos
 
-O BinaPs foi comparado com três outros competidores na área de mineração de dados: **Asso, Slim e Desc**, que usam matrizes booleanas, mineração de conjuntos por MDL e maximum entropy modeling respectivamente. Os experimentos foram divididos em duas categorias: sintéticos e reais.
+O **BinaPs** foi comparado com três outros competidores na área de mineração de dados: **Asso, Slim e Desc**, que usam matrizes booleanas, mineração de conjuntos por MDL e maximum entropy modeling respectivamente. Os experimentos foram divididos em duas categorias: sintéticos e reais.
 
 ### Sintéticos
 
@@ -91,7 +91,17 @@ Para medir a performance dos algoritmos foi usado a **F1-score**, uma medida cal
 | :-------------------------------------: | :-------------------------------------: |
 | ![Imagem: Figura 2a][Imagem: Figura 2a] | ![Imagem: Figura 2b][Imagem: Figura 2b] |
 
-Com um número crescente de features (atributos), o BinaPs se mostra mais preciso e menos custoso em tempo que os outros três, com o Asso se assemelhando a ele em resultados, mas não em performance, eventualmente não sendo capaz de rodar datasets maiores.
+<!--
+::: {#fig-elephants layout-ncol=2}
+![Surus](surus.png){#fig-surus}
+
+![Hanno](hanno.png){#fig-hanno}
+
+Famous Elephants
+:::
+-->
+
+Com um número crescente de features (atributos), o **BinaPs** se mostra mais preciso e menos custoso em tempo que os outros três, com o **Asso** se assemelhando a ele em resultados, mas não em performance, eventualmente não sendo capaz de rodar datasets maiores.
 
 #### Resistência a ruídos
 
@@ -101,7 +111,7 @@ Muitas vezes dados reais possuem ruídos, seja de medidas errôneas, problemas n
 | :-------------------------------------: | :-------------------------------------: |
 | ![Imagem: Figura 4a][Imagem: Figura 4a] | ![Imagem: Figura 4b][Imagem: Figura 4b] |
 
-Ao analisar os gráficos, ambos o BinaPs e o Asso são resistentes a ruídos em ambos F1-score e tempo de execução. Já ambos Slim e Desc são afetados por ruídos no F1-score e o Slim em tempo de execução também.
+Ao analisar os gráficos, ambos o **BinaPs** e o **Asso** são resistentes a ruídos em ambos F1-score e tempo de execução. Já ambos **Slim** e **Desc** são afetados por ruídos no F1-score e o **Slim** em tempo de execução também.
 
 #### Operabilidade com Samples
 
@@ -109,9 +119,9 @@ Ao analisar os gráficos, ambos o BinaPs e o Asso são resistentes a ruídos em 
 | :-----------------------------------: |
 | ![Imagem: Figura 3][Imagem: Figura 3] |
 
-Para testar a capacidade do BinaPs de operar com poucos samples, também foi feito testes com quantidades crescentes de dados para ver sua performance.
+Para testar a capacidade do **BinaPs** de operar com poucos samples, também foi feito testes com quantidades crescentes de dados para ver sua performance.
 
-Mesmo com um número bem reduzido de samples o BinaPs foi capaz de conseguir uma pontuação boa, melhorando marginalmente com mais samples até estabilizar perto do final do gráfico.
+Mesmo com um número bem reduzido de samples o **BinaPs** foi capaz de conseguir uma pontuação boa, melhorando marginalmente com mais samples até estabilizar perto do final do gráfico.
 
 ### Reais
 
@@ -149,7 +159,7 @@ Ao contrário dos dados sintéticos, não temos como saber quais padrões são "
 
 Em alguns casos, os outros algoritmos não conseguiram rodar em até 3 dias ou dentre 256GB de RAM. Tais cenários foram marcados com n/a ou infinito.
 
-O BinaPs retornou resultados menos redundantes, facilitando interpretabilidade. Além disso, foram notados algumas falhas em outros algoritmos, dentre eles:
+O **BinaPs** retornou resultados menos redundantes, facilitando interpretabilidade. Além disso, foram notados algumas falhas em outros algoritmos, dentre eles:
 
 - **Asso** não conseguiu escalar bem
 - **Slim** encontrou milhares de resultados redundantes
@@ -159,13 +169,23 @@ O BinaPs retornou resultados menos redundantes, facilitando interpretabilidade. 
 
 Foi feita uma análise quantitativa em 3 dos bancos de dados listados acima. Duas comparativas (DNA, Instacart) e uma individual.
 
-**DNA:** BinaPs e Asso encontraram blocos de DNA e conjuntos desses blocos como estruturas, representando elementos biologicamente relevantes. Slim começa a encontrar blocos, mas faz um overfitting para padrões grandes demais que acontecem raramente e não tem estrutura evidente de blocos. Desc encontra padrões pequenos apenas graças a um underfitting.
+**DNA:** _BinaPs_ e _Asso_ encontraram blocos de DNA e conjuntos desses blocos como estruturas, representando elementos biologicamente relevantes. _Slim_ começa a encontrar blocos, mas faz um overfitting para padrões grandes demais que acontecem raramente e não tem estrutura evidente de blocos. _Desc_ encontra padrões pequenos apenas graças a um underfitting.
 
-**Instacart:** BinaPs encontra padrões grandes com combinações arbitrárias como um conjunto de 12 frutas comprados de formas diferentes. O Slim quebra este conjunto em milhares de padrões menores. Desc faz underfitting novamente, encontrando padrões de tamanho 2 apenas. Além disso, o BinaPs também encontrou padrões pequenos que se assemelham à lista de ingredientes de pratos culinários, mostrando relevância novamente.
+**Instacart:** _BinaPs_ encontra padrões grandes com combinações arbitrárias como um conjunto de 12 frutas comprados de formas diferentes. O _Slim_ quebra este conjunto em milhares de padrões menores. _Desc_ faz underfitting novamente, encontrando padrões de tamanho 2 apenas. Além disso, o _BinaPs_ também encontrou padrões pequenos que se assemelham à lista de ingredientes de pratos culinários, mostrando relevância novamente.
 
-**Genomes:** Foi possível encontrar padrões antes conhecidos de genes relacionados, como os NUCB2 e ABCC8 relacionados à diabetes tipo 2 e pressão alta em populações japonesas. Porém, muitas vezes esses grupos conhecidos estavam adjuntos a outros elementos, como o NCR3LG1 e ROMO1. Isso demonstra a possibilidade do uso do algoritmo para estabelecer relações novas que podem ser estudadas no futuro.
+**Genomes:** De acordo com os autores, esta seção obteve os resultados mais promissores, sendo um motivador principal para o estudo.
 
-## Referências
+Foi possível encontrar padrões antes conhecidos de genes relacionados, como os NUCB2 e ABCC8 relacionados à diabetes tipo 2 e pressão alta em populações japonesas. Porém, muitas vezes esses grupos conhecidos estavam adjuntos a outros elementos, como o NCR3LG1 e ROMO1. Isso demonstra a possibilidade do uso do algoritmo para estabelecer relações novas que podem ser estudadas no futuro.
+
+Outro exemplo foi o des genes SF3A1, RRP7A e Z82190 onde os dois primeiros codificam proteínas que são parte do ribossomo (que por sua conta é a fábrica de proteínas da célula), já o terceiro não é caracterizado. O padrão destes juntos é uma dica que pode guiar estudos futuros nessa área.
+
+Por final, ao analisar padrões de variantes entre alelos, o BinaPs sugere que variantes raras normalmente acompanhadas de comuns podem acontecer de um para o outro "0|1" como na literatura, mas muitas vezes também acontece em "1|0", ou seja, os raros no alelo que antes havia comuns e vice-versa. Os autores não sabem se isso têm significado biológico, sugerindo que isso seja analisado por profissionais da área.
+
+## Execução
+
+## Impacto Socail
+
+## Links de Interesse
 
 - **Título:** Differentiable Pattern Set Mining
 - [Artigo][Link_artigo] (@Fischer_2021)
