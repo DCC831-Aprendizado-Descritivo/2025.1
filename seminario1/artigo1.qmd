@@ -151,6 +151,44 @@ Ao contrário dos dados sintéticos, não temos como saber quais padrões são "
 
 : Comparativo de tempo entre os algoritmos {#tbl-comparativo}
 
+---
+
+::: {#tbl-Analise layout-ncol=3}
+
+| $Dataset$ | $\#\ rows$ | $\#\ cols$ |
+| :-------- | ---------: | ---------: |
+| DNA       |     $2458$ |      $391$ |
+| Accidents |   $340183$ |      $468$ |
+| Instacart |  $2704831$ |     $1235$ |
+| Kosarak   |   $990002$ |    $41270$ |
+| Genomes   |     $2504$ |   $226623$ |
+
+: Linhas e colunas dos datasets {#tbl-linhas-colunas}
+
+| $Asso$ | **$BinaPs$** | $Desc$ |  $Slim$ |
+| -----: | -----------: | -----: | ------: |
+|  $134$ |    **$131$** |  $345$ |   $281$ |
+|  $133$ |     **$78$** |  $215$ | $12261$ |
+|  $n/a$ |    **$328$** |  $712$ |  $8119$ |
+|  $n/a$ |    **$302$** |  $n/a$ |   $n/a$ |
+|  $n/a$ |     **$42$** |  $n/a$ |   $n/a$ |
+
+: Número de padrões encontrados pelos algoritmos {#tbl-padroes}
+
+|   $Asso$ | **$BinaPs$** |   $Desc$ |   $Slim$ |
+| -------: | -----------: | -------: | -------: |
+|    $4 m$ |   **$26 s$** |   $20 s$ |    $2 s$ |
+|   $12 h$ |    **$6 m$** |   $14 m$ |   $21 h$ |
+| $\infty$ |   **$44 m$** |   $25 m$ |    $8 h$ |
+| $\infty$ |    **$5 h$** | $\infty$ | $\infty$ |
+| $\infty$ |    **$9 m$** | $\infty$ | $\infty$ |
+
+: Comparativo de tempo entre os algoritmos {#tbl-tempo}
+
+Tabela comparativa dos datasets
+:::
+
+---
 
 Em alguns casos, os outros algoritmos não conseguiram rodar em até 3 dias ou dentre 256GB de RAM. Tais cenários foram marcados com n/a ou infinito ({@tbl-comparativo}).
 
