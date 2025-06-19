@@ -130,32 +130,6 @@ Foram usados 5 bases de dados reais para o comparativo entre os algoritmos:
 
 Ao contrário dos dados sintéticos, não temos como saber quais padrões são "corretos" ou "incorretos". Dessa forma, a análise é mais subjetiva. Primeiro comparamos o número de padrões encontrados (@tbl-padroes) nos 5 bancos de dados (@tbl-Analise) e o tempo de execução de cada algoritmo (@tbl-tempo).
 
-<!-- - **Tabela 1a:** $\#\ Patterns$
-
-| $Dataset$ | $\#\ rows$ | $\#\ cols$ | $Asso$ | **$BinaPs$** | $Desc$ |  $Slim$ |
-| :-------- | ---------: | ---------: | -----: | -----------: | -----: | ------: |
-| DNA       |     $2458$ |      $391$ |  $134$ |    **$131$** |  $345$ |   $281$ |
-| Accidents |   $340183$ |      $468$ |  $133$ |     **$78$** |  $215$ | $12261$ |
-| Instacart |  $2704831$ |     $1235$ |  $n/a$ |    **$328$** |  $712$ |  $8119$ |
-| Kosarak   |   $990002$ |    $41270$ |  $n/a$ |    **$302$** |  $n/a$ |   $n/a$ |
-| Genomes   |     $2504$ |   $226623$ |  $n/a$ |     **$42$** |  $n/a$ |   $n/a$ |
-
-: Número de padrões encontrados pelos algoritmos {#tbl-numero-padroes}
-
-- **Tabela 1b:** $Runtime$
-
-| $Dataset$ | $\#\ rows$ | $\#\ cols$ |   $Asso$ | **$BinaPs$** |   $Desc$ |   $Slim$ |
-| :-------- | ---------: | ---------: | -------: | -----------: | -------: | -------: |
-| DNA       |     $2458$ |      $391$ |    $4 m$ |   **$26 s$** |   $20 s$ |    $2 s$ |
-| Accidents |   $340183$ |      $468$ |   $12 h$ |    **$6 m$** |   $14 m$ |   $21 h$ |
-| Instacart |  $2704831$ |     $1235$ | $\infty$ |   **$44 m$** |   $25 m$ |    $8 h$ |
-| Kosarak   |   $990002$ |    $41270$ | $\infty$ |    **$5 h$** | $\infty$ | $\infty$ |
-| Genomes   |     $2504$ |   $226623$ | $\infty$ |    **$9 m$** | $\infty$ | $\infty$ |
-
-: Comparativo de tempo entre os algoritmos {#tbl-comparativo}
-
---- -->
-
 ::: {#tbl-Analise layout-ncol=3}
 
 | $Dataset$ | $\#\ rows$ | $\#\ cols$ |
