@@ -56,6 +56,7 @@ Para resolver a problemática acima, o algoritmo introduz o **BinaPs**, uma solu
 
 ### Funcionamento
 
+Inspirado por decoders e encoders, o algoritmo tem como objetivo pegar os atributos de um item, codificar eles em o mesmo número ou menos de neurônios no processo e retornar para o número inicial como representado pela @fig-encdec.
 
 ![Encoder e Decoder][Imagem: Encoder e Decoder]{#fig-encdec}
 
