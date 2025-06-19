@@ -56,7 +56,6 @@ Para resolver a problemática acima, o algoritmo introduz o **BinaPs**, uma solu
 
 ### Funcionamento
 
-Inspirado por decoders e encoders, o algoritmo tem como objetivo pegar os atributos de um item, codificar eles em o mesmo número ou menos de neurônios no processo e retornar para o número inicial. Considere a @fig-encdec a seguir:
 
 ![Encoder e Decoder][Imagem: Encoder e Decoder]{#fig-encdec}
 
@@ -126,7 +125,7 @@ Foram usados 5 bases de dados reais para o comparativo entre os algoritmos:
 
 #### Análise Qualitativa
 
-Ao contrário dos dados sintéticos, não temos como saber quais padrões são "corretos" ou "incorretos". Dessa forma, a análise é mais subjetiva. Primeiro comparamos o número de padrões encontrados nos 5 bancos de dados:
+Ao contrário dos dados sintéticos, não temos como saber quais padrões são "corretos" ou "incorretos". Dessa forma, a análise é mais subjetiva. Primeiro comparamos o número de padrões encontrados (@tbl-padroes) nos 5 bancos de dados (@tbl-Analise) e o tempo de execução de cada algoritmo (@tbl-tempo).
 
 - **Tabela 1a:** $\#\ Patterns$
 
@@ -138,6 +137,8 @@ Ao contrário dos dados sintéticos, não temos como saber quais padrões são "
 | Kosarak   |   $990002$ |    $41270$ |  $n/a$ |    **$302$** |  $n/a$ |   $n/a$ |
 | Genomes   |     $2504$ |   $226623$ |  $n/a$ |     **$42$** |  $n/a$ |   $n/a$ |
 
+: Número de padrões encontrados pelos algoritmos {#tbl-numero-padroes}
+
 - **Tabela 1b:** $Runtime$
 
 | $Dataset$ | $\#\ rows$ | $\#\ cols$ |   $Asso$ | **$BinaPs$** |   $Desc$ |   $Slim$ |
@@ -148,7 +149,10 @@ Ao contrário dos dados sintéticos, não temos como saber quais padrões são "
 | Kosarak   |   $990002$ |    $41270$ | $\infty$ |    **$5 h$** | $\infty$ | $\infty$ |
 | Genomes   |     $2504$ |   $226623$ | $\infty$ |    **$9 m$** | $\infty$ | $\infty$ |
 
-Em alguns casos, os outros algoritmos não conseguiram rodar em até 3 dias ou dentre 256GB de RAM. Tais cenários foram marcados com n/a ou infinito.
+: Comparativo de tempo entre os algoritmos {#tbl-comparativo}
+
+
+Em alguns casos, os outros algoritmos não conseguiram rodar em até 3 dias ou dentre 256GB de RAM. Tais cenários foram marcados com n/a ou infinito ({@tbl-comparativo}).
 
 O **BinaPs** retornou resultados menos redundantes, facilitando interpretabilidade. Além disso, foram notados algumas falhas em outros algoritmos, dentre eles:
 
