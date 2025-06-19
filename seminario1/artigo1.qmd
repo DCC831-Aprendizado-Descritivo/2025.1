@@ -174,7 +174,97 @@ Por final, ao analisar padrões de variantes entre alelos, o BinaPs sugere que v
 
 ## Execução
 
-## Impacto Socail
+O artigo nos entrega um [Link para o repositório][Link_BinaPs]. Para rodar o BinaPs em uma máquina comum é necessário:
+
+### Gerar dados sintéticos
+
+1. Baixar e descompactar os arquivos
+2. Instalar as dependências (Pytorch, Scipy, Pandas, Numpy, R)
+3. Alterar arquivo `genSynth.sh` para parâmetros de uma máquina convencional (8 a 32GB de RAM)
+4. Executar `./genSynth.sh`
+
+O resultado é um arquivo .dat com os dados em formato de matriz binária esparsa. Ou seja, para cada linha, os elementos da linha são os indices das posições com valor 1 na matriz original.
+
+#### Executar o algoritmo
+
+Para executar basta chamar `python main.py --input <arquivo.dat> --batch_size <32 ou 64>` que pode também ser adjunto dos parâmetros apresentados na @tbl-parametros-binasps.
+
+| Parâmetro           | Tipo    | Valor padrão | Descrição                                                            |
+| :------------------ | :------ | -----------: | :------------------------------------------------------------------- |
+| `--save_model`      | `bool`  |      $False$ | Se ativado, salva o modelo treinado para disco                       |
+| `--gamma`           | `float` |        $0.1$ | Fator de decaimento do learning rate (usado no agendador de LR)      |
+| `--lr`              | `float` |       $0.01$ | Taxa de aprendizado (learning rate)                                  |
+| `--train_set_size`  | `float` |        $0.9$ | Proporção dos dados usada para treinamento                           |
+| `--weight_decay`    | `float` |        $0.0$ | Fator de penalização L2 (regularização dos pesos)                    |
+| `--batch_size`      | `int`   |         $64$ | Tamanho do batch para treinamento                                    |
+| `--epochs`          | `int`   |         $10$ | Número de épocas de treinamento                                      |
+| `--hidden_dim`      | `int`   |         $-1$ | Número de neurônios ocultos (usa #features se -1)                    |
+| `--log_interval`    | `int`   |         $10$ | Intervalo (em batches) para exibir logs de treino                    |
+| `--seed`            | `int`   |          $1$ | Semente para reprodutibilidade (random seed)                         |
+| `--test_batch_size` | `int`   |         $64$ | Tamanho do batch para teste                                          |
+| `--thread_num`      | `int`   |         $16$ | Número de threads a serem usadas no treinamento                      |
+| `--input (-i)`      | `str`   |  Obrigatório | Caminho para o arquivo de entrada (dados usados para treino e teste) |
+
+: Parâmetros do BinaPs {#tbl-parametros-binasps}
+
+#### Saída do algoritmo
+
+Após o treinamento marcado pelas "Epoch" temos alguns dados como a "Average loss" e a "Accuracy" seguido dos padrões dispostos na @fig-exec-binaps.
+
+![Resultado da execução do BinaPs][Imagem: Figura 5]{#fig-exec-binaps}
+
+Cada linha dos padrões mostra um padrão que foi reconstruído, como por exemplo o $[45, 46, 47, 48, 49]$ seguido de dois números: O primeiro o número de amostras que ativaram **todos** os bits e o segundo amostras que ativaram **metade** dos bits do padrão. Ou seja, $4404$ vezes os bits $45$ a $49$ foram completamente ativados e $4425$ vezes parcialmente ativados (metade).
+
+**Conclusão:** O padrão $[45-49]$ é altamente confiável pois aparece em mais de 99% das vezes que é parcialmente ativado, indicando forte consistência local nos dados.
+
+## Impacto Social
+
+### Transparência e Justiça
+
+O método do BinaPs é significativamente mais interpretável que outras soluções usando inteligência artificial ou caixas-pretas. Tal transparência entrega um grau de confiança maior aos resultados e pode levar a estudos e entendimentos novos relacionados à area investigada.
+
+Além disso, como o processo é transparente, ele se torna mais fácil de ser ajustado por profissionais para evitar vieses indesejados como os de cor, gênero, raça, classe e outros.
+
+## Cenários de Uso
+
+Similarmente a outros métodos de mineração de padrões, os usos são bem vastos, mas dessa vez eles são beneficiados também pela transparência. Aqui estão alguns deles:
+
+- **Saúde**
+  - Estudo de biomarcadores relevantes para diagnósticos
+  - Detecção de padrões comuns à doenças como sintomas
+- **Cidades inteligentes**
+  - Análise de padrões de tráfego para otimização do transporte
+  - Mineração de padrões no uso de serviços públicos
+- **Educação**
+  - Análise de trajetórias acadêmicas para politicas de incentivo
+  - Estudo de consumo de cursos para personalização de trilhas
+- **Comércio**
+  - Padrões de compras para sistemas de recomendação
+  - Perfis de consumidores para marketing personalizado
+- **Governos e Organizações**
+  - Detecção de padrões de fraude em transações como as bancárias
+  - Estudo de padrões comportamentais para prevenção de crimes
+
+## Riscos
+
+O BinaPs é uma ferramenta. Da mesma forma que é necessário cuidado ao usar um martelo, é importante saber os riscos que tomamos ao usar uma ferramenta dessas para evitar problemas. Um dos maiores riscos são os de **dados enviesados**.
+
+Grande porção dos dados usados são daqueles que mais coletam dados, que tendem a ser países de primeiro mundo nas classes media e alta. Além disso, muitos dados são enviesados por cor, raça, gênero e outros fatores que não devem serem analisados como causalidade por motivos éticos.
+
+Exemplos de dados enviesados incluem a ferramenta de triagem de currículos da Amazon, que aprendeu e manteve o preconceito de gênero que estava presente antes de sua implementação, o que desfavoreceu o gênero feminino.
+
+Além disso, há áreas de implementação que não podem ter vieses como por exemplo:
+
+- Concessão de crédito
+  - Discriminação, Desinformação, Privacidade, Over-Marketing
+- Precificação de seguros e planos de saúde
+  - Diferenciação de grupos por fatores pessoais, étnicos, etários ou de doenças.
+
+Em ambos os casos, são necessárias políticas como a LGPD para garantir a anonimização dos dados e a publicação de métodos e entradas utilizados para que especialistas possam discutir as questões éticas do uso dos dados específicos utilizados.
+
+## Conclusão
+
+O BinaPs é um algoritmo de mineração de padrões inovador, com características transparentes e eficientes em relação à competição. Seu código é aberto e bem explicado com um gerador de dados sintéticos incluso e alguns estudos preliminares de áreas que podem beneficiar do seu uso. Se for usado como uma ferramenta de forma responsável, ele pode ser um pioneiro em estudos, análises e sumarizações de dados massivos.
 
 ## Links de Interesse
 
@@ -192,6 +282,7 @@ Por final, ao analisar padrões de variantes entre alelos, o BinaPs sugere que v
 [Apresentação dos Autores]: https://dl.acm.org/action/downloadSupplement?doi=10.1145%2F3447548.3467348&file=differentiable_pattern_set_mining-jonas_fischer-jilles_vreeken-38957922-489z.mp4
 [Slide_art1]: https://ufmgbr-my.sharepoint.com/:p:/g/personal/rvimieiro_ufmg_br/ESSM0mBDMNZFj7vzopqACYIBKOi3ChX9tsyje_2RroiT4Q
 [Slide_art1_pdf]: <seminario1\src\artigo1 - Apresentação.pdf>
+[Link_BinaPs]: https://eda.rg.cispa.io/prj/binaps
 
 <!-- Imagens -->
 
@@ -202,3 +293,4 @@ Por final, ao analisar padrões de variantes entre alelos, o BinaPs sugere que v
 [Imagem: Figura 3]: src\art1\Figura3.png
 [Imagem: Figura 4a]: src\art1\Figura4a.png
 [Imagem: Figura 4b]: src\art1\Figura4b.png
+[Imagem: Figura 5]: src\art1\Figura5.png
