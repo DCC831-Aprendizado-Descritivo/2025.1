@@ -34,7 +34,7 @@ Mineração de padrões é uma área de Aprendizado Descritivo que objetiva enco
 
 As aplicações de mineração de padrões são variadas, desde ciências naturais como Biologia e Química, estudos estatísticos e matemáticos e análises societais e comportamentais.
 
-Infelizmente, os algoritmos para mineração de padrões são extremamente custosos, sendo duplamente exponenciais no _número de atributos_. Além disso, eles sofrem de redundância nas respostas, muitas vezes repetindo padrões similares e de relevância das respostas, sofrendo com overfitting ou underfitting.
+Infelizmente, os algoritmos para mineração de padrões são extremamente custosos, sendo duplamente exponencial no _número de atributos_. Além disso, eles sofrem de redundância nas respostas, muitas vezes repetindo padrões similares e de relevância das respostas, sofrendo com overfitting ou underfitting.
 
 ## BinaPs
 
@@ -58,7 +58,7 @@ Para resolver a problemática acima, o algoritmo introduz o **BinaPs**, uma solu
 
 Inspirado por decoders e encoders, o algoritmo tem como objetivo pegar os atributos de um item, codificar eles em o mesmo número ou menos de neurônios no processo e retornar para o número inicial. Considere a @fig-encdec a seguir:
 
-![Enconder e Decoder][Imagem: Enconder e Decoder]{#fig-encdec}
+![Encoder e Decoder][Imagem: Encoder e Decoder]{#fig-encdec}
 
 O BinaPs contém algumas otimizações e considerações quando considerado com outras rede neurais, dentre elas:
 
@@ -79,7 +79,7 @@ O **BinaPs** foi comparado com três outros competidores na área de mineração
 
 Dados sintéticos foram escolhidos pois é possível inserir ou estudar padrões reais nos dados previamente, podendo assim comparar os resultados dos algoritmos com o "ground truth", ou seja, o que assumimos ser a verdade.
 
-Para medir a performance dos algoritmos foi usado a **F1-score**, uma medida calculada pela média harmonica do _precision_ e do _recall_, comumente usada em machine learning para avaliar a performance de modelos.
+Para medir a performance dos algoritmos foi usado a **F1-score**, uma medida calculada pela média harmonica do _precision_ e do _recall_, comumente usada em aprendizado de máquina para avaliar a performance de modelos.
 
 #### Escalabilidade
 
@@ -168,7 +168,7 @@ Foi feita uma análise quantitativa em 3 dos bancos de dados listados acima. Dua
 
 Foi possível encontrar padrões antes conhecidos de genes relacionados, como os NUCB2 e ABCC8 relacionados à diabetes tipo 2 e pressão alta em populações japonesas. Porém, muitas vezes esses grupos conhecidos estavam adjuntos a outros elementos, como o NCR3LG1 e ROMO1. Isso demonstra a possibilidade do uso do algoritmo para estabelecer relações novas que podem ser estudadas no futuro.
 
-Outro exemplo foi o des genes SF3A1, RRP7A e Z82190 onde os dois primeiros codificam proteínas que são parte do ribossomo (que por sua conta é a fábrica de proteínas da célula), já o terceiro não é caracterizado. O padrão destes juntos é uma dica que pode guiar estudos futuros nessa área.
+Outro exemplo foi o dos genes SF3A1, RRP7A e Z82190 onde os dois primeiros codificam proteínas que são parte do ribossomo (que por sua conta é a fábrica de proteínas da célula), já o terceiro não é caracterizado. O padrão destes juntos é uma dica que pode guiar estudos futuros nessa área.
 
 Por final, ao analisar padrões de variantes entre alelos, o BinaPs sugere que variantes raras normalmente acompanhadas de comuns podem acontecer de um para o outro "$0 \mid 1$" como na literatura, mas muitas vezes também acontece em "1 \mid 0", ou seja, os raros no alelo que antes havia comuns e vice-versa. Os autores não sabem se isso têm significado biológico, sugerindo que isso seja analisado por profissionais da área.
 
@@ -195,7 +195,7 @@ Por final, ao analisar padrões de variantes entre alelos, o BinaPs sugere que v
 
 <!-- Imagens -->
 
-[Imagem: Enconder e Decoder]: https://www.mdpi.com/applsci/applsci-13-12413/article_deploy/html/images/applsci-13-12413-g001.png
+[Imagem: Encoder e Decoder]: https://www.mdpi.com/applsci/applsci-13-12413/article_deploy/html/images/applsci-13-12413-g001.png
 [Imagem: Figura 1]: src\art1\Figura1.png
 [Imagem: Figura 2a]: src\art1\Figura2a.png
 [Imagem: Figura 2b]: src\art1\Figura2b.png
