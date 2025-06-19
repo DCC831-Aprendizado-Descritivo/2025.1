@@ -67,7 +67,7 @@ O BinaPs contém algumas otimizações e considerações quando considerado com 
 - Normalização da função de perda para evitar saídas de apenas $\{1\}$ ou $\{0\}$ em bases densas e esparsas.
 - Gated Straight-Through Estimator para não penalizar os neurônios desligados
 
-Após essas mudanças, o algoritmo funciona como descrito por esta imagem (@fig-binasps do artigo):
+Após essas mudanças, o algoritmo funciona como descrito pela @fig-binasps.
 
 ![Funcionamento do **BinaPs**][Imagem: Figura 1]{#fig-binasps}
 
@@ -84,9 +84,9 @@ Para medir a performance dos algoritmos foi usado a **F1-score**, uma medida cal
 #### Escalabilidade
 
 ::: {#fig-graficos-A layout-ncol=2}
-![F1-Score][Imagem: Figura 2a]{#fig-F1-Score-features}
+![Features: F1-Score][Imagem: Figura 2a]{#fig-F1-Score-features}
 
-![Time in Seconds][Imagem: Figura 2b]{#fig-time-in-seconds-features}
+![Features: Time in Seconds][Imagem: Figura 2b]{#fig-time-in-seconds-features}
 
 Estatísticas BinaPs, Asso, Slim e Desc: Features
 :::
@@ -98,8 +98,9 @@ Com um número crescente de features (atributos), o **BinaPs** se mostra mais pr
 Muitas vezes dados reais possuem ruídos, seja de medidas errôneas, problemas no dataset ou imprevisibilidade dos dados. Para testar se os algoritmos são resistentes a tais cenários foram inseridos quantidades crescentes de ruídos nos databases testados com os seguintes resultados:
 
 ::: {#fig-graficos-B layout-ncol=2}
-![Imagem: Figura 4a][Imagem: Figura 4a]{#fig-F1-Score-noise}
-![Imagem: Figura 4b][Imagem: Figura 4b]{#fig-time-in-seconds-noise}
+![Ruídos: F1-Score][Imagem: Figura 4a]{#fig-F1-Score-noise}
+
+![Ruídos: Time in Seconds][Imagem: Figura 4b]{#fig-time-in-seconds-noise}
 
 Estatísticas BinaPs, Asso, Slim e Desc: Ruídos
 :::
@@ -128,7 +129,7 @@ Foram usados 5 bases de dados reais para o comparativo entre os algoritmos:
 
 Ao contrário dos dados sintéticos, não temos como saber quais padrões são "corretos" ou "incorretos". Dessa forma, a análise é mais subjetiva. Primeiro comparamos o número de padrões encontrados (@tbl-padroes) nos 5 bancos de dados (@tbl-Analise) e o tempo de execução de cada algoritmo (@tbl-tempo).
 
-- **Tabela 1a:** $\#\ Patterns$
+<!-- - **Tabela 1a:** $\#\ Patterns$
 
 | $Dataset$ | $\#\ rows$ | $\#\ cols$ | $Asso$ | **$BinaPs$** | $Desc$ |  $Slim$ |
 | :-------- | ---------: | ---------: | -----: | -----------: | -----: | ------: |
@@ -152,7 +153,7 @@ Ao contrário dos dados sintéticos, não temos como saber quais padrões são "
 
 : Comparativo de tempo entre os algoritmos {#tbl-comparativo}
 
----
+--- -->
 
 ::: {#tbl-Analise layout-ncol=3}
 
@@ -174,7 +175,7 @@ Ao contrário dos dados sintéticos, não temos como saber quais padrões são "
 |  $n/a$ |    **$302$** |  $n/a$ |   $n/a$ |
 |  $n/a$ |     **$42$** |  $n/a$ |   $n/a$ |
 
-: Número de padrões encontrados pelos algoritmos {#tbl-padroes}
+: Número de padrões encontrados {#tbl-padroes}
 
 |   $Asso$ | **$BinaPs$** |   $Desc$ |   $Slim$ |
 | -------: | -----------: | -------: | -------: |
@@ -184,14 +185,14 @@ Ao contrário dos dados sintéticos, não temos como saber quais padrões são "
 | $\infty$ |    **$5 h$** | $\infty$ | $\infty$ |
 | $\infty$ |    **$9 m$** | $\infty$ | $\infty$ |
 
-: Comparativo de tempo entre os algoritmos {#tbl-tempo}
+: Comparativo de tempo {#tbl-tempo}
 
 Tabela comparativa dos datasets
 :::
 
----
+<!-- --- -->
 
-Em alguns casos, os outros algoritmos não conseguiram rodar em até 3 dias ou dentre 256GB de RAM. Tais cenários foram marcados com n/a ou infinito ({@tbl-comparativo}).
+Em alguns casos, os outros algoritmos não conseguiram rodar em até 3 dias ou dentre 256GB de RAM. Tais cenários foram marcados com n/a ou infinito (@tbl-comparativo).
 
 O **BinaPs** retornou resultados menos redundantes, facilitando interpretabilidade. Além disso, foram notados algumas falhas em outros algoritmos, dentre eles:
 
