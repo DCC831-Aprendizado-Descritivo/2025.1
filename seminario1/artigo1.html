@@ -251,9 +251,18 @@ window.Quarto = {
   <li><a href="#sintéticos" id="toc-sintéticos" class="nav-link" data-scroll-target="#sintéticos"><span class="header-section-number">1.3.1</span> Sintéticos</a></li>
   <li><a href="#reais" id="toc-reais" class="nav-link" data-scroll-target="#reais"><span class="header-section-number">1.3.2</span> Reais</a></li>
   </ul></li>
-  <li><a href="#execução" id="toc-execução" class="nav-link" data-scroll-target="#execução"><span class="header-section-number">1.4</span> Execução</a></li>
-  <li><a href="#impacto-socail" id="toc-impacto-socail" class="nav-link" data-scroll-target="#impacto-socail"><span class="header-section-number">1.5</span> Impacto Socail</a></li>
-  <li><a href="#links-de-interesse" id="toc-links-de-interesse" class="nav-link" data-scroll-target="#links-de-interesse"><span class="header-section-number">1.6</span> Links de Interesse</a></li>
+  <li><a href="#execução" id="toc-execução" class="nav-link" data-scroll-target="#execução"><span class="header-section-number">1.4</span> Execução</a>
+  <ul class="collapse">
+  <li><a href="#gerar-dados-sintéticos" id="toc-gerar-dados-sintéticos" class="nav-link" data-scroll-target="#gerar-dados-sintéticos"><span class="header-section-number">1.4.1</span> Gerar dados sintéticos</a></li>
+  </ul></li>
+  <li><a href="#impacto-social" id="toc-impacto-social" class="nav-link" data-scroll-target="#impacto-social"><span class="header-section-number">1.5</span> Impacto Social</a>
+  <ul class="collapse">
+  <li><a href="#transparência-e-justiça" id="toc-transparência-e-justiça" class="nav-link" data-scroll-target="#transparência-e-justiça"><span class="header-section-number">1.5.1</span> Transparência e Justiça</a></li>
+  </ul></li>
+  <li><a href="#cenários-de-uso" id="toc-cenários-de-uso" class="nav-link" data-scroll-target="#cenários-de-uso"><span class="header-section-number">1.6</span> Cenários de Uso</a></li>
+  <li><a href="#riscos" id="toc-riscos" class="nav-link" data-scroll-target="#riscos"><span class="header-section-number">1.7</span> Riscos</a></li>
+  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão"><span class="header-section-number">1.8</span> Conclusão</a></li>
+  <li><a href="#links-de-interesse" id="toc-links-de-interesse" class="nav-link" data-scroll-target="#links-de-interesse"><span class="header-section-number">1.9</span> Links de Interesse</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -298,7 +307,7 @@ window.Quarto = {
 <h2 data-number="1.1" class="anchored" data-anchor-id="o-que-é-mineração-de-padrões"><span class="header-section-number">1.1</span> O que é Mineração de padrões?</h2>
 <p>Mineração de padrões é uma área de Aprendizado Descritivo que objetiva encontrar informações interpretáveis de grandes bancos de dados. Tal objetivo é alcançado por meio da mineração de “padrões” ou “regras” que definem conjuntos relevantes, seja em frequência ou em importância.</p>
 <p>As aplicações de mineração de padrões são variadas, desde ciências naturais como Biologia e Química, estudos estatísticos e matemáticos e análises societais e comportamentais.</p>
-<p>Infelizmente, os algoritmos para mineração de padrões são extremamente custosos, sendo duplamente exponenciais no <em>número de atributos</em>. Além disso, eles sofrem de redundância nas respostas, muitas vezes repetindo padrões similares e de relevância das respostas, sofrendo com overfitting ou underfitting.</p>
+<p>Infelizmente, os algoritmos para mineração de padrões são extremamente custosos, sendo duplamente exponencial no <em>número de atributos</em>. Além disso, eles sofrem de redundância nas respostas, muitas vezes repetindo padrões similares e de relevância das respostas, sofrendo com overfitting ou underfitting.</p>
 </section>
 <section id="binaps" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="binaps"><span class="header-section-number">1.2</span> BinaPs</h2>
@@ -322,11 +331,11 @@ window.Quarto = {
 </ul>
 <section id="funcionamento" class="level3" data-number="1.2.1">
 <h3 data-number="1.2.1" class="anchored" data-anchor-id="funcionamento"><span class="header-section-number">1.2.1</span> Funcionamento</h3>
-<p>Inspirado por decoders e encoders, o algoritmo tem como objetivo pegar os atributos de um item, codificar eles em o mesmo número ou menos de neurônios no processo e retornar para o número inicial. Considere a <a href="#fig-encdec" class="quarto-xref">Figura&nbsp;1</a> a seguir:</p>
+<p>Inspirado por decoders e encoders, o algoritmo tem como objetivo pegar os atributos de um item, codificar eles em o mesmo número ou menos de neurônios no processo e retornar para o número inicial como representado pela <a href="#fig-encdec" class="quarto-xref">Figura&nbsp;1</a>.</p>
 <div id="fig-encdec" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-encdec-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1: Enconder e Decoder
+Figura&nbsp;1: Encoder e Decoder
 </figcaption>
 <div aria-describedby="fig-encdec-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.mdpi.com/applsci/applsci-13-12413/article_deploy/html/images/applsci-13-12413-g001.png" class="img-fluid figure-img">
@@ -359,7 +368,7 @@ Figura&nbsp;2: Funcionamento do <strong>BinaPs</strong>
 <section id="sintéticos" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="sintéticos"><span class="header-section-number">1.3.1</span> Sintéticos</h3>
 <p>Dados sintéticos foram escolhidos pois é possível inserir ou estudar padrões reais nos dados previamente, podendo assim comparar os resultados dos algoritmos com o “ground truth”, ou seja, o que assumimos ser a verdade.</p>
-<p>Para medir a performance dos algoritmos foi usado a <strong>F1-score</strong>, uma medida calculada pela média harmonica do <em>precision</em> e do <em>recall</em>, comumente usada em machine learning para avaliar a performance de modelos.</p>
+<p>Para medir a performance dos algoritmos foi usado a <strong>F1-score</strong>, uma medida calculada pela média harmonica do <em>precision</em> e do <em>recall</em>, comumente usada em aprendizado de máquina para avaliar a performance de modelos.</p>
 <section id="escalabilidade" class="level4" data-number="1.3.1.1">
 <h4 data-number="1.3.1.1" class="anchored" data-anchor-id="escalabilidade"><span class="header-section-number">1.3.1.1</span> Escalabilidade</h4>
 <div id="fig-graficos-A" class="quarto-layout-panel">
@@ -446,10 +455,16 @@ Figura&nbsp;5: F1-Score <span class="math inline">\(\times\)</span> Samples
 </ul>
 <section id="análise-qualitativa" class="level4" data-number="1.3.2.1">
 <h4 data-number="1.3.2.1" class="anchored" data-anchor-id="análise-qualitativa"><span class="header-section-number">1.3.2.1</span> Análise Qualitativa</h4>
-<p>Ao contrário dos dados sintéticos, não temos como saber quais padrões são “corretos” ou “incorretos”. Dessa forma, a análise é mais subjetiva. Primeiro comparamos o número de padrões encontrados nos 5 bancos de dados:</p>
+<p>Ao contrário dos dados sintéticos, não temos como saber quais padrões são “corretos” ou “incorretos”. Dessa forma, a análise é mais subjetiva. Primeiro comparamos o número de padrões encontrados (<a href="#tbl-padroes" class="quarto-xref">Tabela&nbsp;3 (b)</a>) nos 5 bancos de dados (<a href="#tbl-Analise" class="quarto-xref">Tabela&nbsp;3</a>) e o tempo de execução de cada algoritmo (<a href="#tbl-tempo" class="quarto-xref">Tabela&nbsp;3 (c)</a>).</p>
 <ul>
 <li><strong>Tabela 1a:</strong> <span class="math inline">\(\#\ Patterns\)</span></li>
 </ul>
+<div id="tbl-numero-padroes" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-numero-padroes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;1: Número de padrões encontrados pelos algoritmos
+</figcaption>
+<div aria-describedby="tbl-numero-padroes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
@@ -519,9 +534,18 @@ Figura&nbsp;5: F1-Score <span class="math inline">\(\times\)</span> Samples
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <ul>
 <li><strong>Tabela 1b:</strong> <span class="math inline">\(Runtime\)</span></li>
 </ul>
+<div id="tbl-comparativo" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-comparativo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;2: Comparativo de tempo entre os algoritmos
+</figcaption>
+<div aria-describedby="tbl-comparativo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
@@ -591,7 +615,176 @@ Figura&nbsp;5: F1-Score <span class="math inline">\(\times\)</span> Samples
 </tr>
 </tbody>
 </table>
-<p>Em alguns casos, os outros algoritmos não conseguiram rodar em até 3 dias ou dentre 256GB de RAM. Tais cenários foram marcados com n/a ou infinito.</p>
+</div>
+</figure>
+</div>
+<hr>
+<div id="tbl-Analise" class="quarto-layout-panel anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-Analise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;3: Tabela comparativa dos datasets
+</figcaption>
+<div aria-describedby="tbl-Analise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-Analise" style="flex-basis: 33.3%;justify-content: center;">
+<div id="tbl-linhas-colunas" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-linhas-colunas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Linhas e colunas dos datasets
+</figcaption>
+<div aria-describedby="tbl-linhas-colunas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(Dataset\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(\#\ rows\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(\#\ cols\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">DNA</td>
+<td style="text-align: right;"><span class="math inline">\(2458\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(391\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Accidents</td>
+<td style="text-align: right;"><span class="math inline">\(340183\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(468\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Instacart</td>
+<td style="text-align: right;"><span class="math inline">\(2704831\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(1235\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kosarak</td>
+<td style="text-align: right;"><span class="math inline">\(990002\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(41270\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Genomes</td>
+<td style="text-align: right;"><span class="math inline">\(2504\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(226623\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-Analise" style="flex-basis: 33.3%;justify-content: center;">
+<div id="tbl-padroes" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-padroes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Número de padrões encontrados pelos algoritmos
+</figcaption>
+<div aria-describedby="tbl-padroes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;"><span class="math inline">\(Asso\)</span></th>
+<th style="text-align: right;"><strong><span class="math inline">\(BinaPs\)</span></strong></th>
+<th style="text-align: right;"><span class="math inline">\(Desc\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(Slim\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(134\)</span></td>
+<td style="text-align: right;"><strong><span class="math inline">\(131\)</span></strong></td>
+<td style="text-align: right;"><span class="math inline">\(345\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(281\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(133\)</span></td>
+<td style="text-align: right;"><strong><span class="math inline">\(78\)</span></strong></td>
+<td style="text-align: right;"><span class="math inline">\(215\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(12261\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(n/a\)</span></td>
+<td style="text-align: right;"><strong><span class="math inline">\(328\)</span></strong></td>
+<td style="text-align: right;"><span class="math inline">\(712\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(8119\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(n/a\)</span></td>
+<td style="text-align: right;"><strong><span class="math inline">\(302\)</span></strong></td>
+<td style="text-align: right;"><span class="math inline">\(n/a\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(n/a\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(n/a\)</span></td>
+<td style="text-align: right;"><strong><span class="math inline">\(42\)</span></strong></td>
+<td style="text-align: right;"><span class="math inline">\(n/a\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(n/a\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-Analise" style="flex-basis: 33.3%;justify-content: center;">
+<div id="tbl-tempo" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-tempo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Comparativo de tempo entre os algoritmos
+</figcaption>
+<div aria-describedby="tbl-tempo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;"><span class="math inline">\(Asso\)</span></th>
+<th style="text-align: right;"><strong><span class="math inline">\(BinaPs\)</span></strong></th>
+<th style="text-align: right;"><span class="math inline">\(Desc\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(Slim\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(4 m\)</span></td>
+<td style="text-align: right;"><strong><span class="math inline">\(26 s\)</span></strong></td>
+<td style="text-align: right;"><span class="math inline">\(20 s\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(2 s\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(12 h\)</span></td>
+<td style="text-align: right;"><strong><span class="math inline">\(6 m\)</span></strong></td>
+<td style="text-align: right;"><span class="math inline">\(14 m\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(21 h\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(\infty\)</span></td>
+<td style="text-align: right;"><strong><span class="math inline">\(44 m\)</span></strong></td>
+<td style="text-align: right;"><span class="math inline">\(25 m\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(8 h\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(\infty\)</span></td>
+<td style="text-align: right;"><strong><span class="math inline">\(5 h\)</span></strong></td>
+<td style="text-align: right;"><span class="math inline">\(\infty\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\infty\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(\infty\)</span></td>
+<td style="text-align: right;"><strong><span class="math inline">\(9 m\)</span></strong></td>
+<td style="text-align: right;"><span class="math inline">\(\infty\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\infty\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</figure>
+</div>
+<hr>
+<p>Em alguns casos, os outros algoritmos não conseguiram rodar em até 3 dias ou dentre 256GB de RAM. Tais cenários foram marcados com n/a ou infinito ({<a href="#tbl-comparativo" class="quarto-xref">Tabela&nbsp;2</a>}).</p>
 <p>O <strong>BinaPs</strong> retornou resultados menos redundantes, facilitando interpretabilidade. Além disso, foram notados algumas falhas em outros algoritmos, dentre eles:</p>
 <ul>
 <li><strong>Asso</strong> não conseguiu escalar bem</li>
@@ -606,19 +799,213 @@ Figura&nbsp;5: F1-Score <span class="math inline">\(\times\)</span> Samples
 <p><strong>Instacart:</strong> <em>BinaPs</em> encontra padrões grandes com combinações arbitrárias como um conjunto de 12 frutas comprados de formas diferentes. O <em>Slim</em> quebra este conjunto em milhares de padrões menores. <em>Desc</em> faz underfitting novamente, encontrando padrões de tamanho 2 apenas. Além disso, o <em>BinaPs</em> também encontrou padrões pequenos que se assemelham à lista de ingredientes de pratos culinários, mostrando relevância novamente.</p>
 <p><strong>Genomes:</strong> De acordo com os autores, esta seção obteve os resultados mais promissores, sendo um motivador principal para o estudo.</p>
 <p>Foi possível encontrar padrões antes conhecidos de genes relacionados, como os NUCB2 e ABCC8 relacionados à diabetes tipo 2 e pressão alta em populações japonesas. Porém, muitas vezes esses grupos conhecidos estavam adjuntos a outros elementos, como o NCR3LG1 e ROMO1. Isso demonstra a possibilidade do uso do algoritmo para estabelecer relações novas que podem ser estudadas no futuro.</p>
-<p>Outro exemplo foi o des genes SF3A1, RRP7A e Z82190 onde os dois primeiros codificam proteínas que são parte do ribossomo (que por sua conta é a fábrica de proteínas da célula), já o terceiro não é caracterizado. O padrão destes juntos é uma dica que pode guiar estudos futuros nessa área.</p>
+<p>Outro exemplo foi o dos genes SF3A1, RRP7A e Z82190 onde os dois primeiros codificam proteínas que são parte do ribossomo (que por sua conta é a fábrica de proteínas da célula), já o terceiro não é caracterizado. O padrão destes juntos é uma dica que pode guiar estudos futuros nessa área.</p>
 <p>Por final, ao analisar padrões de variantes entre alelos, o BinaPs sugere que variantes raras normalmente acompanhadas de comuns podem acontecer de um para o outro “<span class="math inline">\(0 \mid 1\)</span>” como na literatura, mas muitas vezes também acontece em “1 ”, ou seja, os raros no alelo que antes havia comuns e vice-versa. Os autores não sabem se isso têm significado biológico, sugerindo que isso seja analisado por profissionais da área.</p>
 </section>
 </section>
 </section>
 <section id="execução" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="execução"><span class="header-section-number">1.4</span> Execução</h2>
+<p>O artigo nos entrega um <a href="https://eda.rg.cispa.io/prj/binaps">Link para o repositório</a>. Para rodar o BinaPs em uma máquina comum é necessário:</p>
+<section id="gerar-dados-sintéticos" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="gerar-dados-sintéticos"><span class="header-section-number">1.4.1</span> Gerar dados sintéticos</h3>
+<ol type="1">
+<li>Baixar e descompactar os arquivos</li>
+<li>Instalar as dependências (Pytorch, Scipy, Pandas, Numpy, R)</li>
+<li>Alterar arquivo <code>genSynth.sh</code> para parâmetros de uma máquina convencional (8 a 32GB de RAM)</li>
+<li>Executar <code>./genSynth.sh</code></li>
+</ol>
+<p>O resultado é um arquivo .dat com os dados em formato de matriz binária esparsa. Ou seja, para cada linha, os elementos da linha são os indices das posições com valor 1 na matriz original.</p>
+<section id="executar-o-algoritmo" class="level4" data-number="1.4.1.1">
+<h4 data-number="1.4.1.1" class="anchored" data-anchor-id="executar-o-algoritmo"><span class="header-section-number">1.4.1.1</span> Executar o algoritmo</h4>
+<p>Para executar basta chamar <code>python main.py --input &lt;arquivo.dat&gt; --batch_size &lt;32 ou 64&gt;</code> que pode também ser adjunto dos parâmetros apresentados na <a href="#tbl-parametros-binasps" class="quarto-xref">Tabela&nbsp;4</a>.</p>
+<div id="tbl-parametros-binasps" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-parametros-binasps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;4: Parâmetros do BinaPs
+</figcaption>
+<div aria-describedby="tbl-parametros-binasps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 6%">
+<col style="width: 11%">
+<col style="width: 64%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Parâmetro</th>
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: right;">Valor padrão</th>
+<th style="text-align: left;">Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>--save_model</code></td>
+<td style="text-align: left;"><code>bool</code></td>
+<td style="text-align: right;"><span class="math inline">\(False\)</span></td>
+<td style="text-align: left;">Se ativado, salva o modelo treinado para disco</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>--gamma</code></td>
+<td style="text-align: left;"><code>float</code></td>
+<td style="text-align: right;"><span class="math inline">\(0.1\)</span></td>
+<td style="text-align: left;">Fator de decaimento do learning rate (usado no agendador de LR)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>--lr</code></td>
+<td style="text-align: left;"><code>float</code></td>
+<td style="text-align: right;"><span class="math inline">\(0.01\)</span></td>
+<td style="text-align: left;">Taxa de aprendizado (learning rate)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>--train_set_size</code></td>
+<td style="text-align: left;"><code>float</code></td>
+<td style="text-align: right;"><span class="math inline">\(0.9\)</span></td>
+<td style="text-align: left;">Proporção dos dados usada para treinamento</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>--weight_decay</code></td>
+<td style="text-align: left;"><code>float</code></td>
+<td style="text-align: right;"><span class="math inline">\(0.0\)</span></td>
+<td style="text-align: left;">Fator de penalização L2 (regularização dos pesos)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>--batch_size</code></td>
+<td style="text-align: left;"><code>int</code></td>
+<td style="text-align: right;"><span class="math inline">\(64\)</span></td>
+<td style="text-align: left;">Tamanho do batch para treinamento</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>--epochs</code></td>
+<td style="text-align: left;"><code>int</code></td>
+<td style="text-align: right;"><span class="math inline">\(10\)</span></td>
+<td style="text-align: left;">Número de épocas de treinamento</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>--hidden_dim</code></td>
+<td style="text-align: left;"><code>int</code></td>
+<td style="text-align: right;"><span class="math inline">\(-1\)</span></td>
+<td style="text-align: left;">Número de neurônios ocultos (usa #features se -1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>--log_interval</code></td>
+<td style="text-align: left;"><code>int</code></td>
+<td style="text-align: right;"><span class="math inline">\(10\)</span></td>
+<td style="text-align: left;">Intervalo (em batches) para exibir logs de treino</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>--seed</code></td>
+<td style="text-align: left;"><code>int</code></td>
+<td style="text-align: right;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: left;">Semente para reprodutibilidade (random seed)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>--test_batch_size</code></td>
+<td style="text-align: left;"><code>int</code></td>
+<td style="text-align: right;"><span class="math inline">\(64\)</span></td>
+<td style="text-align: left;">Tamanho do batch para teste</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>--thread_num</code></td>
+<td style="text-align: left;"><code>int</code></td>
+<td style="text-align: right;"><span class="math inline">\(16\)</span></td>
+<td style="text-align: left;">Número de threads a serem usadas no treinamento</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>--input (-i)</code></td>
+<td style="text-align: left;"><code>str</code></td>
+<td style="text-align: right;">Obrigatório</td>
+<td style="text-align: left;">Caminho para o arquivo de entrada (dados usados para treino e teste)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
 </section>
-<section id="impacto-socail" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="impacto-socail"><span class="header-section-number">1.5</span> Impacto Socail</h2>
+<section id="saída-do-algoritmo" class="level4" data-number="1.4.1.2">
+<h4 data-number="1.4.1.2" class="anchored" data-anchor-id="saída-do-algoritmo"><span class="header-section-number">1.4.1.2</span> Saída do algoritmo</h4>
+<p>Após o treinamento marcado pelas “Epoch” temos alguns dados como a “Average loss” e a “Accuracy” seguido dos padrões dispostos na <a href="#fig-exec-binaps" class="quarto-xref">Figura&nbsp;6</a>.</p>
+<div id="fig-exec-binaps" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-exec-binaps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6: Resultado da execução do BinaPs
+</figcaption>
+<div aria-describedby="fig-exec-binaps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="src\art1\Figura5.png" class="img-fluid figure-img">
+</div>
+</figure>
+</div>
+<p>Cada linha dos padrões mostra um padrão que foi reconstruído, como por exemplo o <span class="math inline">\([45, 46, 47, 48, 49]\)</span> seguido de dois números: O primeiro o número de amostras que ativaram <strong>todos</strong> os bits e o segundo amostras que ativaram <strong>metade</strong> dos bits do padrão. Ou seja, <span class="math inline">\(4404\)</span> vezes os bits <span class="math inline">\(45\)</span> a <span class="math inline">\(49\)</span> foram completamente ativados e <span class="math inline">\(4425\)</span> vezes parcialmente ativados (metade).</p>
+<p><strong>Conclusão:</strong> O padrão <span class="math inline">\([45-49]\)</span> é altamente confiável pois aparece em mais de 99% das vezes que é parcialmente ativado, indicando forte consistência local nos dados.</p>
 </section>
-<section id="links-de-interesse" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="links-de-interesse"><span class="header-section-number">1.6</span> Links de Interesse</h2>
+</section>
+</section>
+<section id="impacto-social" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="impacto-social"><span class="header-section-number">1.5</span> Impacto Social</h2>
+<section id="transparência-e-justiça" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="transparência-e-justiça"><span class="header-section-number">1.5.1</span> Transparência e Justiça</h3>
+<p>O método do BinaPs é significativamente mais interpretável que outras soluções usando inteligência artificial ou caixas-pretas. Tal transparência entrega um grau de confiança maior aos resultados e pode levar a estudos e entendimentos novos relacionados à area investigada.</p>
+<p>Além disso, como o processo é transparente, ele se torna mais fácil de ser ajustado por profissionais para evitar vieses indesejados como os de cor, gênero, raça, classe e outros.</p>
+</section>
+</section>
+<section id="cenários-de-uso" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="cenários-de-uso"><span class="header-section-number">1.6</span> Cenários de Uso</h2>
+<p>Similarmente a outros métodos de mineração de padrões, os usos são bem vastos, mas dessa vez eles são beneficiados também pela transparência. Aqui estão alguns deles:</p>
+<ul>
+<li><strong>Saúde</strong>
+<ul>
+<li>Estudo de biomarcadores relevantes para diagnósticos</li>
+<li>Detecção de padrões comuns à doenças como sintomas</li>
+</ul></li>
+<li><strong>Cidades inteligentes</strong>
+<ul>
+<li>Análise de padrões de tráfego para otimização do transporte</li>
+<li>Mineração de padrões no uso de serviços públicos</li>
+</ul></li>
+<li><strong>Educação</strong>
+<ul>
+<li>Análise de trajetórias acadêmicas para politicas de incentivo</li>
+<li>Estudo de consumo de cursos para personalização de trilhas</li>
+</ul></li>
+<li><strong>Comércio</strong>
+<ul>
+<li>Padrões de compras para sistemas de recomendação</li>
+<li>Perfis de consumidores para marketing personalizado</li>
+</ul></li>
+<li><strong>Governos e Organizações</strong>
+<ul>
+<li>Detecção de padrões de fraude em transações como as bancárias</li>
+<li>Estudo de padrões comportamentais para prevenção de crimes</li>
+</ul></li>
+</ul>
+</section>
+<section id="riscos" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="riscos"><span class="header-section-number">1.7</span> Riscos</h2>
+<p>O BinaPs é uma ferramenta. Da mesma forma que é necessário cuidado ao usar um martelo, é importante saber os riscos que tomamos ao usar uma ferramenta dessas para evitar problemas. Um dos maiores riscos são os de <strong>dados enviesados</strong>.</p>
+<p>Grande porção dos dados usados são daqueles que mais coletam dados, que tendem a ser países de primeiro mundo nas classes media e alta. Além disso, muitos dados são enviesados por cor, raça, gênero e outros fatores que não devem serem analisados como causalidade por motivos éticos.</p>
+<p>Exemplos de dados enviesados incluem a ferramenta de triagem de currículos da Amazon, que aprendeu e manteve o preconceito de gênero que estava presente antes de sua implementação, o que desfavoreceu o gênero feminino.</p>
+<p>Além disso, há áreas de implementação que não podem ter vieses como por exemplo:</p>
+<ul>
+<li>Concessão de crédito
+<ul>
+<li>Discriminação, Desinformação, Privacidade, Over-Marketing</li>
+</ul></li>
+<li>Precificação de seguros e planos de saúde
+<ul>
+<li>Diferenciação de grupos por fatores pessoais, étnicos, etários ou de doenças.</li>
+</ul></li>
+</ul>
+<p>Em ambos os casos, são necessárias políticas como a LGPD para garantir a anonimização dos dados e a publicação de métodos e entradas utilizados para que especialistas possam discutir as questões éticas do uso dos dados específicos utilizados.</p>
+</section>
+<section id="conclusão" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="conclusão"><span class="header-section-number">1.8</span> Conclusão</h2>
+<p>O BinaPs é um algoritmo de mineração de padrões inovador, com características transparentes e eficientes em relação à competição. Seu código é aberto e bem explicado com um gerador de dados sintéticos incluso e alguns estudos preliminares de áreas que podem beneficiar do seu uso. Se for usado como uma ferramenta de forma responsável, ele pode ser um pioneiro em estudos, análises e sumarizações de dados massivos.</p>
+</section>
+<section id="links-de-interesse" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="links-de-interesse"><span class="header-section-number">1.9</span> Links de Interesse</h2>
 <ul>
 <li><strong>Título:</strong> Differentiable Pattern Set Mining</li>
 <li><a href="https://doi.org/10.1145/3447548.3467348">Artigo</a> (<span class="citation" data-cites="Fischer_2021">Fischer e Vreeken (<a href="#ref-Fischer_2021" role="doc-biblioref">2021</a>)</span>)
@@ -1132,7 +1519,7 @@ Fischer, Jonas, e Jilles Vreeken. 2021. <span>“Differentiable Pattern Set Mini
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>As aplicações de mineração de padrões são variadas, desde ciências naturais como Biologia e Química, estudos estatísticos e matemáticos e análises societais e comportamentais.</span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>Infelizmente, os algoritmos para mineração de padrões são extremamente custosos, sendo duplamente exponenciais no _número de atributos_. Além disso, eles sofrem de redundância nas respostas, muitas vezes repetindo padrões similares e de relevância das respostas, sofrendo com overfitting ou underfitting.</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>Infelizmente, os algoritmos para mineração de padrões são extremamente custosos, sendo duplamente exponencial no _número de atributos_. Além disso, eles sofrem de redundância nas respostas, muitas vezes repetindo padrões similares e de relevância das respostas, sofrendo com overfitting ou underfitting.</span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## BinaPs</span></span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
@@ -1154,9 +1541,9 @@ Fischer, Jonas, e Jilles Vreeken. 2021. <span>“Differentiable Pattern Set Mini
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="fu">### Funcionamento</span></span>
 <span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>Inspirado por decoders e encoders, o algoritmo tem como objetivo pegar os atributos de um item, codificar eles em o mesmo número ou menos de neurônios no processo e retornar para o número inicial. Considere a @fig-encdec a seguir:</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>Inspirado por decoders e encoders, o algoritmo tem como objetivo pegar os atributos de um item, codificar eles em o mesmo número ou menos de neurônios no processo e retornar para o número inicial como representado pela @fig-encdec.</span>
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="al">![Enconder e Decoder][Imagem: Enconder e Decoder]</span>{#fig-encdec}</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="al">![Encoder e Decoder][Imagem: Encoder e Decoder]</span>{#fig-encdec}</span>
 <span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>O BinaPs contém algumas otimizações e considerações quando considerado com outras rede neurais, dentre elas:</span>
 <span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
@@ -1177,7 +1564,7 @@ Fischer, Jonas, e Jilles Vreeken. 2021. <span>“Differentiable Pattern Set Mini
 <span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>Dados sintéticos foram escolhidos pois é possível inserir ou estudar padrões reais nos dados previamente, podendo assim comparar os resultados dos algoritmos com o "ground truth", ou seja, o que assumimos ser a verdade.</span>
 <span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>Para medir a performance dos algoritmos foi usado a **F1-score**, uma medida calculada pela média harmonica do _precision_ e do _recall_, comumente usada em machine learning para avaliar a performance de modelos.</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>Para medir a performance dos algoritmos foi usado a **F1-score**, uma medida calculada pela média harmonica do _precision_ e do _recall_, comumente usada em aprendizado de máquina para avaliar a performance de modelos.</span>
 <span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Escalabilidade</span></span>
 <span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
@@ -1224,7 +1611,7 @@ Fischer, Jonas, e Jilles Vreeken. 2021. <span>“Differentiable Pattern Set Mini
 <span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Análise Qualitativa</span></span>
 <span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>Ao contrário dos dados sintéticos, não temos como saber quais padrões são "corretos" ou "incorretos". Dessa forma, a análise é mais subjetiva. Primeiro comparamos o número de padrões encontrados nos 5 bancos de dados:</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>Ao contrário dos dados sintéticos, não temos como saber quais padrões são "corretos" ou "incorretos". Dessa forma, a análise é mais subjetiva. Primeiro comparamos o número de padrões encontrados (@tbl-padroes) nos 5 bancos de dados (@tbl-Analise) e o tempo de execução de cada algoritmo (@tbl-tempo).</span>
 <span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Tabela 1a:** $<span class="sc">\#</span>\ Patterns$</span>
 <span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
@@ -1236,70 +1623,205 @@ Fischer, Jonas, e Jilles Vreeken. 2021. <span>“Differentiable Pattern Set Mini
 <span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Kosarak   <span class="pp">|</span>   $990002$ <span class="pp">|</span>    $41270$ <span class="pp">|</span>  $n/a$ <span class="pp">|</span>    **$302$** <span class="pp">|</span>  $n/a$ <span class="pp">|</span>   $n/a$ <span class="pp">|</span></span>
 <span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Genomes   <span class="pp">|</span>     $2504$ <span class="pp">|</span>   $226623$ <span class="pp">|</span>  $n/a$ <span class="pp">|</span>     **$42$** <span class="pp">|</span>  $n/a$ <span class="pp">|</span>   $n/a$ <span class="pp">|</span></span>
 <span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Tabela 1b:** $Runtime$</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>: Número de padrões encontrados pelos algoritmos {#tbl-numero-padroes}</span>
 <span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> $Dataset$ <span class="pp">|</span> $<span class="sc">\#</span>\ rows$ <span class="pp">|</span> $<span class="sc">\#</span>\ cols$ <span class="pp">|</span>   $Asso$ <span class="pp">|</span> **$BinaPs$** <span class="pp">|</span>   $Desc$ <span class="pp">|</span>   $Slim$ <span class="pp">|</span></span>
-<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="pp">| :--------</span> <span class="pp">| ---------:</span> <span class="pp">| ---------:</span> <span class="pp">| -------:</span> <span class="pp">| -----------:</span> <span class="pp">| -------:</span> <span class="pp">| -------:</span> <span class="pp">|</span></span>
-<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> DNA       <span class="pp">|</span>     $2458$ <span class="pp">|</span>      $391$ <span class="pp">|</span>    $4 m$ <span class="pp">|</span>   **$26 s$** <span class="pp">|</span>   $20 s$ <span class="pp">|</span>    $2 s$ <span class="pp">|</span></span>
-<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Accidents <span class="pp">|</span>   $340183$ <span class="pp">|</span>      $468$ <span class="pp">|</span>   $12 h$ <span class="pp">|</span>    **$6 m$** <span class="pp">|</span>   $14 m$ <span class="pp">|</span>   $21 h$ <span class="pp">|</span></span>
-<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Instacart <span class="pp">|</span>  $2704831$ <span class="pp">|</span>     $1235$ <span class="pp">|</span> $\infty$ <span class="pp">|</span>   **$44 m$** <span class="pp">|</span>   $25 m$ <span class="pp">|</span>    $8 h$ <span class="pp">|</span></span>
-<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Kosarak   <span class="pp">|</span>   $990002$ <span class="pp">|</span>    $41270$ <span class="pp">|</span> $\infty$ <span class="pp">|</span>    **$5 h$** <span class="pp">|</span> $\infty$ <span class="pp">|</span> $\infty$ <span class="pp">|</span></span>
-<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Genomes   <span class="pp">|</span>     $2504$ <span class="pp">|</span>   $226623$ <span class="pp">|</span> $\infty$ <span class="pp">|</span>    **$9 m$** <span class="pp">|</span> $\infty$ <span class="pp">|</span> $\infty$ <span class="pp">|</span></span>
-<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>Em alguns casos, os outros algoritmos não conseguiram rodar em até 3 dias ou dentre 256GB de RAM. Tais cenários foram marcados com n/a ou infinito.</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Tabela 1b:** $Runtime$</span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> $Dataset$ <span class="pp">|</span> $<span class="sc">\#</span>\ rows$ <span class="pp">|</span> $<span class="sc">\#</span>\ cols$ <span class="pp">|</span>   $Asso$ <span class="pp">|</span> **$BinaPs$** <span class="pp">|</span>   $Desc$ <span class="pp">|</span>   $Slim$ <span class="pp">|</span></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="pp">| :--------</span> <span class="pp">| ---------:</span> <span class="pp">| ---------:</span> <span class="pp">| -------:</span> <span class="pp">| -----------:</span> <span class="pp">| -------:</span> <span class="pp">| -------:</span> <span class="pp">|</span></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> DNA       <span class="pp">|</span>     $2458$ <span class="pp">|</span>      $391$ <span class="pp">|</span>    $4 m$ <span class="pp">|</span>   **$26 s$** <span class="pp">|</span>   $20 s$ <span class="pp">|</span>    $2 s$ <span class="pp">|</span></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Accidents <span class="pp">|</span>   $340183$ <span class="pp">|</span>      $468$ <span class="pp">|</span>   $12 h$ <span class="pp">|</span>    **$6 m$** <span class="pp">|</span>   $14 m$ <span class="pp">|</span>   $21 h$ <span class="pp">|</span></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Instacart <span class="pp">|</span>  $2704831$ <span class="pp">|</span>     $1235$ <span class="pp">|</span> $\infty$ <span class="pp">|</span>   **$44 m$** <span class="pp">|</span>   $25 m$ <span class="pp">|</span>    $8 h$ <span class="pp">|</span></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Kosarak   <span class="pp">|</span>   $990002$ <span class="pp">|</span>    $41270$ <span class="pp">|</span> $\infty$ <span class="pp">|</span>    **$5 h$** <span class="pp">|</span> $\infty$ <span class="pp">|</span> $\infty$ <span class="pp">|</span></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Genomes   <span class="pp">|</span>     $2504$ <span class="pp">|</span>   $226623$ <span class="pp">|</span> $\infty$ <span class="pp">|</span>    **$9 m$** <span class="pp">|</span> $\infty$ <span class="pp">|</span> $\infty$ <span class="pp">|</span></span>
 <span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>O **BinaPs** retornou resultados menos redundantes, facilitando interpretabilidade. Além disso, foram notados algumas falhas em outros algoritmos, dentre eles:</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>: Comparativo de tempo entre os algoritmos {#tbl-comparativo}</span>
 <span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Asso** não conseguiu escalar bem</span>
-<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Slim** encontrou milhares de resultados redundantes</span>
-<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Desc** sofre de underfitting e só retornou padrões de tamanho 2 no Instacart.</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>::: {#tbl-Analise layout-ncol=3}</span>
 <span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Análise Quantitativa</span></span>
-<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>Foi feita uma análise quantitativa em 3 dos bancos de dados listados acima. Duas comparativas (DNA, Instacart) e uma individual.</span>
-<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>**DNA:** _BinaPs_ e _Asso_ encontraram blocos de DNA e conjuntos desses blocos como estruturas, representando elementos biologicamente relevantes. _Slim_ começa a encontrar blocos, mas faz um overfitting para padrões grandes demais que acontecem raramente e não tem estrutura evidente de blocos. _Desc_ encontra padrões pequenos apenas graças a um underfitting.</span>
-<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>**Instacart:** _BinaPs_ encontra padrões grandes com combinações arbitrárias como um conjunto de 12 frutas comprados de formas diferentes. O _Slim_ quebra este conjunto em milhares de padrões menores. _Desc_ faz underfitting novamente, encontrando padrões de tamanho 2 apenas. Além disso, o _BinaPs_ também encontrou padrões pequenos que se assemelham à lista de ingredientes de pratos culinários, mostrando relevância novamente.</span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> $Dataset$ <span class="pp">|</span> $<span class="sc">\#</span>\ rows$ <span class="pp">|</span> $<span class="sc">\#</span>\ cols$ <span class="pp">|</span></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="pp">| :--------</span> <span class="pp">| ---------:</span> <span class="pp">| ---------:</span> <span class="pp">|</span></span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> DNA       <span class="pp">|</span>     $2458$ <span class="pp">|</span>      $391$ <span class="pp">|</span></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Accidents <span class="pp">|</span>   $340183$ <span class="pp">|</span>      $468$ <span class="pp">|</span></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Instacart <span class="pp">|</span>  $2704831$ <span class="pp">|</span>     $1235$ <span class="pp">|</span></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Kosarak   <span class="pp">|</span>   $990002$ <span class="pp">|</span>    $41270$ <span class="pp">|</span></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Genomes   <span class="pp">|</span>     $2504$ <span class="pp">|</span>   $226623$ <span class="pp">|</span></span>
 <span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>**Genomes:** De acordo com os autores, esta seção obteve os resultados mais promissores, sendo um motivador principal para o estudo.</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>: Linhas e colunas dos datasets {#tbl-linhas-colunas}</span>
 <span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>Foi possível encontrar padrões antes conhecidos de genes relacionados, como os NUCB2 e ABCC8 relacionados à diabetes tipo 2 e pressão alta em populações japonesas. Porém, muitas vezes esses grupos conhecidos estavam adjuntos a outros elementos, como o NCR3LG1 e ROMO1. Isso demonstra a possibilidade do uso do algoritmo para estabelecer relações novas que podem ser estudadas no futuro.</span>
-<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a>Outro exemplo foi o des genes SF3A1, RRP7A e Z82190 onde os dois primeiros codificam proteínas que são parte do ribossomo (que por sua conta é a fábrica de proteínas da célula), já o terceiro não é caracterizado. O padrão destes juntos é uma dica que pode guiar estudos futuros nessa área.</span>
-<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>Por final, ao analisar padrões de variantes entre alelos, o BinaPs sugere que variantes raras normalmente acompanhadas de comuns podem acontecer de um para o outro "$0 \mid 1$" como na literatura, mas muitas vezes também acontece em "1 \mid 0", ou seja, os raros no alelo que antes havia comuns e vice-versa. Os autores não sabem se isso têm significado biológico, sugerindo que isso seja analisado por profissionais da área.</span>
-<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a><span class="fu">## Execução</span></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> $Asso$ <span class="pp">|</span> **$BinaPs$** <span class="pp">|</span> $Desc$ <span class="pp">|</span>  $Slim$ <span class="pp">|</span></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="pp">| -----:</span> <span class="pp">| -----------:</span> <span class="pp">| -----:</span> <span class="pp">| ------:</span> <span class="pp">|</span></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  $134$ <span class="pp">|</span>    **$131$** <span class="pp">|</span>  $345$ <span class="pp">|</span>   $281$ <span class="pp">|</span></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  $133$ <span class="pp">|</span>     **$78$** <span class="pp">|</span>  $215$ <span class="pp">|</span> $12261$ <span class="pp">|</span></span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  $n/a$ <span class="pp">|</span>    **$328$** <span class="pp">|</span>  $712$ <span class="pp">|</span>  $8119$ <span class="pp">|</span></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  $n/a$ <span class="pp">|</span>    **$302$** <span class="pp">|</span>  $n/a$ <span class="pp">|</span>   $n/a$ <span class="pp">|</span></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  $n/a$ <span class="pp">|</span>     **$42$** <span class="pp">|</span>  $n/a$ <span class="pp">|</span>   $n/a$ <span class="pp">|</span></span>
 <span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a><span class="fu">## Impacto Socail</span></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>: Número de padrões encontrados pelos algoritmos {#tbl-padroes}</span>
 <span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="fu">## Links de Interesse</span></span>
-<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Título:** Differentiable Pattern Set Mining</span>
-<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Artigo</span><span class="co">][Link_artigo]</span> (@Fischer_2021)</span>
-<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">PDF</span><span class="co">][Link_artigo_pdf]</span></span>
-<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Apresentação dos Autores</span><span class="co">][Apresentação dos Autores]</span></span>
-<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Apresentação</span><span class="co">][Slide_art1]</span></span>
-<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">PDF</span><span class="co">][Slide_art1_pdf]</span></span>
-<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Links --&gt;</span></span>
-<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a><span class="ot">[Link_artigo]: https://doi.org/10.1145/3447548.3467348</span></span>
-<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="ot">[Link_artigo_pdf]: https://dl.acm.org/doi/pdf/10.1145/3447548.3467348</span></span>
-<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a><span class="ot">[Apresentação dos Autores]: https://dl.acm.org/action/downloadSupplement?doi=10.1145%2F3447548.3467348&amp;file=differentiable_pattern_set_mining-jonas_fischer-jilles_vreeken-38957922-489z.mp4</span></span>
-<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="ot">[Slide_art1]: https://ufmgbr-my.sharepoint.com/:p:/g/personal/rvimieiro_ufmg_br/ESSM0mBDMNZFj7vzopqACYIBKOi3ChX9tsyje_2RroiT4Q</span></span>
-<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a><span class="ot">[Slide_art1_pdf]: </span>&lt;seminario1\src\artigo1 - Apresentação.pdf&gt;</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>   $Asso$ <span class="pp">|</span> **$BinaPs$** <span class="pp">|</span>   $Desc$ <span class="pp">|</span>   $Slim$ <span class="pp">|</span></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a><span class="pp">| -------:</span> <span class="pp">| -----------:</span> <span class="pp">| -------:</span> <span class="pp">| -------:</span> <span class="pp">|</span></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>    $4 m$ <span class="pp">|</span>   **$26 s$** <span class="pp">|</span>   $20 s$ <span class="pp">|</span>    $2 s$ <span class="pp">|</span></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>   $12 h$ <span class="pp">|</span>    **$6 m$** <span class="pp">|</span>   $14 m$ <span class="pp">|</span>   $21 h$ <span class="pp">|</span></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> $\infty$ <span class="pp">|</span>   **$44 m$** <span class="pp">|</span>   $25 m$ <span class="pp">|</span>    $8 h$ <span class="pp">|</span></span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> $\infty$ <span class="pp">|</span>    **$5 h$** <span class="pp">|</span> $\infty$ <span class="pp">|</span> $\infty$ <span class="pp">|</span></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> $\infty$ <span class="pp">|</span>    **$9 m$** <span class="pp">|</span> $\infty$ <span class="pp">|</span> $\infty$ <span class="pp">|</span></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>: Comparativo de tempo entre os algoritmos {#tbl-tempo}</span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>Tabela comparativa dos datasets</span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>Em alguns casos, os outros algoritmos não conseguiram rodar em até 3 dias ou dentre 256GB de RAM. Tais cenários foram marcados com n/a ou infinito ({@tbl-comparativo}).</span>
 <span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Imagens --&gt;</span></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a>O **BinaPs** retornou resultados menos redundantes, facilitando interpretabilidade. Além disso, foram notados algumas falhas em outros algoritmos, dentre eles:</span>
 <span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a><span class="ot">[Imagem: Enconder e Decoder]: https://www.mdpi.com/applsci/applsci-13-12413/article_deploy/html/images/applsci-13-12413-g001.png</span></span>
-<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a><span class="ot">[Imagem: Figura 1]: </span>src\art1\Figura1.png</span>
-<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a><span class="ot">[Imagem: Figura 2a]: </span>src\art1\Figura2a.png</span>
-<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="ot">[Imagem: Figura 2b]: </span>src\art1\Figura2b.png</span>
-<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a><span class="ot">[Imagem: Figura 3]: </span>src\art1\Figura3.png</span>
-<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="ot">[Imagem: Figura 4a]: </span>src\art1\Figura4a.png</span>
-<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="ot">[Imagem: Figura 4b]: </span>src\art1\Figura4b.png</span></code><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Asso** não conseguiu escalar bem</span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Slim** encontrou milhares de resultados redundantes</span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Desc** sofre de underfitting e só retornou padrões de tamanho 2 no Instacart.</span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Análise Quantitativa</span></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>Foi feita uma análise quantitativa em 3 dos bancos de dados listados acima. Duas comparativas (DNA, Instacart) e uma individual.</span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>**DNA:** _BinaPs_ e _Asso_ encontraram blocos de DNA e conjuntos desses blocos como estruturas, representando elementos biologicamente relevantes. _Slim_ começa a encontrar blocos, mas faz um overfitting para padrões grandes demais que acontecem raramente e não tem estrutura evidente de blocos. _Desc_ encontra padrões pequenos apenas graças a um underfitting.</span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a>**Instacart:** _BinaPs_ encontra padrões grandes com combinações arbitrárias como um conjunto de 12 frutas comprados de formas diferentes. O _Slim_ quebra este conjunto em milhares de padrões menores. _Desc_ faz underfitting novamente, encontrando padrões de tamanho 2 apenas. Além disso, o _BinaPs_ também encontrou padrões pequenos que se assemelham à lista de ingredientes de pratos culinários, mostrando relevância novamente.</span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a>**Genomes:** De acordo com os autores, esta seção obteve os resultados mais promissores, sendo um motivador principal para o estudo.</span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a>Foi possível encontrar padrões antes conhecidos de genes relacionados, como os NUCB2 e ABCC8 relacionados à diabetes tipo 2 e pressão alta em populações japonesas. Porém, muitas vezes esses grupos conhecidos estavam adjuntos a outros elementos, como o NCR3LG1 e ROMO1. Isso demonstra a possibilidade do uso do algoritmo para estabelecer relações novas que podem ser estudadas no futuro.</span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a>Outro exemplo foi o dos genes SF3A1, RRP7A e Z82190 onde os dois primeiros codificam proteínas que são parte do ribossomo (que por sua conta é a fábrica de proteínas da célula), já o terceiro não é caracterizado. O padrão destes juntos é uma dica que pode guiar estudos futuros nessa área.</span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>Por final, ao analisar padrões de variantes entre alelos, o BinaPs sugere que variantes raras normalmente acompanhadas de comuns podem acontecer de um para o outro "$0 \mid 1$" como na literatura, mas muitas vezes também acontece em "1 \mid 0", ou seja, os raros no alelo que antes havia comuns e vice-versa. Os autores não sabem se isso têm significado biológico, sugerindo que isso seja analisado por profissionais da área.</span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a><span class="fu">## Execução</span></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a>O artigo nos entrega um <span class="co">[</span><span class="ot">Link para o repositório</span><span class="co">][Link_BinaPs]</span>. Para rodar o BinaPs em uma máquina comum é necessário:</span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gerar dados sintéticos</span></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Baixar e descompactar os arquivos</span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Instalar as dependências (Pytorch, Scipy, Pandas, Numpy, R)</span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Alterar arquivo <span class="in">`genSynth.sh`</span> para parâmetros de uma máquina convencional (8 a 32GB de RAM)</span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Executar <span class="in">`./genSynth.sh`</span></span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>O resultado é um arquivo .dat com os dados em formato de matriz binária esparsa. Ou seja, para cada linha, os elementos da linha são os indices das posições com valor 1 na matriz original.</span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Executar o algoritmo</span></span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>Para executar basta chamar <span class="in">`python main.py --input &lt;arquivo.dat&gt; --batch_size &lt;32 ou 64&gt;`</span> que pode também ser adjunto dos parâmetros apresentados na @tbl-parametros-binasps.</span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Parâmetro           <span class="pp">|</span> Tipo    <span class="pp">|</span> Valor padrão <span class="pp">|</span> Descrição                                                            <span class="pp">|</span></span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a><span class="pp">| :------------------</span> <span class="pp">| :------</span> <span class="pp">| -----------:</span> <span class="pp">| :-------------------------------------------------------------------</span> <span class="pp">|</span></span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`--save_model`</span>      <span class="pp">|</span> <span class="in">`bool`</span>  <span class="pp">|</span>      $False$ <span class="pp">|</span> Se ativado, salva o modelo treinado para disco                       <span class="pp">|</span></span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`--gamma`</span>           <span class="pp">|</span> <span class="in">`float`</span> <span class="pp">|</span>        $0.1$ <span class="pp">|</span> Fator de decaimento do learning rate (usado no agendador de LR)      <span class="pp">|</span></span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`--lr`</span>              <span class="pp">|</span> <span class="in">`float`</span> <span class="pp">|</span>       $0.01$ <span class="pp">|</span> Taxa de aprendizado (learning rate)                                  <span class="pp">|</span></span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`--train_set_size`</span>  <span class="pp">|</span> <span class="in">`float`</span> <span class="pp">|</span>        $0.9$ <span class="pp">|</span> Proporção dos dados usada para treinamento                           <span class="pp">|</span></span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`--weight_decay`</span>    <span class="pp">|</span> <span class="in">`float`</span> <span class="pp">|</span>        $0.0$ <span class="pp">|</span> Fator de penalização L2 (regularização dos pesos)                    <span class="pp">|</span></span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`--batch_size`</span>      <span class="pp">|</span> <span class="in">`int`</span>   <span class="pp">|</span>         $64$ <span class="pp">|</span> Tamanho do batch para treinamento                                    <span class="pp">|</span></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`--epochs`</span>          <span class="pp">|</span> <span class="in">`int`</span>   <span class="pp">|</span>         $10$ <span class="pp">|</span> Número de épocas de treinamento                                      <span class="pp">|</span></span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`--hidden_dim`</span>      <span class="pp">|</span> <span class="in">`int`</span>   <span class="pp">|</span>         $-1$ <span class="pp">|</span> Número de neurônios ocultos (usa #features se -1)                    <span class="pp">|</span></span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`--log_interval`</span>    <span class="pp">|</span> <span class="in">`int`</span>   <span class="pp">|</span>         $10$ <span class="pp">|</span> Intervalo (em batches) para exibir logs de treino                    <span class="pp">|</span></span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`--seed`</span>            <span class="pp">|</span> <span class="in">`int`</span>   <span class="pp">|</span>          $1$ <span class="pp">|</span> Semente para reprodutibilidade (random seed)                         <span class="pp">|</span></span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`--test_batch_size`</span> <span class="pp">|</span> <span class="in">`int`</span>   <span class="pp">|</span>         $64$ <span class="pp">|</span> Tamanho do batch para teste                                          <span class="pp">|</span></span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`--thread_num`</span>      <span class="pp">|</span> <span class="in">`int`</span>   <span class="pp">|</span>         $16$ <span class="pp">|</span> Número de threads a serem usadas no treinamento                      <span class="pp">|</span></span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`--input (-i)`</span>      <span class="pp">|</span> <span class="in">`str`</span>   <span class="pp">|</span>  Obrigatório <span class="pp">|</span> Caminho para o arquivo de entrada (dados usados para treino e teste) <span class="pp">|</span></span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a>: Parâmetros do BinaPs {#tbl-parametros-binasps}</span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Saída do algoritmo</span></span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a>Após o treinamento marcado pelas "Epoch" temos alguns dados como a "Average loss" e a "Accuracy" seguido dos padrões dispostos na @fig-exec-binaps.</span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a><span class="al">![Resultado da execução do BinaPs][Imagem: Figura 5]</span>{#fig-exec-binaps}</span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>Cada linha dos padrões mostra um padrão que foi reconstruído, como por exemplo o $<span class="co">[</span><span class="ot">45, 46, 47, 48, 49</span><span class="co">]</span>$ seguido de dois números: O primeiro o número de amostras que ativaram **todos** os bits e o segundo amostras que ativaram **metade** dos bits do padrão. Ou seja, $4404$ vezes os bits $45$ a $49$ foram completamente ativados e $4425$ vezes parcialmente ativados (metade).</span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a>**Conclusão:** O padrão $<span class="co">[</span><span class="ot">45-49</span><span class="co">]</span>$ é altamente confiável pois aparece em mais de 99% das vezes que é parcialmente ativado, indicando forte consistência local nos dados.</span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a><span class="fu">## Impacto Social</span></span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="fu">### Transparência e Justiça</span></span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a>O método do BinaPs é significativamente mais interpretável que outras soluções usando inteligência artificial ou caixas-pretas. Tal transparência entrega um grau de confiança maior aos resultados e pode levar a estudos e entendimentos novos relacionados à area investigada.</span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a>Além disso, como o processo é transparente, ele se torna mais fácil de ser ajustado por profissionais para evitar vieses indesejados como os de cor, gênero, raça, classe e outros.</span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cenários de Uso</span></span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a>Similarmente a outros métodos de mineração de padrões, os usos são bem vastos, mas dessa vez eles são beneficiados também pela transparência. Aqui estão alguns deles:</span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Saúde**</span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Estudo de biomarcadores relevantes para diagnósticos</span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Detecção de padrões comuns à doenças como sintomas</span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cidades inteligentes**</span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Análise de padrões de tráfego para otimização do transporte</span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Mineração de padrões no uso de serviços públicos</span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Educação**</span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Análise de trajetórias acadêmicas para politicas de incentivo</span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Estudo de consumo de cursos para personalização de trilhas</span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Comércio**</span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Padrões de compras para sistemas de recomendação</span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Perfis de consumidores para marketing personalizado</span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Governos e Organizações**</span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Detecção de padrões de fraude em transações como as bancárias</span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Estudo de padrões comportamentais para prevenção de crimes</span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a><span class="fu">## Riscos</span></span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a>O BinaPs é uma ferramenta. Da mesma forma que é necessário cuidado ao usar um martelo, é importante saber os riscos que tomamos ao usar uma ferramenta dessas para evitar problemas. Um dos maiores riscos são os de **dados enviesados**.</span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a>Grande porção dos dados usados são daqueles que mais coletam dados, que tendem a ser países de primeiro mundo nas classes media e alta. Além disso, muitos dados são enviesados por cor, raça, gênero e outros fatores que não devem serem analisados como causalidade por motivos éticos.</span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a>Exemplos de dados enviesados incluem a ferramenta de triagem de currículos da Amazon, que aprendeu e manteve o preconceito de gênero que estava presente antes de sua implementação, o que desfavoreceu o gênero feminino.</span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a>Além disso, há áreas de implementação que não podem ter vieses como por exemplo:</span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Concessão de crédito</span>
+<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Discriminação, Desinformação, Privacidade, Over-Marketing</span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Precificação de seguros e planos de saúde</span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Diferenciação de grupos por fatores pessoais, étnicos, etários ou de doenças.</span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a>Em ambos os casos, são necessárias políticas como a LGPD para garantir a anonimização dos dados e a publicação de métodos e entradas utilizados para que especialistas possam discutir as questões éticas do uso dos dados específicos utilizados.</span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusão</span></span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a>O BinaPs é um algoritmo de mineração de padrões inovador, com características transparentes e eficientes em relação à competição. Seu código é aberto e bem explicado com um gerador de dados sintéticos incluso e alguns estudos preliminares de áreas que podem beneficiar do seu uso. Se for usado como uma ferramenta de forma responsável, ele pode ser um pioneiro em estudos, análises e sumarizações de dados massivos.</span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a><span class="fu">## Links de Interesse</span></span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Título:** Differentiable Pattern Set Mining</span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Artigo</span><span class="co">][Link_artigo]</span> (@Fischer_2021)</span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">PDF</span><span class="co">][Link_artigo_pdf]</span></span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">Apresentação dos Autores</span><span class="co">][Apresentação dos Autores]</span></span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Apresentação</span><span class="co">][Slide_art1]</span></span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="co">[</span><span class="ot">PDF</span><span class="co">][Slide_art1_pdf]</span></span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Links --&gt;</span></span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a><span class="ot">[Link_artigo]: https://doi.org/10.1145/3447548.3467348</span></span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a><span class="ot">[Link_artigo_pdf]: https://dl.acm.org/doi/pdf/10.1145/3447548.3467348</span></span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a><span class="ot">[Apresentação dos Autores]: https://dl.acm.org/action/downloadSupplement?doi=10.1145%2F3447548.3467348&amp;file=differentiable_pattern_set_mining-jonas_fischer-jilles_vreeken-38957922-489z.mp4</span></span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a><span class="ot">[Slide_art1]: https://ufmgbr-my.sharepoint.com/:p:/g/personal/rvimieiro_ufmg_br/ESSM0mBDMNZFj7vzopqACYIBKOi3ChX9tsyje_2RroiT4Q</span></span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a><span class="ot">[Slide_art1_pdf]: </span>&lt;seminario1\src\artigo1 - Apresentação.pdf&gt;</span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a><span class="ot">[Link_BinaPs]: https://eda.rg.cispa.io/prj/binaps</span></span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Imagens --&gt;</span></span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a><span class="ot">[Imagem: Encoder e Decoder]: https://www.mdpi.com/applsci/applsci-13-12413/article_deploy/html/images/applsci-13-12413-g001.png</span></span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a><span class="ot">[Imagem: Figura 1]: </span>src\art1\Figura1.png</span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a><span class="ot">[Imagem: Figura 2a]: </span>src\art1\Figura2a.png</span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a><span class="ot">[Imagem: Figura 2b]: </span>src\art1\Figura2b.png</span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a><span class="ot">[Imagem: Figura 3]: </span>src\art1\Figura3.png</span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a><span class="ot">[Imagem: Figura 4a]: </span>src\art1\Figura4a.png</span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a><span class="ot">[Imagem: Figura 4b]: </span>src\art1\Figura4b.png</span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a><span class="ot">[Imagem: Figura 5]: </span>src\art1\Figura5.png</span></code><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
