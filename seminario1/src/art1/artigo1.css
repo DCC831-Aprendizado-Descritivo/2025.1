@@ -1,26 +1,4 @@
-/*
-.caption {
-  text-align: center;
-}
-
-.figure-caption {
-  text-align: center;
-}
-
-.figure {
-  margin: auto;
-  text-align: center;
-}
-*/
-
 figcaption {
   margin: auto;
   text-align: center;
 }
-
-/*
-.figcaption {
-  margin: auto;
-  text-align: center;
-}
-*/
