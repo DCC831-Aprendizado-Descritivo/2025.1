@@ -191,9 +191,7 @@ Ao contrário dos dados sintéticos, não temos como saber quais padrões são "
 Tabela comparativa dos datasets
 :::
 
-<!-- --- -->
-
-Em alguns casos, os outros algoritmos não conseguiram rodar em até 3 dias ou dentre 256GB de RAM. Tais cenários foram marcados com n/a ou infinito (@tbl-comparativo).
+Em alguns casos, os outros algoritmos não conseguiram rodar em até 3 dias ou dentre 256GB de RAM. Tais cenários foram marcados com n/a ou infinito (@tbl-padroes).
 
 O **BinaPs** retornou resultados menos redundantes, facilitando interpretabilidade. Além disso, foram notados algumas falhas em outros algoritmos, dentre eles:
 
