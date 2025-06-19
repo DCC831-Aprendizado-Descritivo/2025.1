@@ -15,7 +15,6 @@ format:
     fig-width: 8
     fig-height: 6
     fig-align: center
-    fig-caption-align: center
     fig-format: png
     fig-cap-location: top
     css: src/art1/artigo1.css
