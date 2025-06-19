@@ -1,4 +1,5 @@
-/* .caption {
+/*
+.caption {
   text-align: center;
 }
 
@@ -10,13 +11,16 @@
   margin: auto;
   text-align: center;
 }
+*/
 
 figcaption {
   margin: auto;
   text-align: center;
-} */
+}
 
+/*
 .figcaption {
   margin: auto;
   text-align: center;
 }
+*/
