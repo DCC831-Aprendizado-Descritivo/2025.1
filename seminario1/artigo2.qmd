@@ -151,4 +151,4 @@ O problema indicado no artigo, apesar de ser apresentado como algo inédito, é 
 
 ## Referências
 
-* Ying, R., Fu, T., Wang, A., You, J., Wang, Y., & Leskovec, J. (2024). Representation Learning for Frequent Subgraph Mining. arXiv preprint arXiv:2402.14367. https://doi.org/10.48550/arXiv.2402.14367​
+* Ouarem, O., Nouioua, F. & Fournier-Viger, P. Discovering frequent parallel episodes in complex event sequences by counting distinct occurrences. Appl Intell 54, 701–721 (2024). https://doi.org/10.1007/s10489-023-05187-y
