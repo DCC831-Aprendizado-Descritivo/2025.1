@@ -2,7 +2,6 @@
 title: "Artigo 1: Differentiable Pattern Set Mining"
 page-layout: full
 
-author: "João Vítor Fernandes Dias, Kael Soares Augusto"
 date: "2025-06-13"
 date-format: long
 lang: "pt-BR"
@@ -288,16 +287,12 @@ O BinaPs é um algoritmo de mineração de padrões inovador, com característic
 - [Artigo][Link_artigo] (@Fischer_2021)
   - [PDF][Link_artigo_pdf]
   - [Apresentação dos Autores][Apresentação dos Autores]
-- [Apresentação][Slide_art1]
-  - [PDF][Slide_art1_pdf]
 
 <!-- Links -->
 
 [Link_artigo]: https://doi.org/10.1145/3447548.3467348
 [Link_artigo_pdf]: https://dl.acm.org/doi/pdf/10.1145/3447548.3467348
 [Apresentação dos Autores]: https://dl.acm.org/action/downloadSupplement?doi=10.1145%2F3447548.3467348&file=differentiable_pattern_set_mining-jonas_fischer-jilles_vreeken-38957922-489z.mp4
-[Slide_art1]: https://ufmgbr-my.sharepoint.com/:p:/g/personal/rvimieiro_ufmg_br/ESSM0mBDMNZFj7vzopqACYIBKOi3ChX9tsyje_2RroiT4Q
-[Slide_art1_pdf]: <seminario1\src\artigo1 - Apresentação.pdf>
 [Link_BinaPs]: https://eda.rg.cispa.io/prj/binaps
 
 <!-- Imagens -->
