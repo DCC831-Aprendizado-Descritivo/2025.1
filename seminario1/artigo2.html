@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -36,10 +36,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-941d7e14017e1a43777b60853515243b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d0eee84908effde45992ddd4914ebb36.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,6 +68,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -148,11 +177,36 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#emdo-e-emdo-p" id="toc-emdo-e-emdo-p" class="nav-link active" data-scroll-target="#emdo-e-emdo-p">EMDO e EMDO-P</a></li>
+  <li><a href="#conceitos-fundamentais" id="toc-conceitos-fundamentais" class="nav-link" data-scroll-target="#conceitos-fundamentais">Conceitos Fundamentais</a>
+  <ul class="collapse">
+  <li><a href="#contagem-de-ocorrências-distintas" id="toc-contagem-de-ocorrências-distintas" class="nav-link" data-scroll-target="#contagem-de-ocorrências-distintas">Contagem de Ocorrências Distintas</a></li>
+  <li><a href="#regras-de-episódios" id="toc-regras-de-episódios" class="nav-link" data-scroll-target="#regras-de-episódios">Regras de Episódios</a></li>
+  </ul></li>
+  <li><a href="#emdo" id="toc-emdo" class="nav-link" data-scroll-target="#emdo">EMDO</a>
+  <ul class="collapse">
+  <li><a href="#propriedade-da-anti-monotonicidade" id="toc-propriedade-da-anti-monotonicidade" class="nav-link" data-scroll-target="#propriedade-da-anti-monotonicidade">Propriedade da Anti-monotonicidade</a></li>
+  </ul></li>
+  <li><a href="#emdo-p" id="toc-emdo-p" class="nav-link" data-scroll-target="#emdo-p">EMDO-P</a></li>
+  <li><a href="#experimentos" id="toc-experimentos" class="nav-link" data-scroll-target="#experimentos">Experimentos</a>
+  <ul class="collapse">
+  <li><a href="#resultados" id="toc-resultados" class="nav-link" data-scroll-target="#resultados">Resultados</a></li>
+  <li><a href="#comparação" id="toc-comparação" class="nav-link" data-scroll-target="#comparação">Comparação</a></li>
+  </ul></li>
+  <li><a href="#aplicações-e-desafios" id="toc-aplicações-e-desafios" class="nav-link" data-scroll-target="#aplicações-e-desafios">Aplicações e Desafios</a></li>
+  <li><a href="#execução" id="toc-execução" class="nav-link" data-scroll-target="#execução">Execução</a></li>
+  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão">Conclusão</a></li>
+  <li><a href="#referências" id="toc-referências" class="nav-link" data-scroll-target="#referências">Referências</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -161,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -173,8 +227,149 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>A mineração de episódios é um problema similar à mineração de sequências, onde o objetivo é encontrar episódios (sequências de eventos) frequntes. Isso é feito a partir de uma sequência única com eventos temporais, com timestamp e com ou sem ordem (ou, ainda, com ordem parcial).Esse problema pode ser aplicado, por exemplo, na detecção de episódios que precedem quedas ou sobrecargas da rede elétrica.</p>
+<p>As soluções existentes para esse problema são baseadas em gerações de episódios maximais, episódios fechados e episódios geradores. Elas lidam apenas com episódios em série e, em sua maioria, em sequências simples, onde existe apenas um episódio por timestamp.</p>
+<section id="emdo-e-emdo-p" class="level2">
+<h2 class="anchored" data-anchor-id="emdo-e-emdo-p">EMDO e EMDO-P</h2>
+<p>Os autores do artigo propõem dois novos algoritmos para mineração de episódios: o <strong>EMDO</strong> (<span class="math inline">\(Episode Mining under Distinct Occurences\)</span>) e o <strong>EMDO-P</strong> (<span class="math inline">\(Episode Mining under Distinct Occurences with Pruning\)</span>). Eles são capazes de lidar com episódios paralelos e com sequências complexas, onde há mais de um episódio por timestamp. Além disso, uma nova definição de frequência é introduzida e utilizada por esses algoritmos. Isso foi feito pois as definições pré-existentes podem levar a uma sub ou superestimação:</p>
+<p>Considerando o padrão <span class="math inline">\(ac\)</span>, a imagem abaixo mostra uma definição de frequência que superestima a contagem (todas as ocorrências de <span class="math inline">\(a\)</span> são comparadas com todas as ocorrências de <span class="math inline">\(c\)</span>) para 4:</p>
+<figure align="center" class="figure">
+<img src="src/art2/Imagem1.png" style="max-width: 100%;" class="figure-img">
+</figure>
+<p>Já nessa imagem, temos um exemplo da subestimação para o mesmo padrão, onde são considerados apenas uma ocorrência de <span class="math inline">\(a\)</span> e uma de <span class="math inline">\(c\)</span>, que torna a frequêcia igual a 1:</p>
+<figure align="center" class="figure">
+<img src="src/art2/Imagem2.png" style="max-width: 100%;" class="figure-img">
+</figure>
+<p>Por fim, imagem a seguir ilustra a definição proposta, onde um evento pode ser usado no máximo uma vez, o que resulta em uma frequência igual a 2:</p>
+<figure align="center" class="figure">
+<img src="src/art2/Imagem3.png" style="max-width: 100%;" class="figure-img">
+</figure>
+</section>
+<section id="conceitos-fundamentais" class="level2">
+<h2 class="anchored" data-anchor-id="conceitos-fundamentais">Conceitos Fundamentais</h2>
+<p>Para entendermos os algoritmos propostos e seu funcionamento, é essencial entender alguns conceitos:</p>
+<ul>
+<li><strong>Evento:</strong> é um par (<span class="math inline">\(tipo do evento, timestamp\)</span>)</li>
+<li><strong>Sequência Simples de Eventos:</strong> é um conjunto ordenado de eventos, onde há apenas um evento por timestamp</li>
+</ul>
+<figure align="center" class="figure">
+<img src="src/art2/Imagem4.png" style="max-width: 100%;" class="figure-img">
+</figure>
+<ul>
+<li><strong>Sequência Complexas de Eventos:</strong> é um conjunto de eventos, onde eventos podem ocorrer ao mesmo tempo</li>
+</ul>
+<figure align="center" class="figure">
+<img src="src/art2/Imagem5.png" style="max-width: 100%;" class="figure-img">
+</figure>
+<ul>
+<li><p><strong>Episódio:</strong> é um conjunto de eventos com uma relação de ordem parcial entre eles</p>
+<ul>
+<li><strong>Episódio Paralelo:</strong> é um episódio onde a orde dos eventos não importa</li>
+<li><strong>Episódio Injetivo:</strong> é um episódio ode cada evento ocorre apenas uma vez</li>
+</ul></li>
+</ul>
+<section id="contagem-de-ocorrências-distintas" class="level3">
+<h3 class="anchored" data-anchor-id="contagem-de-ocorrências-distintas">Contagem de Ocorrências Distintas</h3>
+<p>Para evitar a superestimação ou a subestimação da frequência de eventos, a solução proposta faz a contagem das ocorrências distintas. Dessa forma, um vetor de timestamps em cada evento é utilizado para encontrar a ocorrência de episódios, e o algoritmo encontra o maior conjunto possível e ocorrências distintas.</p>
+<p>Para um episódio ser considerado frequente, seu suporte deve ser maior ou igual ao suporte mínimo definido. O suporte do episódio é calculado pelo tamanho do seu conjunto maximal de ocorrências distintas.</p>
+<p>Na figura a seguir, considerando o episódio <span class="math inline">\(abc\)</span>, temos o conjunto de ocorrências maximais distintas <span class="math inline">\({[112], [3 4 4], [576]}\)</span>, o que resulta em um suporte igual a 3.</p>
+<figure align="center" class="figure">
+<img src="src/art2/Imagem6.png" style="max-width: 100%;" class="figure-img">
+</figure>
+</section>
+<section id="regras-de-episódios" class="level3">
+<h3 class="anchored" data-anchor-id="regras-de-episódios">Regras de Episódios</h3>
+<p>As regras de episódios são relações do tipo α ⇒ β, que representam que se o episódio α ocorreu, há grandes chances que β ocorra. Essa chance é a representação de uma probabilidade, que vem da confiança da regra, que mede a sua força. Se a confiança for maior que um limite pré-definido, a regra é válida.</p>
+</section>
+</section>
+<section id="emdo" class="level2">
+<h2 class="anchored" data-anchor-id="emdo">EMDO</h2>
+<p>O <strong>EMDO</strong> é o primeiro algoritmo proposto no artigo, que tem como objetivo achar episódios frequentes. Para isso, ele primeiro encontra todos os episódios de tamanho 1 que são frequentes. Em seguida, esses episódios são combinados para gerar candidatos maiores e o suporte (ocorrências distintas) desses novos episódios é calculado. Além disso, para melhorar o desempenho do algoritmo, a poda dos episódios infrequentes é realizada com base na propriedade da anti-monotonicidade, diminuindo o espaço de busca.</p>
+<section id="propriedade-da-anti-monotonicidade" class="level3">
+<h3 class="anchored" data-anchor-id="propriedade-da-anti-monotonicidade">Propriedade da Anti-monotonicidade</h3>
+<p>A propriedade da Anti-monotonicidade afirma que, sendo α e β dois episódios de forma que α está contido em β, se o episódio β é frequente então α também é frequente. Da mesma forma, se α é infrequente β também é infrequente.</p>
+</section>
+</section>
+<section id="emdo-p" class="level2">
+<h2 class="anchored" data-anchor-id="emdo-p">EMDO-P</h2>
+<p>O algoritmo <strong>EMDO-P</strong> é o segundo algoritmo proposto pelo artigo, e tem como objetivo encontrar as regras de episódios válidas. Primeiramente, ele executa o <strong>EMDO</strong> para gerar os episódios frequentes. Em seguida, faz o teste, para um par α e β de episódios frequentes, se a regra α ⇒ β é válida. Utiliza, em seguida, a propriedade da anti-monotonicidade para realizar a poda (<span class="math inline">\(pruning\)</span>) dos ramos infrequentes.</p>
+</section>
+<section id="experimentos" class="level2">
+<h2 class="anchored" data-anchor-id="experimentos">Experimentos</h2>
+<p>O problema proposto é descobrir padrões frequentes em sequências de eventos complexos que acontecem no mesmo timestamp. Os experimentos tem como objetivo avaliar a eficiência e a qualidade dos padrões gerados algoritmos propostos.</p>
+<p>Para isso, foram gerados dados sintéticos com variadas quantidades de sequências, tipos de eventos e timestamps. Os experimentos foram separados em análise de descoberta de episódios frequentes (com o algoritmo EMDO) e a descoberta de regras de episódios (com o algoritmo EMDO-P).</p>
+<section id="resultados" class="level3">
+<h3 class="anchored" data-anchor-id="resultados">Resultados</h3>
+<p>As análises referentes ao <strong>EMDO</strong> foram focadas na influência do limite do suporte no número de episódios frequentes e tamanho&nbsp;em dados reais e sintéticos. A conclusão é que a poda com base na propriedade da anti-monotonicidade é muito efetiva em melhorar o tamanho do espaço de busca (e, consequentemente, o custo computacional).</p>
+<figure align="center" class="figure">
+<img src="src/art2/Imagem9.png" style="max-width: 100%;" class="figure-img">
+</figure>
+<figure align="center" class="figure">
+<img src="src/art2/Imagem10.png" style="max-width: 100%;" class="figure-img">
+</figure>
+<p>Em relação ao <strong>EMDO-P</strong>, ele tem um custo razoável, apesar de gastar mais memória. Além disso, ele é mais rápido, pois elimina os episódios irrelevantes.</p>
+<figure align="center" class="figure">
+<img src="src/art2/Imagem11.png" style="max-width: 100%;" class="figure-img">
+</figure>
+<figure align="center" class="figure">
+<img src="src/art2/Imagem12.png" style="max-width: 100%;" class="figure-img">
+</figure>
+</section>
+<section id="comparação" class="level3">
+<h3 class="anchored" data-anchor-id="comparação">Comparação</h3>
+<p>Esse problema exato não é abordado em outros artigos, o que dificulta a comparação de resultados. Ainda assim, foi feita a comparação com algoritmos que trabalham com contextos diferentes, mas que conseguem encontrar os padrões. O <strong>EMDO</strong> foi o algoritmo que gerou menos candidatos e com padrões de regras mais ricas. Além disso, ele é o primeiro algoritmo que encontra padrões paralelos em sequências complexas, e encontra padrões não retornados por outros algoritmos.</p>
+</section>
+</section>
+<section id="aplicações-e-desafios" class="level2">
+<h2 class="anchored" data-anchor-id="aplicações-e-desafios">Aplicações e Desafios</h2>
+<p>Algumas das possíveis aplicações para esses algortimos são:</p>
+<ul>
+<li><strong>Análise de Sistemas:</strong> Diversos sistemas modernos (como redes de computadores, de dispositivos <span class="math inline">\(IoT\)</span>) podem aplicar a descoberta de padrões para otimizar seu funcionamento</li>
+<li><strong>Análise de Comportamento:</strong> Logs de sistemas web, que são compostos de sequências de eventos complexas, podem ser analisados para otimizar a experência do usuário</li>
+<li><strong>Análise de Varejo e Comportamento de Compra:</strong> A extração de regras pode ser utilizada para desenvolver estratégias de marketing baseadas em promoções ou recomendações</li>
+</ul>
+<p>Porém, seu uso vem acompanhado de alguns desafios, principalmente quando se trata de análise de comportamento:</p>
+<ul>
+<li><p><strong>Vigilância e Privacidade:</strong> Com a disponibilidade de dados granulares e carimbados por timestamp, a possibilidade de rastreamento de atividades com más intenções é alta</p>
+<ul>
+<li>Um exemplo é a vigilância de funcionários para aplicar punições</li>
+</ul></li>
+<li><p><strong>Reforço de Viés:</strong> Ao aprender com dados históricos, que podem refletir preconceitos e desigualdades, o algoritmo reconhece esses padrões como “regras”</p></li>
+<li><p><strong>Acesso à Oportunidade:</strong> Criação de sistemas de pontuação para governar acesso a serviços essenciais</p>
+<ul>
+<li>Empresas de planos de saúde podem utilizar os dados para negar serviço ou cobrar mais de alguns clientes</li>
+</ul></li>
+</ul>
+<p>De maneira geral, os algoritmos de descoberta de episódios paralelos frequentes têm diversas aplicações para melhorar os serviços, mas também um grande potencial para afetar, direta ou indiretamente, os usuários.</p>
+</section>
+<section id="execução" class="level2">
+<h2 class="anchored" data-anchor-id="execução">Execução</h2>
+<p>Para a execução do algoritmo, cada id dos datasets são considerados como um timestamp. Dessa forma, cada timestamp possui o conjunto de eventos. Os dados sintético são disponibilizados em um repositório no github, junto com a base de dados completa de algoritmos SPMF. Ela dsponibiliza diversos algoritmos, e a implementação está em Java (para qual o único pré-requisito é o jdx - java development kit). No arquivo .jar é possível escolher um algoritmo para rodar. Porém, o código dos algoritmos propostos não está entre eles e não foi possível achar a implementação online.</p>
+<figure align="center" class="figure">
+<img src="src/art2/Imagem13.png" style="max-width: 100%;" class="figure-img">
+<figcaption>
+SPMF
+</figcaption>
+</figure>
+<figure align="center" class="figure">
+<img src="src/art2/Imagem14.png" style="max-width: 100%;" class="figure-img">
+<figcaption>
+SPMF
+</figcaption>
+</figure>
+</section>
+<section id="conclusão" class="level2">
+<h2 class="anchored" data-anchor-id="conclusão">Conclusão</h2>
+<p>O problema indicado no artigo, apesar de ser apresentado como algo inédito, é muito semelhante à mineração de padrões se o timestamp for desconsiderado. Ao utilizar a definição de episódio paralelo, qualquer item em uma transação pode ser utilizado na contagem. Assim, os algoritmos <strong>EMDO</strong> e <strong>EMDO-P</strong>, apesar de mostrarem um bom funcionamento, não apresentam uma grande motivação para o seu uso. Além disso, a falta de disponibilidade do código fonte e diversos erros como falhas textuais, definições mal formadas e imagens incompletas comprometem reprodutibilidade dos experimentos e a compreensão dos resultados. Dessa forma, embora o artigo traga contribuições interessantes, ele peca na falta de uma fundamentação mais sólida e de uma apresentação mais cuidadosa para justificar a relevância dos algoritmos propostos.</p>
+</section>
+<section id="referências" class="level2">
+<h2 class="anchored" data-anchor-id="referências">Referências</h2>
+<ul>
+<li>Ouarem, O., Nouioua, F. &amp; Fournier-Viger, P. Discovering frequent parallel episodes in complex event sequences by counting distinct occurrences. Appl Intell 54, 701–721 (2024). https://doi.org/10.1007/s10489-023-05187-y</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
