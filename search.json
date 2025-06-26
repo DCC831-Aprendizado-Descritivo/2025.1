@@ -91,11 +91,11 @@
     "text": "9 Conclusão\nA capacidade de descobrir padrões interpretáveis ​​e específicos de classe em dados biológicos de alta dimensão representa um avanço significativo na pesquisa. O DiffNaps oferece uma ferramenta poderosa para que pesquisadores obtenham insights mais profundos sobre processos biológicos complexos e, potencialmente, acelerem o desenvolvimento de novos tratamentos e diagnósticos. É uma abordagem promissora com grande potencial para pesquisas futuras."
   },
   {
-    "objectID": "seminario2/artigo3.html#referências-e-estudos-futuros",
-    "href": "seminario2/artigo3.html#referências-e-estudos-futuros",
+    "objectID": "seminario2/artigo3.html#referências",
+    "href": "seminario2/artigo3.html#referências",
     "title": "Artigo 3: Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
-    "section": "10 Referências e Estudos Futuros",
-    "text": "10 Referências e Estudos Futuros\n\nWalter, N. P.; Fischer, J.; Vreeken, J. (2024). Finding Interpretable Class-Specific Patterns Through Efficient Neural Search. AAAI 38(8): 9062-9070.\nProjeto SPMF – https://www.philippe-fournier-viger.com/spmf/\nRepositório DiffNaps – https://github.com/nilspwalter/diffnaps"
+    "section": "10 Referências",
+    "text": "10 Referências\n\nWalter, N. P.; Fischer, J.; Vreeken, J. (2024). Finding Interpretable Class-Specific Patterns Through Efficient Neural Search. AAAI 38(8): 9062-9070.\nProjeto SPMF – https://www.philippe-fournier-viger.com/spmf/\nRepositório DiffNaps – https://github.com/nilspwalter/diffnaps"
   },
   {
     "objectID": "seminario1/artigo2.html",
