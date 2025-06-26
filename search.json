@@ -23,77 +23,77 @@
   {
     "objectID": "seminario2/artigo3.html",
     "href": "seminario2/artigo3.html",
-    "title": "Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
+    "title": "Artigo 3: Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
     "section": "",
     "text": "O machine learning (aprendizado de máquina) tem permitido avanços incríveis, indo do diagnóstico de câncer à detecção de fraudes. Porém, muitos desses modelos entregam respostas sem explicações. Foi para resolver esse problema que surgiu o DiffNaps.\nBaseado no artigo “Finding Interpretable Class-Specific Patterns Through Efficient Neural Search”, o DiffNaps é uma arquitetura de rede neural criada para extrair padrões específicos de cada classe, legíveis por humanos, mesmo em bases de dados muito grandes, como dados genômicos.\n\n\nImagine por um momento que você tem um conjunto de dados massivo — por exemplo, dados de expressão gênica para diferentes tipos de câncer. O objetivo é identificar padrões específicos dentro desses dados que separem claramente um tipo de câncer do outro, de uma forma que seja facilmente compreendida por especialistas da área, como biólogos. Ou seja, não se trata apenas de obter uma classificação precisa, mas também de entender por que essa classificação foi feita.\nMuitos modelos de aprendizado de máquina são excelentes em prever, mas seus processos de tomada de decisão costumam ser opacos. Este artigo é um estudo que enfatiza ambos os aspectos: ele prioriza a interpretabilidade. Os autores argumentam que, em campos como a biologia, entender os padrões subjacentes é crucial para o desenvolvimento de novos tratamentos e terapias."
   },
   {
     "objectID": "seminario2/artigo3.html#introdução",
     "href": "seminario2/artigo3.html#introdução",
-    "title": "Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
+    "title": "Artigo 3: Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
     "section": "",
     "text": "O machine learning (aprendizado de máquina) tem permitido avanços incríveis, indo do diagnóstico de câncer à detecção de fraudes. Porém, muitos desses modelos entregam respostas sem explicações. Foi para resolver esse problema que surgiu o DiffNaps.\nBaseado no artigo “Finding Interpretable Class-Specific Patterns Through Efficient Neural Search”, o DiffNaps é uma arquitetura de rede neural criada para extrair padrões específicos de cada classe, legíveis por humanos, mesmo em bases de dados muito grandes, como dados genômicos.\n\n\nImagine por um momento que você tem um conjunto de dados massivo — por exemplo, dados de expressão gênica para diferentes tipos de câncer. O objetivo é identificar padrões específicos dentro desses dados que separem claramente um tipo de câncer do outro, de uma forma que seja facilmente compreendida por especialistas da área, como biólogos. Ou seja, não se trata apenas de obter uma classificação precisa, mas também de entender por que essa classificação foi feita.\nMuitos modelos de aprendizado de máquina são excelentes em prever, mas seus processos de tomada de decisão costumam ser opacos. Este artigo é um estudo que enfatiza ambos os aspectos: ele prioriza a interpretabilidade. Os autores argumentam que, em campos como a biologia, entender os padrões subjacentes é crucial para o desenvolvimento de novos tratamentos e terapias."
   },
   {
     "objectID": "seminario2/artigo3.html#como-o-diffnaps-funciona",
     "href": "seminario2/artigo3.html#como-o-diffnaps-funciona",
-    "title": "Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
+    "title": "Artigo 3: Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
     "section": "2 Como o DiffNaps Funciona",
     "text": "2 Como o DiffNaps Funciona\nDiffNaps, abreviação de Differential Pattern Finding Neural Architecture for Pattern Search (Arquitetura Neural de Busca de Padrões Diferenciais). É uma rede neural binária, o que significa que utiliza pesos e ativações binários, 0 ou 1. Isso torna os padrões aprendidos diretamente interpretáveis. É um autocodificador binário de duas camadas combinado com uma classificação head. O autocodificador reconstrói os dados de entrada, enquanto a classificação head garante que os padrões aprendidos sejam discriminativos entre as classes.\nO autocodificador aprende a compactar os dados em uma representação de menor dimensão, o gargalo, e então os reconstrói. No DiffNaps, essa camada de gargalo representa os padrões aprendidos. Como a rede é binária, cada neurônio nessa camada corresponde a um padrão específico de coocorrências de características.\nA classificação head então usa esses padrões para classificar novos pontos de dados. Assim, os padrões são essencialmente representados pelos pesos na rede. Os autores binarizam os pesos usando um limite. Assim, cada peso se torna 0 ou 1. Um valor 1 indica que uma característica específica faz parte do padrão representado por aquele neurônio. Os padrões são então extraídos observando quais características têm 1 no vetor de peso para cada neurônio. A Figura 1 ilustra a arquitetura do DiffNaps. Podemos ver as duas principais partes: o autoencoder binário responsável pela reconstrução dos dados de entrada e a classificação head, que força os padrões aprendidos a serem úteis para distinguir entre classes. A Figura 1 ilustra a arquitetura do DiffNaps.\n\nFigura 1\n\n\n\nArquitetura do DiffNaps"
   },
   {
     "objectID": "seminario2/artigo3.html#estudo-de-caso-genômica-do-câncer-de-mama",
     "href": "seminario2/artigo3.html#estudo-de-caso-genômica-do-câncer-de-mama",
-    "title": "Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
+    "title": "Artigo 3: Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
     "section": "3 Estudo de Caso: Genômica do Câncer de Mama",
     "text": "3 Estudo de Caso: Genômica do Câncer de Mama\nAplicando o DiffNaps a dados de câncer de mama, os autores extraíram 146 padrões de expressão gênica que separam tecidos cancerosos de tecidos saudáveis. Muitos desses padrões se alinhavam a vias conhecidas, como MAPK, WNT e PPAR, mas também descobriu novos padrões que podem representar relações biológicas até então desconhecidas. Esses padrões foram validados usando a análise da via KEGG, confirmando sua relevância para a progressão e o comportamento dos subtipos do câncer de mama. Isso demonstra que o DiffNaps pode auxiliar não apenas na previsão, mas também na descoberta científica."
   },
   {
     "objectID": "seminario2/artigo3.html#como-se-compara-a-outros-métodos",
     "href": "seminario2/artigo3.html#como-se-compara-a-outros-métodos",
-    "title": "Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
+    "title": "Artigo 3: Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
     "section": "4 Como se Compara a Outros Métodos",
     "text": "4 Como se Compara a Outros Métodos\nOs autores conduziram experimentos com dados sintéticos e do mundo real, comparando o DiffNaps a diversos métodos de última geração, incluindo árvores de decisão, listas de regras e outras técnicas de mineração de padrões. Em conjuntos de dados sintéticos, eles testaram a capacidade do modelo de recuperar padrões conhecidos sob ruído e complexidade crescentes. Em geral, o DiffNaps demonstrou desempenho superior em termos de precisão, escalabilidade e interpretabilidade, especialmente ao lidar com dados de alta dimensão e dados ruidosos. Os métodos existentes frequentemente apresentavam dificuldades de escalabilidade ou produziam muitos padrões redundantes, dificultando a interpretação.\nPara melhor ilustrar o desempenho do DiffNaps em conjuntos de dados do mundo real, o Quadro 1 resume a aplicação do modelo em vários conjuntos de dados do mundo real. Estes incluem conjuntos de dados médicos e genômicos com tamanhos e níveis de complexidade amplamente variados. A tabela relata o número de amostras e características, o número de classes, quantos padrões o DiffNaps extraiu e o desempenho desses padrões na distinção entre classes usando a métrica AUC (Área Sob a Curva). Esses resultados demonstram a escalabilidade e a eficácia dos DiffNaps na produção de padrões interpretáveis ​​a partir de dados de alta dimensão.\n\nQuadro 1 Desempenho do DiffNaps em Bases de Dados Reais\n\n\n\n\n\n\n\n\n\n\n\n\nConjunto\nDomínio\nAmostras (n)\nAtributos (m)\nClasses (K)\nPadrões\nAUC\n\n\n\n\nCardio\nSaúde cardiovascular\n68 000\n45\n2\n14\n0,56\n\n\nDisease\nDiagnóstico baseado em sintomas\n5 000\n131\n41\n838\n0,84\n\n\nBRCA-N\nCâncer de mama vs. tecido normal\n222\n20 000\n2\n146\n0,91\n\n\nBRCA-S\nSubtipos de câncer de mama\n187\n20 000\n4\n1 000\n0,86\n\n\nGenomes\nVariação genética (classificação de população)\n2 500\n225 000\n6\n732\n0,77\n\n\n\nEsses números mostram que o DiffNaps escala para centenas de milhares de atributos e ainda produz padrões interpretáveis."
   },
   {
     "objectID": "seminario2/artigo3.html#casos-de-uso-no-mundo-real",
     "href": "seminario2/artigo3.html#casos-de-uso-no-mundo-real",
-    "title": "Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
+    "title": "Artigo 3: Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
     "section": "5 Casos de Uso no Mundo Real",
     "text": "5 Casos de Uso no Mundo Real\n\nSaúde Mental em Redes Sociais – Nas plataformas sociais, padrões de texto e comportamento, como queixas de sono e abstinência, podem sugerir sinais precoces de depressão ou ansiedade. O DiffNaps pode revelar sinais de alerta interpretáveis, ajudando os profissionais a agirem mais cedo.\nIoT Industrial e Manutenção - As fábricas são equipadas com milhares de sensores. O DiffNaps consegue detectar padrões como:\n\nVibração X + Temperatura Y + RPM Z → Falha no motor\nEssas regras ajudam os técnicos a corrigir as causas raiz, não apenas os sintomas, e também permitem a manutenção preditiva com explicação.\n\nDetecção de Fraudes Financeiras – As transações bancárias envolvem muitas variáveis, como valores, IPs, dispositivos, registros de data e hora, etc. O DiffNaps pode ajudar a destacar gatilhos de fraude como:\n\nDispositivo novo + Login noturno + Saque alto → Fraude"
   },
   {
     "objectID": "seminario2/artigo3.html#limitações-do-diffnaps",
     "href": "seminario2/artigo3.html#limitações-do-diffnaps",
-    "title": "Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
+    "title": "Artigo 3: Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
     "section": "6 Limitações do DiffNaps",
     "text": "6 Limitações do DiffNaps\nEmbora o DiffNaps se destaque em tarefas estruturadas e de alta dimensão, ele não é adequado para todos os contextos:\n\nEle não se adapta bem a dados de baixa dimensão (conjuntos de dados com menos atributos e estruturas mais simples).\nAtualmente, ele modela apenas regras conjuntivas baseadas em AND trabalhos futuros podem se estender a disjunções ou cadeias lógicas.\n\nPode exigir muitos recursos de memória (por exemplo, ~40 GB para o conjunto TCGA)."
   },
   {
     "objectID": "seminario2/artigo3.html#impactos-éticos-e-sociais",
     "href": "seminario2/artigo3.html#impactos-éticos-e-sociais",
-    "title": "Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
+    "title": "Artigo 3: Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
     "section": "7 Impactos Éticos e Sociais",
     "text": "7 Impactos Éticos e Sociais\n\nAmplificação de viés - Se os dados de treinamento forem tendenciosos (por exemplo, sub-representando certos grupos), os padrões aprendidos podem reforçar esse viés. Por exemplo, padrões em dados genômicos ou financeiros podem refletir desigualdades sociais.\nPrivacidade – Revelar padrões interpretáveis ​​também pode expor informações pessoais confidenciais, especialmente em conjuntos de dados médicos ou comportamentais.\nMau uso – Embora os padrões sejam mais fáceis de ler, eles ainda exigem conhecimento de domínio para serem interpretados corretamente. O uso indevido ou o excesso de confiança nos resultados podem levar a tomadas de decisão equivocadas.\n\nTransparência é ótimo, mas deve ser acompanhada de responsabilidade."
   },
   {
     "objectID": "seminario2/artigo3.html#como-usar-o-diffnaps-passo-a-passo",
     "href": "seminario2/artigo3.html#como-usar-o-diffnaps-passo-a-passo",
-    "title": "Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
+    "title": "Artigo 3: Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
     "section": "8 Como Usar o DiffNaps Passo a Passo",
     "text": "8 Como Usar o DiffNaps Passo a Passo\n\nPreparar os Dados –\n\n\nFormate seus dados como uma matriz binária (as características são 0 ou 1).\nNormalize entradas de alta dimensão (por exemplo, expressão gênica, sinalizadores * de transação).\nVocê pode binarizar características contínuas definindo um limite (por exemplo, expressão gênica &gt; 0,5 = 1).\n\nCada linha é uma instância de dados e cada coluna é uma característica.\n\nConfigurar o Ambiente - Certifique-se de que o Python 3.8+ esteja instalado. Em seguida, clone o projeto e instale as dependências:\ngit clone https://github.com/nilspwalter/diffnaps\ncd diffnaps\npip install -r requirements.txt \nCriar Arquivo de Configuração (JSON) -\n{\n  \"dataset\": \"data/breast_cancer.csv\",\n  \"n_epochs\": 500,\n  \"lr\": 0.01,\n  \"batch_size\": 64\n}\nTrainar o Modelo - Use o script fornecido no repositório:\npython train.py --config configs/breast_cancer.json\nInterpretar os Padrões – O script gera arquivos .csv onde cada linha é um padrão e cada coluna indica se o atributo faz parte dele. Visualize ou exporte conforme a necessidade."
   },
   {
     "objectID": "seminario2/artigo3.html#conclusão",
     "href": "seminario2/artigo3.html#conclusão",
-    "title": "Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
+    "title": "Artigo 3: Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
     "section": "9 Conclusão",
     "text": "9 Conclusão\nA capacidade de descobrir padrões interpretáveis ​​e específicos de classe em dados biológicos de alta dimensão representa um avanço significativo na pesquisa. O DiffNaps oferece uma ferramenta poderosa para que pesquisadores obtenham insights mais profundos sobre processos biológicos complexos e, potencialmente, acelerem o desenvolvimento de novos tratamentos e diagnósticos. É uma abordagem promissora com grande potencial para pesquisas futuras."
   },
   {
     "objectID": "seminario2/artigo3.html#referências-e-estudos-futuros",
     "href": "seminario2/artigo3.html#referências-e-estudos-futuros",
-    "title": "Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
+    "title": "Artigo 3: Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data",
     "section": "10 Referências e Estudos Futuros",
     "text": "10 Referências e Estudos Futuros\n\nWalter, N. P.; Fischer, J.; Vreeken, J. (2024). Finding Interpretable Class-Specific Patterns Through Efficient Neural Search. AAAI 38(8): 9062-9070.\nProjeto SPMF – https://www.philippe-fournier-viger.com/spmf/\nRepositório DiffNaps – https://github.com/nilspwalter/diffnaps"
   },
