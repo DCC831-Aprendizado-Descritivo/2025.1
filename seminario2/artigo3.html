@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Bernnardo Serafim Diná Xavier Gabriel Fadoul Kênia Gonçalves Oluwatoyin Joy Omole Samuel Kfuri">
 
-<title>Artigo 3: Finding interpretable class-specific patterns through efficient neural search – Aprendizado Descritivo</title>
+<title>Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data – Aprendizado Descritivo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -39,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b91c67fa4b5af78359063df39734c13f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9d882aefbe6880e209bb4e231fcedeb2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -110,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu" aria-labelledby="nav-menu-seminário-2">    
         <li>
     <a class="dropdown-item" href="../seminario2/artigo3.html">
- <span class="dropdown-text">Artigo 3: Finding interpretable class-specific patterns through efficient neural search</span></a>
+ <span class="dropdown-text">Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../seminario2/artigo4.html">
@@ -145,24 +181,54 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Conteúdo</h2>
+   
+  <ul>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução">1 Introdução</a>
+  <ul class="collapse">
+  <li><a href="#por-que-modelos-interpretáveis" id="toc-por-que-modelos-interpretáveis" class="nav-link" data-scroll-target="#por-que-modelos-interpretáveis">1.1 Por que modelos interpretáveis?</a></li>
+  </ul></li>
+  <li><a href="#como-o-diffnaps-funciona" id="toc-como-o-diffnaps-funciona" class="nav-link" data-scroll-target="#como-o-diffnaps-funciona">2 Como o DiffNaps Funciona</a>
+  <ul class="collapse">
+  <li><a href="#figura-1" id="toc-figura-1" class="nav-link" data-scroll-target="#figura-1">Figura 1</a></li>
+  </ul></li>
+  <li><a href="#estudo-de-caso-genômica-do-câncer-de-mama" id="toc-estudo-de-caso-genômica-do-câncer-de-mama" class="nav-link" data-scroll-target="#estudo-de-caso-genômica-do-câncer-de-mama">3 Estudo de Caso: Genômica do Câncer de Mama</a></li>
+  <li><a href="#como-se-compara-a-outros-métodos" id="toc-como-se-compara-a-outros-métodos" class="nav-link" data-scroll-target="#como-se-compara-a-outros-métodos">4 Como se Compara a Outros Métodos</a>
+  <ul class="collapse">
+  <li><a href="#quadro-1-desempenho-do-diffnaps-em-bases-de-dados-reais" id="toc-quadro-1-desempenho-do-diffnaps-em-bases-de-dados-reais" class="nav-link" data-scroll-target="#quadro-1-desempenho-do-diffnaps-em-bases-de-dados-reais">Quadro 1 Desempenho do DiffNaps em Bases de Dados Reais</a></li>
+  </ul></li>
+  <li><a href="#casos-de-uso-no-mundo-real" id="toc-casos-de-uso-no-mundo-real" class="nav-link" data-scroll-target="#casos-de-uso-no-mundo-real">5 Casos de Uso no Mundo Real</a></li>
+  <li><a href="#limitações-do-diffnaps" id="toc-limitações-do-diffnaps" class="nav-link" data-scroll-target="#limitações-do-diffnaps">6 Limitações do DiffNaps</a></li>
+  <li><a href="#impactos-éticos-e-sociais" id="toc-impactos-éticos-e-sociais" class="nav-link" data-scroll-target="#impactos-éticos-e-sociais">7 Impactos Éticos e Sociais</a></li>
+  <li><a href="#como-usar-o-diffnaps-passo-a-passo" id="toc-como-usar-o-diffnaps-passo-a-passo" class="nav-link" data-scroll-target="#como-usar-o-diffnaps-passo-a-passo">8 Como Usar o DiffNaps Passo a Passo</a></li>
+  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão">9 Conclusão</a></li>
+  <li><a href="#referências-e-estudos-futuros" id="toc-referências-e-estudos-futuros" class="nav-link" data-scroll-target="#referências-e-estudos-futuros">10 Referências e Estudos Futuros</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Artigo 3: Finding interpretable class-specific patterns through efficient neural search</h1>
+<h1 class="title">Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Bernnardo Serafim Diná Xavier Gabriel Fadoul Kênia Gonçalves Oluwatoyin Joy Omole Samuel Kfuri </p>
+          </div>
+  </div>
     
   
     
@@ -173,8 +239,194 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introdução" class="level2">
+<h2 class="anchored" data-anchor-id="introdução">1 Introdução</h2>
+<p>O <em>machine learning</em> (aprendizado de máquina) tem permitido avanços incríveis, indo do diagnóstico de câncer à detecção de fraudes. Porém, muitos desses modelos entregam <strong>respostas sem explicações</strong>. Foi para resolver esse problema que surgiu o <strong>DiffNaps</strong>.</p>
+<p>Baseado no artigo “Finding Interpretable Class-Specific Patterns Through Efficient Neural Search”, o DiffNaps é uma arquitetura de rede neural criada para extrair <strong>padrões específicos de cada classe</strong>, legíveis por humanos, mesmo em bases de dados muito grandes, como dados genômicos.</p>
+<section id="por-que-modelos-interpretáveis" class="level3">
+<h3 class="anchored" data-anchor-id="por-que-modelos-interpretáveis">1.1 Por que modelos interpretáveis?</h3>
+<p>Imagine por um momento que você tem um conjunto de dados massivo — por exemplo, dados de expressão gênica para diferentes tipos de câncer. O objetivo é identificar padrões específicos dentro desses dados que separem claramente um tipo de câncer do outro, de uma forma que seja facilmente compreendida por especialistas da área, como biólogos. Ou seja, não se trata apenas de obter uma classificação precisa, mas também de entender <strong>por que</strong> essa classificação foi feita.</p>
+<p>Muitos modelos de aprendizado de máquina são excelentes em prever, mas seus processos de tomada de decisão costumam ser opacos. Este artigo é um estudo que enfatiza ambos os aspectos: ele prioriza a interpretabilidade. Os autores argumentam que, em campos como a biologia, entender os padrões subjacentes é crucial para o desenvolvimento de novos tratamentos e terapias.</p>
+<hr>
+</section>
+</section>
+<section id="como-o-diffnaps-funciona" class="level2">
+<h2 class="anchored" data-anchor-id="como-o-diffnaps-funciona">2 Como o DiffNaps Funciona</h2>
+<p>DiffNaps, abreviação de Differential Pattern Finding Neural Architecture for Pattern Search (Arquitetura Neural de Busca de Padrões Diferenciais). É uma rede neural binária, o que significa que utiliza pesos e ativações binários, 0 ou 1. Isso torna os padrões aprendidos diretamente interpretáveis. É um autocodificador binário de duas camadas combinado com uma cabeça de classificação. O autocodificador reconstrói os dados de entrada, enquanto a cabeça de classificação garante que os padrões aprendidos sejam discriminativos entre as classes.</p>
+<p>O autocodificador aprende a compactar os dados em uma representação de menor dimensão, o gargalo, e então os reconstrói. No DiffNaps, essa camada de gargalo representa os padrões aprendidos. Como a rede é binária, cada neurônio nessa camada corresponde a um padrão específico de coocorrências de características.</p>
+<p>A classificação head então usa esses padrões para classificar novos pontos de dados. Assim, os padrões são essencialmente representados pelos pesos na rede. Os autores binarizam os pesos usando um limite. Assim, cada peso se torna 0 ou 1. Um valor 1 indica que uma característica específica faz parte do padrão representado por aquele neurônio. Os padrões são então extraídos observando quais características têm 1 no vetor de peso para cada neurônio. A Figura 1 ilustra a arquitetura do DiffNaps. Podemos ver as duas principais partes: o autoencoder binário responsável pela reconstrução dos dados de entrada e a classificação head, que força os padrões aprendidos a serem úteis para distinguir entre classes. A Figura 1 ilustra a arquitetura do DiffNaps.</p>
+<section id="figura-1" class="level3">
+<h3 class="anchored" data-anchor-id="figura-1">Figura 1</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imgs/Article3/DiffnapsArchitecture.png" class="img-fluid figure-img"></p>
+<figcaption>Arquitetura do DiffNaps</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+</section>
+<section id="estudo-de-caso-genômica-do-câncer-de-mama" class="level2">
+<h2 class="anchored" data-anchor-id="estudo-de-caso-genômica-do-câncer-de-mama">3 Estudo de Caso: Genômica do Câncer de Mama</h2>
+<p>Aplicando o DiffNaps a dados de câncer de mama, os autores extraíram <strong>146 padrões de expressão gênica</strong> que separam tecidos cancerosos de tecidos saudáveis. Muitos desses padrões se alinhavam a vias conhecidas, como MAPK, WNT e PPAR, mas também descobriu novos padrões que podem representar relações biológicas até então desconhecidas. Esses padrões foram validados usando a análise da via KEGG, confirmando sua relevância para a progressão e o comportamento dos subtipos do câncer de mama. Isso demonstra que o DiffNaps pode auxiliar não apenas na previsão, mas também na descoberta científica.</p>
+<hr>
+</section>
+<section id="como-se-compara-a-outros-métodos" class="level2">
+<h2 class="anchored" data-anchor-id="como-se-compara-a-outros-métodos">4 Como se Compara a Outros Métodos</h2>
+<p>Os autores conduziram experimentos com dados sintéticos e do mundo real, comparando o DiffNaps a diversos métodos de última geração, incluindo árvores de decisão, listas de regras e outras técnicas de mineração de padrões. Em conjuntos de dados sintéticos, eles testaram a capacidade do modelo de recuperar padrões conhecidos sob ruído e complexidade crescentes. Em geral, o DiffNaps demonstrou desempenho superior em termos de precisão, escalabilidade e interpretabilidade, especialmente ao lidar com dados de alta dimensão e dados ruidosos. Os métodos existentes frequentemente apresentavam dificuldades de escalabilidade ou produziam muitos padrões redundantes, dificultando a interpretação.</p>
+<p>Para melhor ilustrar o desempenho do DiffNaps em conjuntos de dados do mundo real, a <strong>Quadro 1</strong> resume a aplicação do modelo em vários conjuntos de dados do mundo real. Estes incluem conjuntos de dados médicos e genômicos com tamanhos e níveis de complexidade amplamente variados. A tabela relata o número de amostras e características, o número de classes, quantos padrões o DiffNaps extraiu e o desempenho desses padrões na distinção entre classes usando a métrica AUC (Área Sob a Curva). Esses resultados demonstram a escalabilidade e a eficácia dos DiffNaps na produção de padrões interpretáveis ​​a partir de dados de alta dimensão.</p>
+<section id="quadro-1-desempenho-do-diffnaps-em-bases-de-dados-reais" class="level3">
+<h3 class="anchored" data-anchor-id="quadro-1-desempenho-do-diffnaps-em-bases-de-dados-reais">Quadro 1 Desempenho do DiffNaps em Bases de Dados Reais</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 36%">
+<col style="width: 13%">
+<col style="width: 14%">
+<col style="width: 13%">
+<col style="width: 8%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Conjunto</th>
+<th>Domínio</th>
+<th>Amostras (<em>n</em>)</th>
+<th>Atributos (<em>m</em>)</th>
+<th>Classes (<em>K</em>)</th>
+<th>Padrões</th>
+<th>AUC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cardio</td>
+<td>Saúde cardiovascular</td>
+<td>68 000</td>
+<td>45</td>
+<td>2</td>
+<td>14</td>
+<td>0,56</td>
+</tr>
+<tr class="even">
+<td>Disease</td>
+<td>Diagnóstico baseado em sintomas</td>
+<td>5 000</td>
+<td>131</td>
+<td>41</td>
+<td>838</td>
+<td>0,84</td>
+</tr>
+<tr class="odd">
+<td>BRCA-N</td>
+<td>Câncer de mama vs.&nbsp;tecido normal</td>
+<td>222</td>
+<td>20 000</td>
+<td>2</td>
+<td>146</td>
+<td>0,91</td>
+</tr>
+<tr class="even">
+<td>BRCA-S</td>
+<td>Subtipos de câncer de mama</td>
+<td>187</td>
+<td>20 000</td>
+<td>4</td>
+<td>1 000</td>
+<td>0,86</td>
+</tr>
+<tr class="odd">
+<td>Genomes</td>
+<td>Variação genética (classificação de população)</td>
+<td>2 500</td>
+<td>225 000</td>
+<td>6</td>
+<td>732</td>
+<td>0,77</td>
+</tr>
+</tbody>
+</table>
+<p>Esses números mostram que o DiffNaps <strong>escala</strong> para centenas de milhares de atributos e ainda produz padrões interpretáveis.</p>
+<hr>
+</section>
+</section>
+<section id="casos-de-uso-no-mundo-real" class="level2">
+<h2 class="anchored" data-anchor-id="casos-de-uso-no-mundo-real">5 Casos de Uso no Mundo Real</h2>
+<ol type="1">
+<li><strong>Saúde Mental em Redes Sociais</strong> – Nas plataformas sociais, padrões de texto e comportamento, como queixas de sono e abstinência, podem sugerir sinais precoces de depressão ou ansiedade. O DiffNaps pode revelar sinais de alerta interpretáveis, ajudando os profissionais a agirem mais cedo.</li>
+<li><strong>IoT Industrial e Manutenção</strong> - As fábricas são equipadas com milhares de sensores. O DiffNaps consegue detectar padrões como:</li>
+</ol>
+<pre><code>Vibração X + Temperatura Y + RPM Z → Falha no motor</code></pre>
+<p>Essas regras ajudam os técnicos a corrigir as causas raiz, não apenas os sintomas, e também permitem a manutenção preditiva com explicação.</p>
+<ol start="3" type="1">
+<li><strong>Detecção de Fraudes Financeiras</strong> – As transações bancárias envolvem muitas variáveis, como valores, IPs, dispositivos, registros de data e hora, etc. O DiffNaps pode ajudar a destacar gatilhos de fraude como:</li>
+</ol>
+<pre><code>Dispositivo novo + Login noturno + Saque alto → Fraude</code></pre>
+<hr>
+</section>
+<section id="limitações-do-diffnaps" class="level2">
+<h2 class="anchored" data-anchor-id="limitações-do-diffnaps">6 Limitações do DiffNaps</h2>
+<p>Embora o DiffNaps se destaque em tarefas estruturadas e de alta dimensão, ele não é adequado para todos os contextos:</p>
+<ul>
+<li>Ele não se adapta bem a <strong>dados de baixa dimensão</strong> (conjuntos de dados com menos atributos e estruturas mais simples).</li>
+<li>Atualmente, ele modela apenas regras conjuntivas <strong>baseadas em AND</strong> trabalhos futuros podem se estender a disjunções ou cadeias lógicas.<br>
+</li>
+<li>Pode exigir muitos recursos de memória (por exemplo, ~40 GB para o conjunto TCGA).</li>
+</ul>
+<hr>
+</section>
+<section id="impactos-éticos-e-sociais" class="level2">
+<h2 class="anchored" data-anchor-id="impactos-éticos-e-sociais">7 Impactos Éticos e Sociais</h2>
+<ul>
+<li><strong>Amplificação de viés</strong> - Se os dados de treinamento forem tendenciosos (por exemplo, sub-representando certos grupos), os padrões aprendidos podem reforçar esse viés. Por exemplo, padrões em dados genômicos ou financeiros podem refletir desigualdades sociais.</li>
+<li><strong>Privacidade</strong> – Revelar padrões interpretáveis ​​também pode expor informações pessoais confidenciais, especialmente em conjuntos de dados médicos ou comportamentais.</li>
+<li><strong>Mau uso</strong> – Embora os padrões sejam mais fáceis de ler, eles ainda exigem conhecimento de domínio para serem interpretados corretamente. O uso indevido ou o excesso de confiança nos resultados podem levar a tomadas de decisão equivocadas.</li>
+</ul>
+<p>Transparência é ótima, mas vem acompanhada de responsabilidade.</p>
+<hr>
+</section>
+<section id="como-usar-o-diffnaps-passo-a-passo" class="level2">
+<h2 class="anchored" data-anchor-id="como-usar-o-diffnaps-passo-a-passo">8 Como Usar o DiffNaps Passo a Passo</h2>
+<ol type="1">
+<li><strong>Preparar os Dados</strong> –</li>
+</ol>
+<ul>
+<li><p>Formate seus dados como uma matriz binária (as características são 0 ou 1).</p></li>
+<li><p>Normalize entradas de alta dimensão (por exemplo, expressão gênica, sinalizadores * de transação).</p></li>
+<li><p>Você pode binarizar características contínuas definindo um limite (por exemplo, expressão gênica &gt; 0,5 = 1).</p></li>
+</ul>
+<p>Cada linha é uma instância de dados e cada coluna é uma característica.</p>
+<ol start="2" type="1">
+<li><p><strong>Configurar o Ambiente</strong> - Certifique-se de que o Python 3.8+ esteja instalado. Em seguida, clone o projeto e instale as dependências:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/nilspwalter/diffnaps</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> diffnaps</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Criar Arquivo de Configuração (JSON)</strong> -</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"dataset"</span><span class="fu">:</span> <span class="st">"data/breast_cancer.csv"</span><span class="fu">,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"n_epochs"</span><span class="fu">:</span> <span class="dv">500</span><span class="fu">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"lr"</span><span class="fu">:</span> <span class="fl">0.01</span><span class="fu">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"batch_size"</span><span class="fu">:</span> <span class="dv">64</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Trainar o Modelo</strong> - Use o script fornecido no repositório:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> train.py <span class="at">--config</span> configs/breast_cancer.json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Interpretar os Padrões</strong> – O script gera arquivos .csv onde cada linha é um padrão e cada coluna indica se o atributo faz parte dele. Visualize ou exporte conforme a necessidade.</p></li>
+</ol>
+</section>
+<section id="conclusão" class="level2">
+<h2 class="anchored" data-anchor-id="conclusão">9 Conclusão</h2>
+<p>A capacidade de descobrir padrões interpretáveis ​​e específicos de classe em dados biológicos de alta dimensão representa um avanço significativo na pesquisa. O DiffNaps oferece uma ferramenta poderosa para que pesquisadores obtenham insights mais profundos sobre processos biológicos complexos e, potencialmente, acelerem o desenvolvimento de novos tratamentos e diagnósticos. É uma abordagem promissora com grande potencial para pesquisas futuras.</p>
+</section>
+<section id="referências-e-estudos-futuros" class="level2">
+<h2 class="anchored" data-anchor-id="referências-e-estudos-futuros">10 Referências e Estudos Futuros</h2>
+<ol type="1">
+<li><p>Walter, N. P.; Fischer, J.; Vreeken, J. (2024). Finding Interpretable Class-Specific Patterns Through Efficient Neural Search. AAAI 38(8): 9062-9070.</p></li>
+<li><p>Projeto SPMF – https://www.philippe-fournier-viger.com/spmf/</p></li>
+<li><p>Repositório DiffNaps – https://github.com/nilspwalter/diffnaps</p></li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
