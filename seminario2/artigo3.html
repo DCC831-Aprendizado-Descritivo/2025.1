@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Bernnardo Serafim Diná Xavier Gabriel Fadoul Kênia Gonçalves Oluwatoyin Joy Omole Samuel Kfuri">
 
 <title>Interpretable Patterns from Neural Networks: Creating Meaning from Complex Data – Aprendizado Descritivo</title>
 <style>
@@ -223,12 +222,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Bernnardo Serafim Diná Xavier Gabriel Fadoul Kênia Gonçalves Oluwatoyin Joy Omole Samuel Kfuri </p>
-          </div>
-  </div>
     
   
     
@@ -252,7 +245,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="como-o-diffnaps-funciona" class="level2">
 <h2 class="anchored" data-anchor-id="como-o-diffnaps-funciona">2 Como o DiffNaps Funciona</h2>
-<p>DiffNaps, abreviação de Differential Pattern Finding Neural Architecture for Pattern Search (Arquitetura Neural de Busca de Padrões Diferenciais). É uma rede neural binária, o que significa que utiliza pesos e ativações binários, 0 ou 1. Isso torna os padrões aprendidos diretamente interpretáveis. É um autocodificador binário de duas camadas combinado com uma cabeça de classificação. O autocodificador reconstrói os dados de entrada, enquanto a cabeça de classificação garante que os padrões aprendidos sejam discriminativos entre as classes.</p>
+<p>DiffNaps, abreviação de Differential Pattern Finding Neural Architecture for Pattern Search (Arquitetura Neural de Busca de Padrões Diferenciais). É uma rede neural binária, o que significa que utiliza pesos e ativações binários, 0 ou 1. Isso torna os padrões aprendidos diretamente interpretáveis. É um autocodificador binário de duas camadas combinado com uma classificação head. O autocodificador reconstrói os dados de entrada, enquanto a classificação head garante que os padrões aprendidos sejam discriminativos entre as classes.</p>
 <p>O autocodificador aprende a compactar os dados em uma representação de menor dimensão, o gargalo, e então os reconstrói. No DiffNaps, essa camada de gargalo representa os padrões aprendidos. Como a rede é binária, cada neurônio nessa camada corresponde a um padrão específico de coocorrências de características.</p>
 <p>A classificação head então usa esses padrões para classificar novos pontos de dados. Assim, os padrões são essencialmente representados pelos pesos na rede. Os autores binarizam os pesos usando um limite. Assim, cada peso se torna 0 ou 1. Um valor 1 indica que uma característica específica faz parte do padrão representado por aquele neurônio. Os padrões são então extraídos observando quais características têm 1 no vetor de peso para cada neurônio. A Figura 1 ilustra a arquitetura do DiffNaps. Podemos ver as duas principais partes: o autoencoder binário responsável pela reconstrução dos dados de entrada e a classificação head, que força os padrões aprendidos a serem úteis para distinguir entre classes. A Figura 1 ilustra a arquitetura do DiffNaps.</p>
 <section id="figura-1" class="level3">
@@ -274,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="como-se-compara-a-outros-métodos" class="level2">
 <h2 class="anchored" data-anchor-id="como-se-compara-a-outros-métodos">4 Como se Compara a Outros Métodos</h2>
 <p>Os autores conduziram experimentos com dados sintéticos e do mundo real, comparando o DiffNaps a diversos métodos de última geração, incluindo árvores de decisão, listas de regras e outras técnicas de mineração de padrões. Em conjuntos de dados sintéticos, eles testaram a capacidade do modelo de recuperar padrões conhecidos sob ruído e complexidade crescentes. Em geral, o DiffNaps demonstrou desempenho superior em termos de precisão, escalabilidade e interpretabilidade, especialmente ao lidar com dados de alta dimensão e dados ruidosos. Os métodos existentes frequentemente apresentavam dificuldades de escalabilidade ou produziam muitos padrões redundantes, dificultando a interpretação.</p>
-<p>Para melhor ilustrar o desempenho do DiffNaps em conjuntos de dados do mundo real, a <strong>Quadro 1</strong> resume a aplicação do modelo em vários conjuntos de dados do mundo real. Estes incluem conjuntos de dados médicos e genômicos com tamanhos e níveis de complexidade amplamente variados. A tabela relata o número de amostras e características, o número de classes, quantos padrões o DiffNaps extraiu e o desempenho desses padrões na distinção entre classes usando a métrica AUC (Área Sob a Curva). Esses resultados demonstram a escalabilidade e a eficácia dos DiffNaps na produção de padrões interpretáveis ​​a partir de dados de alta dimensão.</p>
+<p>Para melhor ilustrar o desempenho do DiffNaps em conjuntos de dados do mundo real, o <strong>Quadro 1</strong> resume a aplicação do modelo em vários conjuntos de dados do mundo real. Estes incluem conjuntos de dados médicos e genômicos com tamanhos e níveis de complexidade amplamente variados. A tabela relata o número de amostras e características, o número de classes, quantos padrões o DiffNaps extraiu e o desempenho desses padrões na distinção entre classes usando a métrica AUC (Área Sob a Curva). Esses resultados demonstram a escalabilidade e a eficácia dos DiffNaps na produção de padrões interpretáveis ​​a partir de dados de alta dimensão.</p>
 <section id="quadro-1-desempenho-do-diffnaps-em-bases-de-dados-reais" class="level3">
 <h3 class="anchored" data-anchor-id="quadro-1-desempenho-do-diffnaps-em-bases-de-dados-reais">Quadro 1 Desempenho do DiffNaps em Bases de Dados Reais</h3>
 <table class="caption-top table">
@@ -382,7 +375,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Privacidade</strong> – Revelar padrões interpretáveis ​​também pode expor informações pessoais confidenciais, especialmente em conjuntos de dados médicos ou comportamentais.</li>
 <li><strong>Mau uso</strong> – Embora os padrões sejam mais fáceis de ler, eles ainda exigem conhecimento de domínio para serem interpretados corretamente. O uso indevido ou o excesso de confiança nos resultados podem levar a tomadas de decisão equivocadas.</li>
 </ul>
-<p>Transparência é ótima, mas vem acompanhada de responsabilidade.</p>
+<p>Transparência é ótimo, mas deve ser acompanhada de responsabilidade.</p>
 <hr>
 </section>
 <section id="como-usar-o-diffnaps-passo-a-passo" class="level2">
