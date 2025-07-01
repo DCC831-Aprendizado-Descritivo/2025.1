@@ -3,64 +3,64 @@ title: 'Artigo 2: Discovering frequent parallel episodes in complex event sequen
 page-layout: full
 ---
 
-A mineração de episódios é um problema similar à mineração de sequências, onde o objetivo é encontrar episódios (sequências de eventos) frequntes. Isso é feito a partir de uma sequência única com eventos temporais, com timestamp e com ou sem ordem (ou, ainda, com ordem parcial).Esse problema pode ser aplicado, por exemplo, na detecção de episódios que precedem quedas ou sobrecargas da rede elétrica. 
+A mineração de episódios é um problema similar à mineração de sequências, onde o objetivo é encontrar episódios (sequências de eventos) frequntes. Isso é feito a partir de uma sequência única com eventos temporais, com timestamp e com ou sem ordem (ou, ainda, com ordem parcial). Esse problema pode ser aplicado, por exemplo, na detecção de episódios que precedem quedas ou sobrecargas da rede elétrica. 
 
-As soluções existentes para esse problema são baseadas em gerações de episódios maximais, episódios fechados e episódios geradores. Elas lidam apenas com episódios em série e, em sua maioria, em sequências simples, onde existe apenas um episódio por timestamp. 
+As soluções existentes para esse problema são baseadas em gerações de episódios maximais, episódios fechados e episódios geradores. Elas lidam apenas com episódios em série e, em sua maioria, em sequências simples, onde existe apenas um episódio por *timestamp*. 
 
 ## EMDO e EMDO-P 
 
-Os autores do artigo propõem dois novos algoritmos para mineração de episódios: o **EMDO** ($Episode Mining under Distinct Occurences$) e o **EMDO-P** ($Episode Mining under Distinct Occurences with Pruning$). Eles são capazes de lidar com episódios paralelos e com sequências complexas, onde há mais de um episódio por timestamp. Além disso, uma nova definição de frequência é introduzida e utilizada por esses algoritmos. Isso foi feito pois as definições pré-existentes podem levar a uma sub ou superestimação:
+Os autores do artigo propõem dois novos algoritmos para mineração de episódios: o **EMDO** (*Episode Mining under Distinct Occurences*) e o **EMDO-P** (*Episode Mining under Distinct Occurences with Pruning*). Eles são capazes de lidar com episódios paralelos e com sequências complexas, onde há mais de um episódio por *timestamp*. Além disso, uma nova definição de frequência é introduzida e utilizada por esses algoritmos. Isso foi feito pois as definições pré-existentes podem levar a uma sub ou superestimação:
 
-Considerando o padrão $ac$, a imagem abaixo mostra uma definição de frequência que superestima a contagem (todas as ocorrências de $a$ são comparadas com todas as ocorrências de $c$) para 4:
+Considerando o padrão *xy*, a imagem abaixo mostra uma definição de frequência que superestima a contagem (todas as ocorrências de *x* são comparadas com todas as ocorrências de *y*) para 4:
 
 <figure align="center">
-    <img src="src/art2/Imagem1.png" style="max-width: 100%;">
+    <img src="src/art2/Imagem1.JPG" style="max-width: 100%;">
 </figure>
 
-Já nessa imagem, temos um exemplo da subestimação para o mesmo padrão, onde são considerados apenas uma ocorrência de $a$ e uma de $c$, que torna a frequêcia igual a 1:
+Já nessa imagem, temos um exemplo da subestimação para o mesmo padrão, onde são considerados apenas uma ocorrência de *x* *e uma de *y*, que torna a frequêcia igual a 1:
 
 <figure align="center">
-    <img src="src/art2/Imagem2.png" style="max-width: 100%;">
+    <img src="src/art2/Imagem2.JPG" style="max-width: 100%;">
 </figure>
 
 Por fim, imagem a seguir ilustra a definição proposta, onde um evento pode ser usado no máximo uma vez, o que resulta em uma frequência igual a 2:
 
 <figure align="center">
-    <img src="src/art2/Imagem3.png" style="max-width: 100%;">
+    <img src="src/art2/Imagem3.JPG" style="max-width: 100%;">
 </figure>
 
 ## Conceitos Fundamentais
 
 Para entendermos os algoritmos propostos e seu funcionamento, é essencial entender alguns conceitos:
 
-- **Evento:** é um par ($tipo do evento, timestamp$)
-- **Sequência Simples de Eventos:** é um conjunto ordenado de eventos, onde há apenas um evento por timestamp
+- **Evento:** é um par (*tipo do evento, timestamp*);
+- **Sequência Simples de Eventos:** é um conjunto ordenado de eventos, onde há apenas um evento por *timestamp*;
 
 <figure align="center">
-    <img src="src/art2/Imagem4.png" style="max-width: 100%;">
+    <img src="src/art2/Imagem4.JPG" style="max-width: 100%;">
 </figure>
 
-- **Sequência Complexas de Eventos:** é um conjunto de eventos, onde eventos podem ocorrer ao mesmo tempo
+- **Sequência Complexas de Eventos:** é um conjunto de eventos, onde eventos podem ocorrer ao mesmo tempo;
 
 <figure align="center">
-    <img src="src/art2/Imagem5.png" style="max-width: 100%;">
+    <img src="src/art2/Imagem5.JPG" style="max-width: 100%;">
 </figure>
 
-- **Episódio:** é um conjunto de eventos com uma relação de ordem parcial entre eles
+- **Episódio:** é um conjunto de eventos com uma relação de ordem parcial entre eles;
     
-    - **Episódio Paralelo:** é um episódio onde a orde dos eventos não importa
-    - **Episódio Injetivo:** é um episódio ode cada evento ocorre apenas uma vez
+    - **Episódio Paralelo:** é um episódio onde a ordem dos eventos não importa;
+    - **Episódio Injetivo:** é um episódio onde cada evento ocorre apenas uma vez.
 
 ### Contagem de Ocorrências Distintas
 
-Para evitar a superestimação ou a subestimação da frequência de eventos, a solução proposta faz a contagem das ocorrências distintas. Dessa forma, um vetor de timestamps em cada evento é utilizado para encontrar a ocorrência de episódios, e o algoritmo encontra o maior conjunto possível e ocorrências distintas.
+Para evitar a superestimação ou a subestimação da frequência de eventos, a solução proposta faz a contagem das ocorrências distintas. Dessa forma, um vetor de *timestamps* em cada evento é utilizado para encontrar a ocorrência de episódios, e o algoritmo encontra o maior conjunto possível e ocorrências distintas.
 
 Para um episódio ser considerado frequente, seu suporte deve ser maior ou igual ao suporte mínimo definido. O suporte do episódio é calculado pelo tamanho do seu conjunto maximal de ocorrências distintas.
 
-Na figura a seguir, considerando o episódio $abc$, temos o conjunto de ocorrências maximais distintas ${[112], [3 4 4], [576]}$, o que resulta em um suporte igual a 3.
+Na figura a seguir, considerando o episódio *xyz*, temos o conjunto de ocorrências maximais distintas *{[1 2 2], [1 5 4], [6 6 6]}*, o que resulta em um suporte igual a 3.
 
 <figure align="center">
-    <img src="src/art2/Imagem6.png" style="max-width: 100%;">
+    <img src="src/art2/Imagem5.JPG" style="max-width: 100%;">
 </figure>
 
 ### Regras de Episódios
@@ -77,35 +77,19 @@ A propriedade da Anti-monotonicidade afirma que, sendo α e β dois episódios d
 
 ## EMDO-P
 
-O algoritmo **EMDO-P** é o segundo algoritmo proposto pelo artigo, e tem como objetivo encontrar as regras de episódios válidas. Primeiramente, ele executa o **EMDO** para gerar os episódios frequentes. Em seguida, faz o teste, para um par α e β de episódios frequentes, se a regra α ⇒ β é válida. Utiliza, em seguida, a propriedade da anti-monotonicidade para realizar a poda ($pruning$) dos ramos infrequentes.
+O algoritmo **EMDO-P** é o segundo algoritmo proposto pelo artigo, e tem como objetivo encontrar as regras de episódios válidas. Primeiramente, ele executa o **EMDO** para gerar os episódios frequentes. Em seguida, faz o teste, para um par α e β de episódios frequentes, se a regra α ⇒ β é válida. Utiliza, em seguida, a propriedade da anti-monotonicidade para realizar a poda (*pruning*) dos ramos infrequentes.
 
 ## Experimentos
 
-O problema proposto é descobrir padrões frequentes em sequências de eventos complexos que acontecem no mesmo timestamp. Os experimentos tem como objetivo avaliar a eficiência e a qualidade dos padrões gerados algoritmos propostos.
+O problema proposto é descobrir padrões frequentes em sequências de eventos complexos que acontecem no mesmo *timestamp*. Os experimentos tem como objetivo avaliar a eficiência e a qualidade dos padrões gerados algoritmos propostos.
 
-Para isso, foram gerados dados sintéticos com variadas quantidades de sequências, tipos de eventos e timestamps. Os experimentos foram separados em análise de descoberta de episódios frequentes (com o algoritmo EMDO) e a descoberta de regras de episódios (com o algoritmo EMDO-P).
+Para isso, foram gerados dados sintéticos com variadas quantidades de sequências, tipos de eventos e timestamps. Os experimentos foram separados em análise de descoberta de episódios frequentes (com o algoritmo **EMDO**) e a descoberta de regras de episódios (com o algoritmo **EMDO-P**).
 
 ### Resultados
 
 As análises referentes ao **EMDO** foram focadas na influência do limite do suporte no número de episódios frequentes e tamanho em dados reais e sintéticos. A conclusão é que a poda com base na propriedade da anti-monotonicidade é muito efetiva em melhorar o tamanho do espaço de busca (e, consequentemente, o custo computacional).
 
-<figure align="center">
-    <img src="src/art2/Imagem9.png" style="max-width: 100%;">
-</figure>
-
-<figure align="center">
-    <img src="src/art2/Imagem10.png" style="max-width: 100%;">
-</figure>
-
 Em relação ao **EMDO-P**, ele tem um custo razoável, apesar de gastar mais memória. Além disso, ele é mais rápido, pois elimina os episódios irrelevantes.
-
-<figure align="center">
-    <img src="src/art2/Imagem11.png" style="max-width: 100%;">
-</figure>
-
-<figure align="center">
-    <img src="src/art2/Imagem12.png" style="max-width: 100%;">
-</figure>
 
 ### Comparação
 
@@ -115,25 +99,25 @@ Esse problema exato não é abordado em outros artigos, o que dificulta a compar
 
 Algumas das possíveis aplicações para esses algortimos são:
 
-- **Análise de Sistemas:** Diversos sistemas modernos (como redes de computadores, de dispositivos $IoT$) podem aplicar a descoberta de padrões para otimizar seu funcionamento
-- **Análise de Comportamento:** Logs de sistemas web, que são compostos de sequências de eventos complexas, podem ser analisados para otimizar a experência do usuário
-- **Análise de Varejo e Comportamento de Compra:** A extração de regras pode ser utilizada para desenvolver estratégias de marketing baseadas em promoções ou recomendações
+- **Análise de Sistemas:** Diversos sistemas modernos (como redes de computadores, de dispositivos *IoT*) podem aplicar a descoberta de padrões para otimizar seu funcionamento;
+- **Análise de Comportamento:** Logs de sistemas web, que são compostos de sequências de eventos complexas, podem ser analisados para otimizar a experência do usuário;
+- **Análise de Varejo e Comportamento de Compra:** A extração de regras pode ser utilizada para desenvolver estratégias de marketing baseadas em promoções ou recomendações.
 
 Porém, seu uso vem acompanhado de alguns desafios, principalmente quando se trata de análise de comportamento:
 
-- **Vigilância e Privacidade:** Com a disponibilidade de dados granulares e carimbados por timestamp, a possibilidade de rastreamento de atividades com más intenções é alta
+- **Vigilância e Privacidade:** Com a disponibilidade de dados granulares e carimbados por *timestamp*, a possibilidade de rastreamento de atividades com más intenções é alta;
 
-    - Um exemplo é a vigilância de funcionários para aplicar punições
+    - Um exemplo é a vigilância de funcionários para aplicar punições;
 
-- **Reforço de Viés:** Ao aprender com dados históricos, que podem refletir preconceitos e desigualdades, o algoritmo reconhece esses padrões como “regras”
-- **Acesso à Oportunidade:** Criação de sistemas de pontuação para governar acesso a serviços essenciais
+- **Reforço de Viés:** Ao aprender com dados históricos, que podem refletir preconceitos e desigualdades, o algoritmo reconhece esses padrões como “regras”;
+- **Acesso à Oportunidade:** Criação de sistemas de pontuação para governar acesso a serviços essenciais:
     - Empresas de planos de saúde podem utilizar os dados para negar serviço ou cobrar mais de alguns clientes
 
 De maneira geral, os algoritmos de descoberta de episódios paralelos frequentes têm diversas aplicações para melhorar os serviços, mas também um grande potencial para afetar, direta ou indiretamente, os usuários. 
 
 ## Execução
 
-Para a execução do algoritmo, cada id dos datasets são considerados como um timestamp. Dessa forma, cada timestamp possui o conjunto de eventos. Os dados sintético são disponibilizados em um repositório no github, junto com a base de dados completa de algoritmos SPMF. Ela dsponibiliza diversos algoritmos, e a implementação está em Java (para qual o único pré-requisito é o jdx - java development kit). No arquivo .jar é possível escolher um algoritmo para rodar. Porém, o código dos algoritmos propostos não está entre eles e não foi possível achar a implementação online. 
+Para a execução do algoritmo, cada *id* dos *datasets* são considerados como um *timestamp*. Dessa forma, cada *timestamp* possui o conjunto de eventos. Os dados sintéticos são disponibilizados em um repositório no *github*, junto com a base de dados completa de algoritmos SPMF. Ela dsponibiliza diversos algoritmos, e a implementação está em Java (para qual o único pré-requisito é o jdx - java development kit). No arquivo *.jar* é possível escolher um algoritmo para rodar. No entanto, os algoritmos propostos no artigo não estão incluídos nesse repositório, e, após uma busca detalhada, não foi possível localizar suas implementações disponíveis publicamente online. Isso limitou a possibilidade de comparação direta com os métodos existentes na SPMF.
 
 <figure align="center">
     <img src="src/art2/Imagem13.png" style="max-width: 100%;">
@@ -147,7 +131,7 @@ Para a execução do algoritmo, cada id dos datasets são considerados como um t
 
 ## Conclusão
 
-O problema indicado no artigo, apesar de ser apresentado como algo inédito, é muito semelhante à mineração de padrões se o timestamp for desconsiderado. Ao utilizar a definição de episódio paralelo, qualquer item em uma transação pode ser utilizado na contagem. Assim, os algoritmos **EMDO** e **EMDO-P**, apesar de mostrarem um bom funcionamento, não apresentam uma grande motivação para o seu uso. Além disso, a falta de disponibilidade do código fonte e diversos erros como falhas textuais, definições mal formadas e imagens incompletas comprometem reprodutibilidade dos experimentos e a compreensão dos resultados. Dessa forma, embora o artigo traga contribuições interessantes, ele peca na falta de uma fundamentação mais sólida e de uma apresentação mais cuidadosa para justificar a relevância dos algoritmos propostos.
+O problema indicado no artigo, apesar de ser apresentado como algo inédito, é muito semelhante à mineração de padrões, se o *timestamp* for desconsiderado. Ao utilizar a definição de episódio paralelo, qualquer item em uma transação pode ser utilizado na contagem. Assim, os algoritmos **EMDO** e **EMDO-P**, apesar de mostrarem um bom funcionamento, não apresentam uma grande motivação para o seu uso. Além disso, a falta de disponibilidade do código fonte e diversos erros como falhas textuais, definições mal formadas e imagens incompletas comprometem reprodutibilidade dos experimentos e a compreensão dos resultados. Dessa forma, embora o artigo traga contribuições interessantes, ele peca na falta de uma fundamentação mais sólida e de uma apresentação mais cuidadosa para justificar a relevância dos algoritmos propostos.
 
 ## Referências
 
