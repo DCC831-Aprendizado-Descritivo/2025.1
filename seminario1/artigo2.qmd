@@ -17,7 +17,7 @@ Considerando o padrão *xy*, a imagem abaixo mostra uma definição de frequênc
     <img src="src/art2/Imagem1.JPG" style="max-width: 100%;">
 </figure>
 
-Já nessa imagem, temos um exemplo da subestimação para o mesmo padrão, onde são considerados apenas uma ocorrência de *x* *e uma de *y*, que torna a frequêcia igual a 1:
+Já nessa imagem, temos um exemplo da subestimação para o mesmo padrão, onde são considerados apenas uma ocorrência de *x* e uma de *y*, que torna a frequêcia igual a 1:
 
 <figure align="center">
     <img src="src/art2/Imagem2.JPG" style="max-width: 100%;">
