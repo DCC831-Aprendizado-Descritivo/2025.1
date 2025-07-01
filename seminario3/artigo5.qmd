@@ -1,4 +1,126 @@
 ---
-title: 'Artigo 5: Modeling Match Performance in Elite Volleyball Players: Importance of Jump Load and Strength Training Characteristics'
+title: "Artigo 5: Modeling Match Performance in Elite Volleyball Players: Importance of Jump Load and Strength Training Characteristics"
 page-layout: full
+format: html
+toc: true
+number-sections: true
+lang: pt
 ---
+
+## Sobre o que trata o artigo
+
+O artigo “*Modeling Match Performance in Elite Volleyball Players: Importance of Jump Load and Strength Training Characteristics*”, publicado em 2022 na revista *Sensors*, apresenta um estudo de aplicação de técnicas de aprendizado de máquina para entender o desempenho de atletas de vôlei de alto rendimento. Especificamente, os autores buscam prever a qualidade da performance técnica de cada jogador com base em informações físicas, fisiológicas e subjetivas, coletadas ao longo de uma temporada inteira.
+
+A proposta metodológica do trabalho é inovadora por combinar algoritmos supervisionados como **XGBoost** e **Random Forest** com técnicas de **descoberta de subgrupos**, para não apenas prever a performance, mas também interpretar padrões que ajudam a explicar o que leva a um bom ou mau desempenho. 
+
+Entre os elementos analisados estão:
+
+- Quantidade e altura dos saltos realizados nas semanas anteriores às partidas.
+- Cargas de treino muscular, registradas em kg absolutos e em % de 1RM (One Repetition Maximum).
+- Análise técnica das ações em quadra (ataques, recepções, saques), feitas por especialistas com o software *Data Volley*.
+
+## Motivação e contexto
+
+A motivação do estudo surge da limitação frequente de se focar apenas em estatísticas de jogo isoladas, como pontos ou erros. O artigo propõe uma abordagem multifatorial, que considera também o estado físico e mental anterior à partida — algo crucial no vôlei, esporte que exige força explosiva e gestão cuidadosa da carga de treino.
+
+O estudo também responde a uma necessidade prática: há muitos dados coletados em clubes de elite, mas poucos estudos que integram essas informações ao desempenho técnico. Assim, o trabalho aproxima ciência de dados e prática esportiva.
+
+## Como foi feito o estudo
+
+### Participantes e acompanhamento
+
+Durante uma temporada competitiva de 24 semanas, foram acompanhados 25 jogadores da seleção masculina holandesa de vôlei. Apenas 17 jogadores com dados completos foram analisados.
+
+### Coleta e tipos de dados
+
+Os dados foram coletados por:
+
+- **G-VERT**: dispositivo para saltos (volume, altura e tipo: baixo, médio, alto).
+- **Questionários subjetivos (ex.: RPE)**: percepção de esforço após treinos.
+- **Autoavaliações diárias**: fadiga, sono, humor.
+- **Registros de treino de força**: pesos por grupo muscular.
+- **Software Data Volley 4**: avaliação técnica das ações de jogo (notas de 0 a 10).
+
+### Pré-processamento e engenharia de atributos
+
+Os dados foram agregados em janelas móveis de 7, 14 e 28 dias anteriores a cada jogo. Foram calculadas médias, desvios padrão, quartis, etc., resultando em **237 preditores**, como:
+
+- 72 preditores de saltos.
+- 81 de exercícios de força.
+- 48 de bem-estar subjetivo.
+- 27 de carga de treino (monotonia, strain).
+- 9 de frequência de treinos.
+
+## Modelagem e análise de padrões
+
+### Modelos preditivos
+
+- **XGBoost** e **Random Forest** foram usados para prever notas de ações ofensivas (ataque e saque) e defensivas (recepção e bloqueio).
+- Métrica: **Erro Absoluto Médio (MAE)**.
+
+### Descoberta de Subgrupos
+
+Usada para identificar padrões interpretáveis que distinguem boa e má performance. Exemplo: jogadores com baixa variação em saltos altos nas últimas 4 semanas tendem a performar pior em recepções.
+
+## Principais Resultados: Desvendando os Fatores-Chave do Desempenho
+
+### Desempenho ofensivo
+
+- **Positivo**: Exercícios de membros inferiores >90kg nas últimas 4 semanas → melhor ataque.
+- **Negativo**:
+  - Treinamento pesado de membros superiores (>0.9% do 1RM).
+  - Alta variação de carga de corpo inteiro (>17.6kg).
+  - Baixa altura de saltos ou pouca variação em saltos altos.
+
+### Desempenho defensivo
+
+- Variação (>9.75) e excesso (média ≥11.6) de saltos altos nas 2 semanas anteriores → pior desempenho no passe.
+
+### Bem-estar subjetivo
+
+Não apresentou relação estatisticamente significativa com desempenho.
+
+### Modelos preditivos
+
+Redução no MAE de:
+- 36-47% no desempenho ofensivo.
+- 59-74% no defensivo, em relação ao modelo de base.
+
+## Aplicações e Implicações
+
+### Personalização de Treinamento
+
+- **Atacantes**: foco em força de membros inferiores, evitar sobrecarga nos membros superiores.
+- **Passadores**: controlar variação e volume de saltos altos próximos ao jogo.
+
+### Generalização da metodologia
+
+A metodologia pode ser usada em:
+
+- **Educação**: desempenho de alunos em função de rotina de estudo e descanso.
+- **Empresas**: impacto de tarefas, horários e descanso na produtividade.
+
+## Riscos e Limitações
+
+### Limitações metodológicas
+
+- Amostra pequena (17 atletas).
+- Poucos dados para algumas ações (ex.: bloqueios).
+- Modelos complexos não superaram drasticamente modelos simples.
+- Não se considerou o nível da partida (amistoso vs. torneio).
+
+### Questões éticas
+
+- **Controle excessivo**: risco de ambientes opressivos.
+- **Privacidade**: dados sensíveis como humor e fadiga devem ser protegidos.
+- O estudo não compartilhou dados publicamente por serem da NeVoBo.
+
+## Conclusão: O Potencial e a Responsabilidade da IA no Esporte
+
+O estudo mostra o poder da IA na ciência do esporte, especialmente ao integrar dados objetivos e subjetivos para prever e explicar o desempenho. As descobertas permitem intervenções práticas e personalizadas, mas também trazem responsabilidades éticas — como proteger a privacidade e evitar o uso abusivo da vigilância.
+
+O equilíbrio entre precisão técnica e sensibilidade humana será crucial para que a tecnologia empodere atletas e não os controle.
+
+## Referência Bibliográfica
+
+de Leeuw, A.-W., van Baar, R., Knobbe, A., & van der Zwaard, S. (2022). *Modeling Match Performance in Elite Volleyball Players: Importance of Jump Load and Strength Training Characteristics*. *Sensors*, 22(20), 7996. https://doi.org/10.3390/s22207996
