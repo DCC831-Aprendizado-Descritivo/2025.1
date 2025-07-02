@@ -298,10 +298,10 @@ O BinaPs é um algoritmo de mineração de padrões inovador, com característic
 <!-- Imagens -->
 
 [Imagem: Encoder e Decoder]: https://www.mdpi.com/applsci/applsci-13-12413/article_deploy/html/images/applsci-13-12413-g001.png
-[Imagem: Figura 1]: 2025.1/seminario1/src/art1/Figura1.png
-[Imagem: Figura 2a]: 2025.1/seminario1/src/art1/Figura2a.png
-[Imagem: Figura 2b]: 2025.1/seminario1/src/art1/Figura2b.png
-[Imagem: Figura 3]: 2025.1/seminario1/src/art1/Figura3.png
-[Imagem: Figura 4a]: 2025.1/seminario1/src/art1/Figura4a.png
-[Imagem: Figura 4b]: 2025.1/seminario1/src/art1/Figura4b.png
-[Imagem: Figura 5]: 2025.1/seminario1/src/art1/Figura5.png
+[Imagem: Figura 1]: src/art1/Figura1.png
+[Imagem: Figura 2a]:src/art1/Figura2a.png
+[Imagem: Figura 2b]:src/art1/Figura2b.png
+[Imagem: Figura 3]: src/art1/Figura3.png
+[Imagem: Figura 4a]: src/art1/Figura4a.png
+[Imagem: Figura 4b]: src/art1/Figura4b.png
+[Imagem: Figura 5]: src/art1/Figura5.png
