@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Artigo 2: Discovering frequent parallel episodes in complex event sequences by counting distinct occurrences – Aprendizado Descritivo</title>
+<title>Aprendizado Descritivo - Artigo 2: Discovering frequent parallel episodes in complex event sequences by counting distinct occurrences</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,16 +30,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9d882aefbe6880e209bb4e231fcedeb2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,47 +67,18 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -118,7 +88,7 @@ window.Quarto = {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-seminário-1" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-seminário-1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Seminário 1</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-seminário-1">    
@@ -133,7 +103,7 @@ window.Quarto = {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-seminário-2" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-seminário-2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Seminário 2</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-seminário-2">    
@@ -148,7 +118,7 @@ window.Quarto = {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-seminário-3" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-seminário-3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Seminário 3</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-seminário-3">    
@@ -168,7 +138,7 @@ window.Quarto = {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+          <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -227,54 +197,54 @@ window.Quarto = {
 </header>
 
 
-<p>A mineração de episódios é um problema similar à mineração de sequências, onde o objetivo é encontrar episódios (sequências de eventos) frequntes. Isso é feito a partir de uma sequência única com eventos temporais, com timestamp e com ou sem ordem (ou, ainda, com ordem parcial).Esse problema pode ser aplicado, por exemplo, na detecção de episódios que precedem quedas ou sobrecargas da rede elétrica.</p>
-<p>As soluções existentes para esse problema são baseadas em gerações de episódios maximais, episódios fechados e episódios geradores. Elas lidam apenas com episódios em série e, em sua maioria, em sequências simples, onde existe apenas um episódio por timestamp.</p>
+<p>A mineração de episódios é um problema similar à mineração de sequências, onde o objetivo é encontrar episódios (sequências de eventos) frequntes. Isso é feito a partir de uma sequência única com eventos temporais, com timestamp e com ou sem ordem (ou, ainda, com ordem parcial). Esse problema pode ser aplicado, por exemplo, na detecção de episódios que precedem quedas ou sobrecargas da rede elétrica.</p>
+<p>As soluções existentes para esse problema são baseadas em gerações de episódios maximais, episódios fechados e episódios geradores. Elas lidam apenas com episódios em série e, em sua maioria, em sequências simples, onde existe apenas um episódio por <em>timestamp</em>.</p>
 <section id="emdo-e-emdo-p" class="level2">
 <h2 class="anchored" data-anchor-id="emdo-e-emdo-p">EMDO e EMDO-P</h2>
-<p>Os autores do artigo propõem dois novos algoritmos para mineração de episódios: o <strong>EMDO</strong> (<span class="math inline">\(Episode Mining under Distinct Occurences\)</span>) e o <strong>EMDO-P</strong> (<span class="math inline">\(Episode Mining under Distinct Occurences with Pruning\)</span>). Eles são capazes de lidar com episódios paralelos e com sequências complexas, onde há mais de um episódio por timestamp. Além disso, uma nova definição de frequência é introduzida e utilizada por esses algoritmos. Isso foi feito pois as definições pré-existentes podem levar a uma sub ou superestimação:</p>
-<p>Considerando o padrão <span class="math inline">\(ac\)</span>, a imagem abaixo mostra uma definição de frequência que superestima a contagem (todas as ocorrências de <span class="math inline">\(a\)</span> são comparadas com todas as ocorrências de <span class="math inline">\(c\)</span>) para 4:</p>
+<p>Os autores do artigo propõem dois novos algoritmos para mineração de episódios: o <strong>EMDO</strong> (<em>Episode Mining under Distinct Occurences</em>) e o <strong>EMDO-P</strong> (<em>Episode Mining under Distinct Occurences with Pruning</em>). Eles são capazes de lidar com episódios paralelos e com sequências complexas, onde há mais de um episódio por <em>timestamp</em>. Além disso, uma nova definição de frequência é introduzida e utilizada por esses algoritmos. Isso foi feito pois as definições pré-existentes podem levar a uma sub ou superestimação:</p>
+<p>Considerando o padrão <em>xy</em>, a imagem abaixo mostra uma definição de frequência que superestima a contagem (todas as ocorrências de <em>x</em> são comparadas com todas as ocorrências de <em>y</em>) para 4:</p>
 <figure align="center" class="figure">
-<img src="src/art2/Imagem1.png" style="max-width: 100%;" class="figure-img">
+<img src="src/art2/Imagem1.JPG" style="max-width: 100%;" class="figure-img">
 </figure>
-<p>Já nessa imagem, temos um exemplo da subestimação para o mesmo padrão, onde são considerados apenas uma ocorrência de <span class="math inline">\(a\)</span> e uma de <span class="math inline">\(c\)</span>, que torna a frequêcia igual a 1:</p>
+<p>Já nessa imagem, temos um exemplo da subestimação para o mesmo padrão, onde são considerados apenas uma ocorrência de <em>x</em> e uma de <em>y</em>, que torna a frequêcia igual a 1:</p>
 <figure align="center" class="figure">
-<img src="src/art2/Imagem2.png" style="max-width: 100%;" class="figure-img">
+<img src="src/art2/Imagem2.JPG" style="max-width: 100%;" class="figure-img">
 </figure>
 <p>Por fim, imagem a seguir ilustra a definição proposta, onde um evento pode ser usado no máximo uma vez, o que resulta em uma frequência igual a 2:</p>
 <figure align="center" class="figure">
-<img src="src/art2/Imagem3.png" style="max-width: 100%;" class="figure-img">
+<img src="src/art2/Imagem3.JPG" style="max-width: 100%;" class="figure-img">
 </figure>
 </section>
 <section id="conceitos-fundamentais" class="level2">
 <h2 class="anchored" data-anchor-id="conceitos-fundamentais">Conceitos Fundamentais</h2>
 <p>Para entendermos os algoritmos propostos e seu funcionamento, é essencial entender alguns conceitos:</p>
 <ul>
-<li><strong>Evento:</strong> é um par (<span class="math inline">\(tipo do evento, timestamp\)</span>)</li>
-<li><strong>Sequência Simples de Eventos:</strong> é um conjunto ordenado de eventos, onde há apenas um evento por timestamp</li>
+<li><strong>Evento:</strong> é um par (<em>tipo do evento, timestamp</em>);</li>
+<li><strong>Sequência Simples de Eventos:</strong> é um conjunto ordenado de eventos, onde há apenas um evento por <em>timestamp</em>;</li>
 </ul>
 <figure align="center" class="figure">
-<img src="src/art2/Imagem4.png" style="max-width: 100%;" class="figure-img">
+<img src="src/art2/Imagem4.JPG" style="max-width: 100%;" class="figure-img">
 </figure>
 <ul>
-<li><strong>Sequência Complexas de Eventos:</strong> é um conjunto de eventos, onde eventos podem ocorrer ao mesmo tempo</li>
+<li><strong>Sequência Complexas de Eventos:</strong> é um conjunto de eventos, onde eventos podem ocorrer ao mesmo tempo;</li>
 </ul>
 <figure align="center" class="figure">
-<img src="src/art2/Imagem5.png" style="max-width: 100%;" class="figure-img">
+<img src="src/art2/Imagem5.JPG" style="max-width: 100%;" class="figure-img">
 </figure>
 <ul>
-<li><p><strong>Episódio:</strong> é um conjunto de eventos com uma relação de ordem parcial entre eles</p>
+<li><p><strong>Episódio:</strong> é um conjunto de eventos com uma relação de ordem parcial entre eles;</p>
 <ul>
-<li><strong>Episódio Paralelo:</strong> é um episódio onde a orde dos eventos não importa</li>
-<li><strong>Episódio Injetivo:</strong> é um episódio ode cada evento ocorre apenas uma vez</li>
+<li><strong>Episódio Paralelo:</strong> é um episódio onde a ordem dos eventos não importa;</li>
+<li><strong>Episódio Injetivo:</strong> é um episódio onde cada evento ocorre apenas uma vez.</li>
 </ul></li>
 </ul>
 <section id="contagem-de-ocorrências-distintas" class="level3">
 <h3 class="anchored" data-anchor-id="contagem-de-ocorrências-distintas">Contagem de Ocorrências Distintas</h3>
-<p>Para evitar a superestimação ou a subestimação da frequência de eventos, a solução proposta faz a contagem das ocorrências distintas. Dessa forma, um vetor de timestamps em cada evento é utilizado para encontrar a ocorrência de episódios, e o algoritmo encontra o maior conjunto possível e ocorrências distintas.</p>
+<p>Para evitar a superestimação ou a subestimação da frequência de eventos, a solução proposta faz a contagem das ocorrências distintas. Dessa forma, um vetor de <em>timestamps</em> em cada evento é utilizado para encontrar a ocorrência de episódios, e o algoritmo encontra o maior conjunto possível e ocorrências distintas.</p>
 <p>Para um episódio ser considerado frequente, seu suporte deve ser maior ou igual ao suporte mínimo definido. O suporte do episódio é calculado pelo tamanho do seu conjunto maximal de ocorrências distintas.</p>
-<p>Na figura a seguir, considerando o episódio <span class="math inline">\(abc\)</span>, temos o conjunto de ocorrências maximais distintas <span class="math inline">\({[112], [3 4 4], [576]}\)</span>, o que resulta em um suporte igual a 3.</p>
+<p>Na figura a seguir, considerando o episódio <em>xyz</em>, temos o conjunto de ocorrências maximais distintas <em>{[1 2 2], [1 5 4], [6 6 6]}</em>, o que resulta em um suporte igual a 3.</p>
 <figure align="center" class="figure">
-<img src="src/art2/Imagem6.png" style="max-width: 100%;" class="figure-img">
+<img src="src/art2/Imagem5.JPG" style="max-width: 100%;" class="figure-img">
 </figure>
 </section>
 <section id="regras-de-episódios" class="level3">
@@ -292,28 +262,16 @@ window.Quarto = {
 </section>
 <section id="emdo-p" class="level2">
 <h2 class="anchored" data-anchor-id="emdo-p">EMDO-P</h2>
-<p>O algoritmo <strong>EMDO-P</strong> é o segundo algoritmo proposto pelo artigo, e tem como objetivo encontrar as regras de episódios válidas. Primeiramente, ele executa o <strong>EMDO</strong> para gerar os episódios frequentes. Em seguida, faz o teste, para um par α e β de episódios frequentes, se a regra α ⇒ β é válida. Utiliza, em seguida, a propriedade da anti-monotonicidade para realizar a poda (<span class="math inline">\(pruning\)</span>) dos ramos infrequentes.</p>
+<p>O algoritmo <strong>EMDO-P</strong> é o segundo algoritmo proposto pelo artigo, e tem como objetivo encontrar as regras de episódios válidas. Primeiramente, ele executa o <strong>EMDO</strong> para gerar os episódios frequentes. Em seguida, faz o teste, para um par α e β de episódios frequentes, se a regra α ⇒ β é válida. Utiliza, em seguida, a propriedade da anti-monotonicidade para realizar a poda (<em>pruning</em>) dos ramos infrequentes.</p>
 </section>
 <section id="experimentos" class="level2">
 <h2 class="anchored" data-anchor-id="experimentos">Experimentos</h2>
-<p>O problema proposto é descobrir padrões frequentes em sequências de eventos complexos que acontecem no mesmo timestamp. Os experimentos tem como objetivo avaliar a eficiência e a qualidade dos padrões gerados algoritmos propostos.</p>
-<p>Para isso, foram gerados dados sintéticos com variadas quantidades de sequências, tipos de eventos e timestamps. Os experimentos foram separados em análise de descoberta de episódios frequentes (com o algoritmo EMDO) e a descoberta de regras de episódios (com o algoritmo EMDO-P).</p>
+<p>O problema proposto é descobrir padrões frequentes em sequências de eventos complexos que acontecem no mesmo <em>timestamp</em>. Os experimentos tem como objetivo avaliar a eficiência e a qualidade dos padrões gerados algoritmos propostos.</p>
+<p>Para isso, foram gerados dados sintéticos com variadas quantidades de sequências, tipos de eventos e timestamps. Os experimentos foram separados em análise de descoberta de episódios frequentes (com o algoritmo <strong>EMDO</strong>) e a descoberta de regras de episódios (com o algoritmo <strong>EMDO-P</strong>).</p>
 <section id="resultados" class="level3">
 <h3 class="anchored" data-anchor-id="resultados">Resultados</h3>
 <p>As análises referentes ao <strong>EMDO</strong> foram focadas na influência do limite do suporte no número de episódios frequentes e tamanho&nbsp;em dados reais e sintéticos. A conclusão é que a poda com base na propriedade da anti-monotonicidade é muito efetiva em melhorar o tamanho do espaço de busca (e, consequentemente, o custo computacional).</p>
-<figure align="center" class="figure">
-<img src="src/art2/Imagem9.png" style="max-width: 100%;" class="figure-img">
-</figure>
-<figure align="center" class="figure">
-<img src="src/art2/Imagem10.png" style="max-width: 100%;" class="figure-img">
-</figure>
 <p>Em relação ao <strong>EMDO-P</strong>, ele tem um custo razoável, apesar de gastar mais memória. Além disso, ele é mais rápido, pois elimina os episódios irrelevantes.</p>
-<figure align="center" class="figure">
-<img src="src/art2/Imagem11.png" style="max-width: 100%;" class="figure-img">
-</figure>
-<figure align="center" class="figure">
-<img src="src/art2/Imagem12.png" style="max-width: 100%;" class="figure-img">
-</figure>
 </section>
 <section id="comparação" class="level3">
 <h3 class="anchored" data-anchor-id="comparação">Comparação</h3>
@@ -324,18 +282,18 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="aplicações-e-desafios">Aplicações e Desafios</h2>
 <p>Algumas das possíveis aplicações para esses algortimos são:</p>
 <ul>
-<li><strong>Análise de Sistemas:</strong> Diversos sistemas modernos (como redes de computadores, de dispositivos <span class="math inline">\(IoT\)</span>) podem aplicar a descoberta de padrões para otimizar seu funcionamento</li>
-<li><strong>Análise de Comportamento:</strong> Logs de sistemas web, que são compostos de sequências de eventos complexas, podem ser analisados para otimizar a experência do usuário</li>
-<li><strong>Análise de Varejo e Comportamento de Compra:</strong> A extração de regras pode ser utilizada para desenvolver estratégias de marketing baseadas em promoções ou recomendações</li>
+<li><strong>Análise de Sistemas:</strong> Diversos sistemas modernos (como redes de computadores, de dispositivos <em>IoT</em>) podem aplicar a descoberta de padrões para otimizar seu funcionamento;</li>
+<li><strong>Análise de Comportamento:</strong> Logs de sistemas web, que são compostos de sequências de eventos complexas, podem ser analisados para otimizar a experência do usuário;</li>
+<li><strong>Análise de Varejo e Comportamento de Compra:</strong> A extração de regras pode ser utilizada para desenvolver estratégias de marketing baseadas em promoções ou recomendações.</li>
 </ul>
 <p>Porém, seu uso vem acompanhado de alguns desafios, principalmente quando se trata de análise de comportamento:</p>
 <ul>
-<li><p><strong>Vigilância e Privacidade:</strong> Com a disponibilidade de dados granulares e carimbados por timestamp, a possibilidade de rastreamento de atividades com más intenções é alta</p>
+<li><p><strong>Vigilância e Privacidade:</strong> Com a disponibilidade de dados granulares e carimbados por <em>timestamp</em>, a possibilidade de rastreamento de atividades com más intenções é alta;</p>
 <ul>
-<li>Um exemplo é a vigilância de funcionários para aplicar punições</li>
+<li>Um exemplo é a vigilância de funcionários para aplicar punições;</li>
 </ul></li>
-<li><p><strong>Reforço de Viés:</strong> Ao aprender com dados históricos, que podem refletir preconceitos e desigualdades, o algoritmo reconhece esses padrões como “regras”</p></li>
-<li><p><strong>Acesso à Oportunidade:</strong> Criação de sistemas de pontuação para governar acesso a serviços essenciais</p>
+<li><p><strong>Reforço de Viés:</strong> Ao aprender com dados históricos, que podem refletir preconceitos e desigualdades, o algoritmo reconhece esses padrões como “regras”;</p></li>
+<li><p><strong>Acesso à Oportunidade:</strong> Criação de sistemas de pontuação para governar acesso a serviços essenciais:</p>
 <ul>
 <li>Empresas de planos de saúde podem utilizar os dados para negar serviço ou cobrar mais de alguns clientes</li>
 </ul></li>
@@ -344,7 +302,7 @@ window.Quarto = {
 </section>
 <section id="execução" class="level2">
 <h2 class="anchored" data-anchor-id="execução">Execução</h2>
-<p>Para a execução do algoritmo, cada id dos datasets são considerados como um timestamp. Dessa forma, cada timestamp possui o conjunto de eventos. Os dados sintético são disponibilizados em um repositório no github, junto com a base de dados completa de algoritmos SPMF. Ela dsponibiliza diversos algoritmos, e a implementação está em Java (para qual o único pré-requisito é o jdx - java development kit). No arquivo .jar é possível escolher um algoritmo para rodar. Porém, o código dos algoritmos propostos não está entre eles e não foi possível achar a implementação online.</p>
+<p>Para a execução do algoritmo, cada <em>id</em> dos <em>datasets</em> são considerados como um <em>timestamp</em>. Dessa forma, cada <em>timestamp</em> possui o conjunto de eventos. Os dados sintéticos são disponibilizados em um repositório no <em>github</em>, junto com a base de dados completa de algoritmos SPMF. Ela dsponibiliza diversos algoritmos, e a implementação está em Java (para qual o único pré-requisito é o jdx - java development kit). No arquivo <em>.jar</em> é possível escolher um algoritmo para rodar. No entanto, os algoritmos propostos no artigo não estão incluídos nesse repositório, e, após uma busca detalhada, não foi possível localizar suas implementações disponíveis publicamente online. Isso limitou a possibilidade de comparação direta com os métodos existentes na SPMF.</p>
 <figure align="center" class="figure">
 <img src="src/art2/Imagem13.png" style="max-width: 100%;" class="figure-img">
 <figcaption>
@@ -360,7 +318,7 @@ SPMF
 </section>
 <section id="conclusão" class="level2">
 <h2 class="anchored" data-anchor-id="conclusão">Conclusão</h2>
-<p>O problema indicado no artigo, apesar de ser apresentado como algo inédito, é muito semelhante à mineração de padrões se o timestamp for desconsiderado. Ao utilizar a definição de episódio paralelo, qualquer item em uma transação pode ser utilizado na contagem. Assim, os algoritmos <strong>EMDO</strong> e <strong>EMDO-P</strong>, apesar de mostrarem um bom funcionamento, não apresentam uma grande motivação para o seu uso. Além disso, a falta de disponibilidade do código fonte e diversos erros como falhas textuais, definições mal formadas e imagens incompletas comprometem reprodutibilidade dos experimentos e a compreensão dos resultados. Dessa forma, embora o artigo traga contribuições interessantes, ele peca na falta de uma fundamentação mais sólida e de uma apresentação mais cuidadosa para justificar a relevância dos algoritmos propostos.</p>
+<p>O problema indicado no artigo, apesar de ser apresentado como algo inédito, é muito semelhante à mineração de padrões, se o <em>timestamp</em> for desconsiderado. Ao utilizar a definição de episódio paralelo, qualquer item em uma transação pode ser utilizado na contagem. Assim, os algoritmos <strong>EMDO</strong> e <strong>EMDO-P</strong>, apesar de mostrarem um bom funcionamento, não apresentam uma grande motivação para o seu uso. Além disso, a falta de disponibilidade do código fonte e diversos erros como falhas textuais, definições mal formadas e imagens incompletas comprometem reprodutibilidade dos experimentos e a compreensão dos resultados. Dessa forma, embora o artigo traga contribuições interessantes, ele peca na falta de uma fundamentação mais sólida e de uma apresentação mais cuidadosa para justificar a relevância dos algoritmos propostos.</p>
 </section>
 <section id="referências" class="level2">
 <h2 class="anchored" data-anchor-id="referências">Referências</h2>
@@ -373,242 +331,228 @@ SPMF
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/DCC831-Aprendizado-Descritivo\.github\.io\/2025\.1\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
     };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
+    if (contentFn) {
+      config.content = contentFn;
     }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
     }
-    const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
-        }
-        return codeEl.innerText;
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
     }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
-    });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
-    }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/DCC831-Aprendizado-Descritivo\.github\.io\/2025\.1\/");
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-        }
-      }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
-    }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
-    }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
       } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
         }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
           }
         } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
+          // See if we can fetch this
+          fetch(url.split('#')[0])
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
+            const note = htmlDoc.getElementById(id);
             if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
+              const html = processXRef(id, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -616,161 +560,185 @@ SPMF
             instance.show();
           });
         }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
       } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
             }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
         });
       }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
     }
-  });
-  </script>
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
 </div> <!-- /content -->
 
 
