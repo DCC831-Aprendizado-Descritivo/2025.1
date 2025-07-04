@@ -280,10 +280,8 @@ O BinaPs é um algoritmo de mineração de padrões inovador, com característic
 
 ## Links de Interesse
 
-- **Título:** Differentiable Pattern Set Mining
-- [Artigo][Link_artigo] (@Fischer_2021)
-  - [PDF][Link_artigo_pdf]
-  - [Apresentação dos Autores][Apresentação dos Autores]
+- **Título:** Differentiable Pattern Set Mining - @Fischer_2021
+- **Artigo:** [DOI][Link_artigo], [PDF][Link_artigo_pdf], [MP4 (Apresentação dos Autores)][Apresentação dos Autores]
 
 ## Referências
 
