@@ -18,6 +18,7 @@ format:
     fig-cap-location: top
     css: src/art1/artigo1.css
 bibliography: src/art1/referencias.bib
+# csl: src/art1/abntex.csl
 crossref:
   fig-labels: arabic
   fig-prefix: Figura
