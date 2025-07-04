@@ -10,4 +10,80 @@ Os links a seguir redirecionam para os repositórios dos respectivos projetos. �
 ressaltar que, embora tenha sido exigido rigor científico na execução do projeto, os resultados
 cumprem apenas um papel didático.
 
+## Tabela de Projetos
 
+| Relatório            | GitHub            | Título | Autores                                                                                                                                        |
+| -------------------- | ----------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| [PDF][Relatório_G01] | [URL][GitHub_G01] |        | Daniel Schlickmann Bastos, Leonardo Caetano Gomide, Lucas Mesquita Andrade                                                                     |
+| [PDF][Relatório_G02] | [URL][GitHub_G02] |        | Arthur Codama, Caíque Fortunato, Fabio Marra, Victor Gabriel, Wesley Marques                                                                   |
+| [PDF][Relatório_G03] | [URL][GitHub_G03] |        | Alexandre Cassimiro Silva Araújo, Diná Beatriz Xavier, Enilda Alves Coelho, Kael Soares Augusto, Mateus Reis Evangelista                       |
+| [PDF][Relatório_G04] | [URL][GitHub_G04] |        | Gabriel Arcanjo Campelo Fadoul, Iasmin Correa Araujo, José Vinicius de Lima Massarico, Juan Marcos Braga Faria, Luiza Sodre Salgado            |
+| [PDF][Relatório_G06] | [URL][GitHub_G06] |        | Kênia Carolina Gonçalves                                                                                                                       |
+| [PDF][Relatório_G07] | [URL][GitHub_G07] |        | Caio Jorge Carvalho Lara, José Eduardo Duarte Massucato, Vinícius Leite Censi Faria                                                            |
+| [PDF][Relatório_G08] | [URL][GitHub_G08] |        | Samuel Henrique Miranda Alves                                                                                                                  |
+| [PDF][Relatório_G09] | [URL][GitHub_G09] |        | Alexis Duarte, Bernnardo Seraphim, Gabriel Castelo, Henrique Rotsen, Luisa Toledo                                                              |
+| [PDF][Relatório_G10] | [URL][GitHub_G10] |        | Guilherme Buxbaum Marinho Guerra, Lucas Xavier Veneroso, Marcelo Lommez Rodrigues de Jesus, Oluwatoyin Joy Omole, Samuel Kfuri Ferraz Marcussi |
+| [PDF][Relatório_G11] | [URL][GitHub_G11] |        | Amanda Mendes Pinho, Gabriel Tonioni Duarte, João Vítor Fernandes Dias, Larissa Duarte Santana                                                 |
+
+[GitHub_G01]: https://github.com/
+[GitHub_G02]: https://github.com/
+[GitHub_G03]: https://github.com/
+[GitHub_G04]: https://github.com/
+[GitHub_G06]: https://github.com/
+[GitHub_G07]: https://github.com/
+[GitHub_G08]: https://github.com/
+[GitHub_G09]: https://github.com/
+[GitHub_G10]: https://github.com/
+[GitHub_G11]: https://github.com/
+[Relatório_G01]: https://github.com/DCC831-Aprendizado-Descritivo/2025.1/tree/master/projetos/g01.pdf
+[Relatório_G02]: https://github.com/DCC831-Aprendizado-Descritivo/2025.1/tree/master/projetos/g02.pdf
+[Relatório_G03]: https://github.com/DCC831-Aprendizado-Descritivo/2025.1/tree/master/projetos/g03.pdf
+[Relatório_G04]: https://github.com/DCC831-Aprendizado-Descritivo/2025.1/tree/master/projetos/g04.pdf
+[Relatório_G06]: https://github.com/DCC831-Aprendizado-Descritivo/2025.1/tree/master/projetos/g06.pdf
+[Relatório_G07]: https://github.com/DCC831-Aprendizado-Descritivo/2025.1/tree/master/projetos/g07.pdf
+[Relatório_G08]: https://github.com/DCC831-Aprendizado-Descritivo/2025.1/tree/master/projetos/g08.pdf
+[Relatório_G09]: https://github.com/DCC831-Aprendizado-Descritivo/2025.1/tree/master/projetos/g09.pdf
+[Relatório_G10]: https://github.com/DCC831-Aprendizado-Descritivo/2025.1/tree/master/projetos/g10.pdf
+[Relatório_G11]: https://github.com/DCC831-Aprendizado-Descritivo/2025.1/tree/master/projetos/g11.pdf
+
+## Apresentações
+
+| Data de Apresentação |  ID | Integrantes                       |
+| :------------------- | --: | --------------------------------- |
+| 03/07/2025           |   1 | Daniel Schlickmann Bastos         |
+| 03/07/2025           |   1 | Leonardo Caetano Gomide           |
+| 03/07/2025           |   1 | Lucas Mesquita Andrade            |
+| 03/07/2025           |   7 | Caio Jorge Carvalho Lara          |
+| 03/07/2025           |   7 | José Eduardo Duarte Massucato     |
+| 03/07/2025           |   7 | Vinícius Leite Censi Faria        |
+| 03/07/2025           |   8 | Samuel Henrique Miranda Alves     |
+| 03/07/2025           |   9 | Alexis Duarte                     |
+| 03/07/2025           |   9 | Bernnardo Seraphim                |
+| 03/07/2025           |   9 | Gabriel Castelo                   |
+| 03/07/2025           |   9 | Henrique Rotsen                   |
+| 03/07/2025           |   9 | Luisa Toledo                      |
+| 08/07/2025           |   2 | Arthur Codama                     |
+| 08/07/2025           |   2 | Caíque Fortunato                  |
+| 08/07/2025           |   2 | Fabio Marra                       |
+| 08/07/2025           |   2 | Victor Gabriel                    |
+| 08/07/2025           |   2 | Wesley Marques                    |
+| 08/07/2025           |   3 | Alexandre Cassimiro Silva Araújo  |
+| 08/07/2025           |   3 | Diná Beatriz Xavier               |
+| 08/07/2025           |   3 | Enilda Alves Coelho               |
+| 08/07/2025           |   3 | Kael Soares Augusto               |
+| 08/07/2025           |   3 | Mateus Reis Evangelista           |
+| 08/07/2025           |   6 | Kênia Carolina Gonçalves          |
+| 10/07/2025           |   4 | Gabriel Arcanjo Campelo Fadoul    |
+| 10/07/2025           |   4 | Iasmin Correa Araujo              |
+| 10/07/2025           |   4 | José Vinicius de Lima Massarico   |
+| 10/07/2025           |   4 | Juan Marcos Braga Faria           |
+| 10/07/2025           |   4 | Luiza Sodre Salgado               |
+| 10/07/2025           |  10 | Guilherme Buxbaum Marinho Guerra  |
+| 10/07/2025           |  10 | Lucas Xavier Veneroso             |
+| 10/07/2025           |  10 | Marcelo Lommez Rodrigues de Jesus |
+| 10/07/2025           |  10 | Oluwatoyin Joy Omole              |
+| 10/07/2025           |  10 | Samuel Kfuri Ferraz Marcussi      |
+| 10/07/2025           |  11 | Amanda Mendes Pinho               |
+| 10/07/2025           |  11 | Gabriel Tonioni Duarte            |
+| 10/07/2025           |  11 | João Vítor Fernandes Dias         |
+| 10/07/2025           |  11 | Larissa Duarte Santana            |
