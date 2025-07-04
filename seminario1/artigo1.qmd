@@ -25,9 +25,7 @@ crossref:
   eq-prefix: Equação
 ---
 
-# Introdução
-
-## O que é Mineração de padrões?
+## Introdução: o que é mineração de padrões?
 
 Mineração de padrões é uma área de Aprendizado Descritivo que objetiva encontrar informações interpretáveis de grandes bancos de dados. Tal objetivo é alcançado por meio da mineração de "padrões" ou "regras" que definem conjuntos relevantes, seja em frequência ou em importância.
 
@@ -68,17 +66,17 @@ Após essas mudanças, o algoritmo funciona como descrito pela @fig-binasps.
 
 ![Funcionamento do **BinaPs** [^1]][Imagem: Figura 2]{#fig-binasps}
 
-## Experimentos
+### Experimentos
 
 O **BinaPs** foi comparado com três outros competidores na área de mineração de dados: **Asso, Slim e Desc**, que usam matrizes booleanas, mineração de conjuntos por MDL e maximum entropy modeling respectivamente. Os experimentos foram divididos em duas categorias: sintéticos e reais.
 
-### Sintéticos
+#### Sintéticos
 
 Dados sintéticos foram escolhidos pois é possível inserir ou estudar padrões reais nos dados previamente, podendo assim comparar os resultados dos algoritmos com o "ground truth", ou seja, o que assumimos ser a verdade.
 
 Para medir a performance dos algoritmos foi usado a **F1-score**, uma medida calculada pela média harmônica do _precision_ e do _recall_, comumente usada em aprendizado de máquina para avaliar a performance de modelos.
 
-#### Escalabilidade
+##### Escalabilidade
 
 ::: {#fig-graficos-A layout-ncol=2}
 ![Features: F1-Score][Imagem: Figura 3a]{#fig-F1-Score-features}
@@ -90,7 +88,7 @@ Estatísticas BinaPs, Asso, Slim e Desc: Features [^1]
 
 Com um número crescente de features (atributos), o **BinaPs** se mostra mais preciso (@fig-F1-Score-features) e menos custoso (@fig-time-in-seconds-features) em tempo que os outros três, com o **Asso** se assemelhando a ele em resultados, mas não em performance, eventualmente não sendo capaz de rodar datasets maiores.
 
-#### Resistência a ruídos
+##### Resistência a ruídos
 
 Muitas vezes dados reais possuem ruídos, seja de medidas errôneas, problemas no dataset ou imprevisibilidade dos dados. Para testar se os algoritmos são resistentes a tais cenários foram inseridos quantidades crescentes de ruídos nos databases testados com os seguintes resultados:
 
@@ -104,7 +102,7 @@ Estatísticas BinaPs, Asso, Slim e Desc: Ruídos [^1]
 
 Ao analisar os gráficos, ambos o **BinaPs** e o **Asso** são resistentes a ruídos em ambos F1-score (@fig-F1-Score-noise) e tempo de execução (@fig-time-in-seconds-noise). Já ambos **Slim** e **Desc** são afetados por ruídos no F1-score (@fig-F1-Score-noise) e o **Slim** em tempo de execução (@fig-time-in-seconds-noise) também.
 
-#### Operabilidade com Samples
+##### Operabilidade com Samples
 
 ![F1-Score $\times$ Samples [^1]][Imagem: Figura 5]{#fig-F1-Score-samples}
 
@@ -112,7 +110,7 @@ Para testar a capacidade do **BinaPs** de operar com poucos samples, também foi
 
 Mesmo com um número bem reduzido de samples o **BinaPs** foi capaz de conseguir uma pontuação boa (@fig-F1-Score-samples), melhorando marginalmente com mais samples até estabilizar perto do final do gráfico.
 
-### Reais
+#### Reais
 
 Foram usados 5 bases de dados reais para o comparativo entre os algoritmos:
 
@@ -122,7 +120,7 @@ Foram usados 5 bases de dados reais para o comparativo entre os algoritmos:
 - **Korsarak:** Dados de cliques em um site de notícias hungaro
 - **Genomes:** Dados de indivíduos no projeto 1000 genomes
 
-#### Análise Qualitativa
+##### Análise Qualitativa
 
 Ao contrário dos dados sintéticos, não temos como saber quais padrões são "corretos" ou "incorretos". Dessa forma, a análise é mais subjetiva. Primeiro comparamos o número de padrões encontrados (@tbl-padroes) nos 5 bancos de dados (@tbl-Analise) e o tempo de execução de cada algoritmo (@tbl-tempo).
 
@@ -169,7 +167,7 @@ O **BinaPs** retornou resultados menos redundantes, facilitando interpretabilida
 - **Slim** encontrou milhares de resultados redundantes
 - **Desc** sofre de underfitting e só retornou padrões de tamanho 2 no Instacart.
 
-#### Análise Quantitativa
+##### Análise Quantitativa
 
 Foi feita uma análise quantitativa em 3 dos bancos de dados listados acima. Duas comparativas (DNA, Instacart) e uma individual.
 
@@ -185,11 +183,11 @@ Outro exemplo foi o dos genes SF3A1, RRP7A e Z82190 onde os dois primeiros codif
 
 Por final, ao analisar padrões de variantes entre alelos, o BinaPs sugere que variantes raras normalmente acompanhadas de comuns podem acontecer de um para o outro "$0 \mid 1$" como na literatura, mas muitas vezes também acontece em "$1 \mid 0$", ou seja, os raros no alelo que antes havia comuns e vice-versa. Os autores não sabem se isso têm significado biológico, sugerindo que isso seja analisado por profissionais da área.
 
-## Execução
+### Execução
 
 O artigo nos entrega um [Link para o repositório][Link_BinaPs]. Para rodar o BinaPs em uma máquina comum é necessário:
 
-### Gerar dados sintéticos
+#### Gerar dados sintéticos
 
 1. Baixar e descompactar os arquivos
 2. Instalar as dependências (Pytorch, Scipy, Pandas, Numpy, R)
@@ -198,7 +196,7 @@ O artigo nos entrega um [Link para o repositório][Link_BinaPs]. Para rodar o Bi
 
 O resultado é um arquivo .dat com os dados em formato de matriz binária esparsa. Ou seja, para cada linha, os elementos da linha são os indices das posições com valor 1 na matriz original.
 
-#### Executar o algoritmo
+##### Executar o algoritmo
 
 Para executar basta chamar `python main.py --input <arquivo.dat> --batch_size <32 ou 64>` que pode também ser adjunto dos parâmetros apresentados na @tbl-parametros-binasps.
 
@@ -220,7 +218,7 @@ Para executar basta chamar `python main.py --input <arquivo.dat> --batch_size <3
 
 : Parâmetros do BinaPs [^2] {#tbl-parametros-binasps}
 
-#### Saída do algoritmo
+##### Saída do algoritmo
 
 Após o treinamento marcado pelas "Epoch" temos alguns dados como a "Average loss" e a "Accuracy" seguido dos padrões dispostos na @fig-exec-binaps.
 
@@ -230,15 +228,15 @@ Cada linha dos padrões mostra um padrão que foi reconstruído, como por exempl
 
 **Conclusão:** O padrão $[45-49]$ é altamente confiável pois aparece em mais de 99% das vezes que é parcialmente ativado, indicando forte consistência local nos dados.
 
-## Impacto Social
+### Impacto Social
 
-### Transparência e Justiça
+#### Transparência e Justiça
 
 O método do BinaPs é significativamente mais interpretável que outras soluções usando inteligência artificial ou caixas-pretas. Tal transparência entrega um grau de confiança maior aos resultados e pode levar a estudos e entendimentos novos relacionados à area investigada.
 
 Além disso, como o processo é transparente, ele se torna mais fácil de ser ajustado por profissionais para evitar vieses indesejados como os de cor, gênero, raça, classe e outros.
 
-## Cenários de Uso
+#### Cenários de Uso
 
 Similarmente a outros métodos de mineração de padrões, os usos são bem vastos, mas dessa vez eles são beneficiados também pela transparência. Aqui estão alguns deles:
 
@@ -258,7 +256,7 @@ Similarmente a outros métodos de mineração de padrões, os usos são bem vast
   - Detecção de padrões de fraude em transações como as bancárias
   - Estudo de padrões comportamentais para prevenção de crimes
 
-## Riscos
+#### Riscos
 
 O BinaPs é uma ferramenta. Da mesma forma que é necessário cuidado ao usar um martelo, é importante saber os riscos que tomamos ao usar uma ferramenta dessas para evitar problemas. Um dos maiores riscos são os de **dados enviesados**.
 
@@ -285,6 +283,11 @@ O BinaPs é um algoritmo de mineração de padrões inovador, com característic
 - [Artigo][Link_artigo] (@Fischer_2021)
   - [PDF][Link_artigo_pdf]
   - [Apresentação dos Autores][Apresentação dos Autores]
+
+## Referências
+
+::: {#refs}
+:::
 
 <!-- Links -->
 
