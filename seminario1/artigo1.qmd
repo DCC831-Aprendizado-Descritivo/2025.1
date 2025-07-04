@@ -57,7 +57,7 @@ Para resolver a problemática acima, o algoritmo introduz o **BinaPs**, uma solu
 
 Inspirado por decoders e encoders, o algoritmo tem como objetivo pegar os atributos de um item, codificar eles em o mesmo número ou menos de neurônios no processo e retornar para o número inicial como representado pela @fig-encdec.
 
-![Encoder e Decoder][Imagem: Encoder e Decoder]{#fig-encdec}
+![Encoder e Decoder - Fonte: o autor][Imagem: Figura 1 - Encoder e Decoder]{#fig-encdec width=90% fig-align="center"}
 
 O BinaPs contém algumas otimizações e considerações quando considerado com outras rede neurais, dentre elas:
 
@@ -68,7 +68,7 @@ O BinaPs contém algumas otimizações e considerações quando considerado com 
 
 Após essas mudanças, o algoritmo funciona como descrito pela @fig-binasps.
 
-![Funcionamento do **BinaPs**][Imagem: Figura 1]{#fig-binasps}
+![Funcionamento do **BinaPs** [^1]][Imagem: Figura 2]{#fig-binasps}
 
 ## Experimentos
 
@@ -83,11 +83,11 @@ Para medir a performance dos algoritmos foi usado a **F1-score**, uma medida cal
 #### Escalabilidade
 
 ::: {#fig-graficos-A layout-ncol=2}
-![Features: F1-Score][Imagem: Figura 2a]{#fig-F1-Score-features}
+![Features: F1-Score][Imagem: Figura 3a]{#fig-F1-Score-features}
 
-![Features: Time in Seconds][Imagem: Figura 2b]{#fig-time-in-seconds-features}
+![Features: Time in Seconds][Imagem: Figura 3b]{#fig-time-in-seconds-features}
 
-Estatísticas BinaPs, Asso, Slim e Desc: Features
+Estatísticas BinaPs, Asso, Slim e Desc: Features [^1]
 :::
 
 Com um número crescente de features (atributos), o **BinaPs** se mostra mais preciso (@fig-F1-Score-features) e menos custoso (@fig-time-in-seconds-features) em tempo que os outros três, com o **Asso** se assemelhando a ele em resultados, mas não em performance, eventualmente não sendo capaz de rodar datasets maiores.
@@ -101,14 +101,14 @@ Muitas vezes dados reais possuem ruídos, seja de medidas errôneas, problemas n
 
 ![Ruídos: Time in Seconds][Imagem: Figura 4b]{#fig-time-in-seconds-noise}
 
-Estatísticas BinaPs, Asso, Slim e Desc: Ruídos
+Estatísticas BinaPs, Asso, Slim e Desc: Ruídos [^1]
 :::
 
 Ao analisar os gráficos, ambos o **BinaPs** e o **Asso** são resistentes a ruídos em ambos F1-score (@fig-F1-Score-noise) e tempo de execução (@fig-time-in-seconds-noise). Já ambos **Slim** e **Desc** são afetados por ruídos no F1-score (@fig-F1-Score-noise) e o **Slim** em tempo de execução (@fig-time-in-seconds-noise) também.
 
 #### Operabilidade com Samples
 
-![F1-Score $\times$ Samples][Imagem: Figura 3]{#fig-F1-Score-samples}
+![F1-Score $\times$ Samples [^1]][Imagem: Figura 5]{#fig-F1-Score-samples}
 
 Para testar a capacidade do **BinaPs** de operar com poucos samples, também foi feito testes com quantidades crescentes de dados para ver sua performance.
 
@@ -160,7 +160,7 @@ Ao contrário dos dados sintéticos, não temos como saber quais padrões são "
 
 : Comparativo de tempo {#tbl-tempo}
 
-Tabela comparativa dos datasets
+Tabela comparativa dos datasets [^1]
 :::
 
 Em alguns casos, os outros algoritmos não conseguiram rodar em até 3 dias ou dentre 256GB de RAM. Tais cenários foram marcados com n/a ou infinito (@tbl-padroes).
@@ -220,13 +220,13 @@ Para executar basta chamar `python main.py --input <arquivo.dat> --batch_size <3
 | `--thread_num`      | `int`   |         $16$ | Número de threads a serem usadas no treinamento                      |
 | `--input (-i)`      | `str`   |  Obrigatório | Caminho para o arquivo de entrada (dados usados para treino e teste) |
 
-: Parâmetros do BinaPs {#tbl-parametros-binasps}
+: Parâmetros do BinaPs [^2] {#tbl-parametros-binasps}
 
 #### Saída do algoritmo
 
 Após o treinamento marcado pelas "Epoch" temos alguns dados como a "Average loss" e a "Accuracy" seguido dos padrões dispostos na @fig-exec-binaps.
 
-![Resultado da execução do BinaPs][Imagem: Figura 5]{#fig-exec-binaps}
+![Resultado da execução do BinaPs [^2]][Imagem: Figura 6]{#fig-exec-binaps}
 
 Cada linha dos padrões mostra um padrão que foi reconstruído, como por exemplo o $[45, 46, 47, 48, 49]$ seguido de dois números: O primeiro o número de amostras que ativaram **todos** os bits e o segundo amostras que ativaram **metade** dos bits do padrão. Ou seja, $4404$ vezes os bits $45$ a $49$ foram completamente ativados e $4425$ vezes parcialmente ativados (metade).
 
@@ -297,11 +297,19 @@ O BinaPs é um algoritmo de mineração de padrões inovador, com característic
 
 <!-- Imagens -->
 
-[Imagem: Encoder e Decoder]: https://www.mdpi.com/applsci/applsci-13-12413/article_deploy/html/images/applsci-13-12413-g001.png
-[Imagem: Figura 1]: src/art1/Figura1.png
-[Imagem: Figura 2a]:src/art1/Figura2a.png
-[Imagem: Figura 2b]:src/art1/Figura2b.png
-[Imagem: Figura 3]: src/art1/Figura3.png
+[Imagem: Figura 1 - Encoder e Decoder]: src/art1/Figura1.svg
+[Imagem: Figura 2]: src/art1/Figura2.png
+[Imagem: Figura 3a]: src/art1/Figura3a.png
+[Imagem: Figura 3b]: src/art1/Figura3b.png
 [Imagem: Figura 4a]: src/art1/Figura4a.png
 [Imagem: Figura 4b]: src/art1/Figura4b.png
 [Imagem: Figura 5]: src/art1/Figura5.png
+[Imagem: Figura 6]: src/art1/Figura6.png
+
+<!-- Referências -->
+
+[^1]: por @Fischer_2021 sob a licensa [CC BY 4.0][License].
+
+[License]: https://creativecommons.org/licenses/by/4.0/
+
+[^2]: Fonte: grupo hacker.
