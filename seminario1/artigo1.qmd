@@ -19,8 +19,8 @@ format:
     css: src/art1/artigo1.css
 bibliography: src/art1/referencias.bib
 crossref:
-  fig-prefix: Figura
   fig-labels: arabic
+  fig-prefix: Figura
   tbl-prefix: Tabela
   eq-prefix: Equação
 ---
