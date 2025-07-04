@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -147,11 +181,28 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução">Introdução</a></li>
+  <li><a href="#funcionamento-do-método" id="toc-funcionamento-do-método" class="nav-link" data-scroll-target="#funcionamento-do-método">Funcionamento do método</a>
+  <ul class="collapse">
+  <li><a href="#empate-nas-distâncias" id="toc-empate-nas-distâncias" class="nav-link" data-scroll-target="#empate-nas-distâncias">Empate nas distâncias</a></li>
+  <li><a href="#pós-processamento-dos-grupos" id="toc-pós-processamento-dos-grupos" class="nav-link" data-scroll-target="#pós-processamento-dos-grupos">Pós-processamento dos grupos</a></li>
+  </ul></li>
+  <li><a href="#bases-de-dados-de-teste" id="toc-bases-de-dados-de-teste" class="nav-link" data-scroll-target="#bases-de-dados-de-teste">Bases de dados de teste</a></li>
+  <li><a href="#resultados-e-benefícios" id="toc-resultados-e-benefícios" class="nav-link" data-scroll-target="#resultados-e-benefícios">Resultados e benefícios</a></li>
+  <li><a href="#aplicações-e-impactos-sociais" id="toc-aplicações-e-impactos-sociais" class="nav-link" data-scroll-target="#aplicações-e-impactos-sociais">Aplicações e impactos sociais</a></li>
+  <li><a href="#como-executar-o-método-na-prática" id="toc-como-executar-o-método-na-prática" class="nav-link" data-scroll-target="#como-executar-o-método-na-prática">Como executar o método na prática</a></li>
+  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão">Conclusão</a></li>
+  <li><a href="#referência" id="toc-referência" class="nav-link" data-scroll-target="#referência">Referência</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -160,7 +211,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -172,8 +223,221 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introdução" class="level2">
+<h2 class="anchored" data-anchor-id="introdução">Introdução</h2>
+<p>Atualmente, vivemos cercados por uma quantidade muito grande de dados sendo gerada o tempo todo, especialmente em redes sociais, biológicas e de comunicação. Nesse cenário, tornou-se essencial usar <strong>algoritmos que consigam identificar, automaticamente, grupos que se comportam de maneira diferente do que é mais comum nessas redes</strong>. Essas redes (ou grafos) representam entidades (como pessoas, sites, itens) como nós e as conexões entre elas como arestas.</p>
+<p>Uma das formas de explorar esses padrões especiais nessas redes é com a técnica do <strong><em>Subgroup Discovery</em> (SD)</strong>, ou descoberta de subgrupos. Imagine, por exemplo, que você queira encontrar uma turma de alunos particularmente altos em uma escola. O SD faria isso comparando a altura média dessa turma com a altura média de <strong>todos</strong> os alunos da escola.</p>
+<p>O problema é que, em redes muito grandes e diversas, comparar um grupo com o todo pode acabar escondendo padrões importantes em um contexto local. Na analogia, um aluno do ensino fundamental pode ser muito alto para a idade dele, mas isso pode passar despercebido se a comparação for com alunos de toda escola, que inclui os alunos do ensino médio, que naturalmente são maiores. É justamente para lidar com isso que surge o <strong><em>Local Subgroup Discovery</em> (LSD)</strong>. Ao invés de comparar um grupo com toda a rede, ele o compara apenas com um grupo de referência local, ou seja, com outros nós parecidos naquele contexto local.</p>
+<p>Este artigo inovou ao aplicar esse conceito em <strong>redes com atributos</strong>, onde cada nó possui características associadas (como uma pessoa, que possui nome, idade, altura, etc). A ideia aqui é usar essas características combinadas com a estrutura da rede para encontrar grupos que realmente se destacam, seja por comportamento, perfil ou outro critério interessante.</p>
+<hr>
+</section>
+<section id="funcionamento-do-método" class="level2">
+<h2 class="anchored" data-anchor-id="funcionamento-do-método">Funcionamento do método</h2>
+<p>Como mencionado anteriormente, o método proposto pelos autores combina a estrutura da rede com os atributos para encontrar um <strong>grupo de referência</strong> que se destaque da rede geral e, dentro dele, um <strong>grupo local</strong> que se destaque.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imgs/Article4/grafo-esquema.png" class="img-fluid figure-img"></p>
+<figcaption>Estrutura retornada pelo método</figcaption>
+</figure>
+</div>
+<p>Vamos quebrar o processo em partes:</p>
+<ol type="1">
+<li><p>Escolhe-se um <strong>protótipo</strong>, que é um ponto de partida do método, podendo ser qualquer ponto da rede.</p></li>
+<li><p>Utilizando procedimentos de <strong>caminho mínimo</strong> (como Dijkstra), calcula-se a distância entre esse protótipo e os demais pontos da rede, criando um ranking.</p></li>
+<li><p>Cria-se o subgrupo de referência (os ρ pontos mais próximos do protótipo) e o subgrupo local (os σ pontos mais próximos do protótipo, dentro de ρ), de forma que a medida de qualidade seja maximizada.</p></li>
+<li><p>Avalia-se o quão diferente o subgrupo local é do grupo de referência, com base na distribuição da variável-alvo. Para medir essa diferença, os autores utilizaram uma métrica da teoria da informação chamada <strong>Divergência Ponderada de Kullback-Leibler (WKL)</strong>, que basicamente mede o quanto as distribuições se diferem.</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imgs/Article4/grafo-construcao.png" class="img-fluid figure-img"></p>
+<figcaption>Execução do método a partir do protótipo</figcaption>
+</figure>
+</div>
+<section id="empate-nas-distâncias" class="level3">
+<h3 class="anchored" data-anchor-id="empate-nas-distâncias">Empate nas distâncias</h3>
+<p>Você pode ter muito bem observado que simplesmente usar o algoritmo de caminho mínimo pode gerar empates: muitos pontos podem estar a uma exata mesma distância, em nível de aresta, do protótipo. É aqui que entra a <strong>Distância de Gower</strong>, que <strong>considera os atributos dos nós para desempatar</strong>. Logo, nós que são mais parecidos com o protótipo são preferidos em relação aos outros, garantindo que o grupo formado tenha sentido tanto na estrutura quanto nas características. No exemplo abaixo, tínhamos um empate, a nível de aresta, entre o protótipo e os outros nós, mas as características dos mesmos foi usada para desempatar, produzindo este ranking.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imgs/Article4/grafo-distancia.png" class="img-fluid figure-img" width="400"></p>
+<figcaption>Ranking dos nós mais próximos ao protótipo</figcaption>
+</figure>
+</div>
+</section>
+<section id="pós-processamento-dos-grupos" class="level3">
+<h3 class="anchored" data-anchor-id="pós-processamento-dos-grupos">Pós-processamento dos grupos</h3>
+<p>Ao selecionarmos vários protótipos, pode acontecer de alguns deles serem muito próximos na rede, o suficiente para gerar subgrupos muito parecidos. Pensando nisso, os autores fazem um <strong>pós-processamento</strong> dos grupos encontrados, utilizando o <strong>coeficiente de Dice-Sørensen</strong>, que basicamente diz o quanto dois grupos se sobrepõem.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imgs/Article4/grafo-sobreposicao.png" class="img-fluid figure-img"></p>
+<figcaption>Sobreposição dos subgrupos de protótipos próximos</figcaption>
+</figure>
+</div>
+<p>Definimos um limiar de sobreposição. Ao encontrarmos um par de grupos que se sobrepõem demais, cortamos um deles, o que garante que, ao final, tenhamos subgrupos especiais suficientemente diferentes.</p>
+<hr>
+</section>
+</section>
+<section id="bases-de-dados-de-teste" class="level2">
+<h2 class="anchored" data-anchor-id="bases-de-dados-de-teste">Bases de dados de teste</h2>
+<p>A proposta foi testada em três conjuntos de dados distintos:</p>
+<ul>
+<li><p><strong>OGBG-MolPCBA:</strong> conjunto com 41.127 grafos. Cada grafo é uma molécula, onde os nós são os átomos, com atributos como número atômico, hibridização, etc. A descoberta de subgrupos ajuda a identificar estruturas químicas com propriedades especiais.</p></li>
+<li><p><strong>Twitch PT:</strong> rede de streamers portugueses da plataforma Twitch. Trata-se de um conjunto de 1.912 nós, que representam streamers, e 64.510 arestas, que representam seguidores. A variável-alvo é o uso de linguagem explícita. O LSD encontrou subgrupos locais de streamers que não usam linguagem explícita, mesmo estando cercados por quem usa.</p></li>
+<li><p><strong>WebKB Cornell:</strong> rede de páginas da web da Universidade Cornell, onde cada nó é uma página com atributos de texto (foram 1703 atributos por nó). O LSD descobriu subgrupos de páginas com temas administrativos dentro de contextos predominantemente acadêmicos.</p></li>
+</ul>
+<p>Essas bases de dados são grandes o suficiente para provar a escalabilidade do método e a veracidade das evidências, mas não grandes demais para se tornar computacionalmente custoso.</p>
+<hr>
+</section>
+<section id="resultados-e-benefícios" class="level2">
+<h2 class="anchored" data-anchor-id="resultados-e-benefícios">Resultados e benefícios</h2>
+<p>Para avaliar a importância do uso de grupos de referência locais, os autores realizaram um “<em>ablation study</em>” substituindo o grupo de referência por toda a rede, conforme a abordagem tradicional do SD. Essa comparação direta permite verificar o impacto do aspecto local no processo de descoberta de subgrupos.</p>
+<p>Para entendermos a tabela abaixo, vamos explicar alguns conceitos importantes:</p>
+<ul>
+<li><p><strong>WRAcc:</strong> mede o quão bem o subgrupo se diferencia do restante da rede em relação à variável-alvo. Quanto maior, mais informativo é o subgrupo.</p></li>
+<li><p><strong>Cobertura t(v)=1:</strong> indica a porcentagem dos nós com valor positivo para o alvo (por exemplo, linguagem explícita) que estão incluídos no subgrupo.</p></li>
+<li><p><strong>Overlap:</strong> mostra o quanto os subgrupos encontrados por LSD e SD se parecem. Valores baixos indicam que os métodos descobrem grupos bem diferentes.</p></li>
+</ul>
+<table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 11%">
+<col style="width: 25%">
+<col style="width: 11%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dataset</th>
+<th>Método</th>
+<th>Overlap com LSD</th>
+<th>WRAcc</th>
+<th>Cobertura t(v)=1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>OGBG-MolPCBA</td>
+<td>LSD</td>
+<td>—</td>
+<td>0.215</td>
+<td>31.56%</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>SD</td>
+<td>0.0%</td>
+<td>0.0533</td>
+<td>0.00%</td>
+</tr>
+<tr class="odd">
+<td>Twitch PT</td>
+<td>LSD</td>
+<td>—</td>
+<td>0.2349</td>
+<td>28.30%</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>SD</td>
+<td>0.62%</td>
+<td>0.0798</td>
+<td>63.84%</td>
+</tr>
+<tr class="odd">
+<td>WebKB Cornell</td>
+<td>LSD</td>
+<td>—</td>
+<td>0.2211</td>
+<td>81.00%</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>SD</td>
+<td>8.99%</td>
+<td>0.1103</td>
+<td>48.60%</td>
+</tr>
+</tbody>
+</table>
+<p>Os resultados revelam que <strong>a abordagem local (LSD) supera consistentemente o SD tradicional em termos de qualidade dos subgrupos</strong>. A métrica WRAcc, usada para medir o poder discriminativo, é significativamente maior nos subgrupos gerados pelo LSD. Além disso, subgrupos descobertos são substancialmente diferentes (com overlap inferior a 10%) e capturam uma maior proporção dos nós com a variável-alvo positiva em dois dos três conjuntos de dados.</p>
+<p>Esses achados reforçam a tese central do artigo: ao considerar o contexto local dos nós, tanto em termos de estrutura da rede quanto de atributos, conseguimos identificar padrões mais informativos, que se perderiam se olhássemos apenas para o comportamento global da rede.</p>
+<hr>
+</section>
+<section id="aplicações-e-impactos-sociais" class="level2">
+<h2 class="anchored" data-anchor-id="aplicações-e-impactos-sociais">Aplicações e impactos sociais</h2>
+<p>Como mencionado anteriormente, esse método pode ser utilizado em diferentes aplicações, como na biologia molecular, redes sociais, organização da informação e na detecção de fraudes e anomalias. Além disso, pode ser usado em cenários de cibersegurança, detecção de grupos radicais e de desinformação, segmentação de clientes, etc. Entretanto, o uso desse método sem o devido tratamento e supervisão pode desencadear alguns problemas:</p>
+<ul>
+<li><p><strong>Invasão de privacidade:</strong> mesmo se os dados estiverem anonimizados, o contexto local em que o nó está inserido pode revelar quem é o indivíduo. Em redes sociais, por exemplo, o padrão de interação de um usuário e as características associadas ao seu perfil podem ser suficientes para identificá-lo.</p></li>
+<li><p><strong>Discriminação algorítmica:</strong> atributos como raça, gênero ou status socioeconômico podem estar embutidos nos dados de entrada e o LSD pode retornar subgrupos “anômalos” que, na prática, são grupos historicamente marginalizados, o que pode ser usado de maneira tendenciosa.</p></li>
+<li><p><strong>Desigualdade no acesso ou no tratamento:</strong> subgrupos identificados como “exceções” podem ser tratados de forma desigual por sistemas automáticos. Por exemplo, em serviços sociais, famílias com perfis atípicos em relação à vizinhança podem ser preteridas ou até ignoradas.</p></li>
+</ul>
+<p>Além dessas questões, o algoritmo apresenta limitações inerentes ao problema que ele busca solucionar. Um deles é o fato de que um subgrupo pequeno pode implicar diretamente seus membros. Imagine, por exemplo, um fórum de mães de primeira viagem, no qual um grupo pequeno começa a postar com mais frequência sobre ansiedade pós-parto. O sistema pode rotular esse grupo como “de risco”, mesmo que esteja buscando apoio, o que pode levar a bloqueios, alertas automáticos ou vigilância desnecessária.</p>
+<p>Tudo isso denota a importância de adotar boas práticas no uso do método. Critérios éticos e transparentes devem ser estabelecidos e seguidos antes de utilizar o método, com uma supervisão humana e com contextualização adequada dos resultados. A implementação de salvaguardas contra o uso indevido, manipulação dos resultados deve ser também adotada.</p>
+<hr>
+</section>
+<section id="como-executar-o-método-na-prática" class="level2">
+<h2 class="anchored" data-anchor-id="como-executar-o-método-na-prática">Como executar o método na prática</h2>
+<p>Você também pode executar este método na sua própria máquina! Para isso, basta acessar o seguinte repositório no GitHub: <a href="https://github.com/TUeEMM/LSD-ATNG" class="uri">https://github.com/TUeEMM/LSD-ATNG</a>. Os códigos foram implementados em Python e os arquivos <code>.ipynb</code> (notebooks Jupyter) presentes no repositório contêm a execução completa do método feita pelos próprios autores, com os dados das bases mencionadas anteriormente. Você pode simplesmente visualizar os resultados ou adaptar os scripts para os seus próprios dados.</p>
+<p>A função principal que executa o método se chama <code>find_groups</code>, localizada no arquivo <code>methods.py</code>. Ela recebe os parâmetros:</p>
+<ul>
+<li><p><code>G</code>: o grafo (estrutura da rede, em formato compatível com a biblioteca <code>networkx</code>)</p></li>
+<li><p><code>k</code>: quantidade de subgrupos desejados</p></li>
+<li><p><code>lu</code>: uma tabela <code>pandas.DataFrame</code> contendo os atributos dos nós</p></li>
+<li><p><code>ablation_mode</code>: se <code>True</code>, executa o método sem considerar grupos de referência locais (simula o SD tradicional). Por padrão, é passado como <code>False</code></p></li>
+<li><p><code>use_multiprocessing</code>: se <code>True</code>, utiliza múltiplos núcleos para acelerar o processo. Por padrão, é passado como <code>True</code></p></li>
+</ul>
+<p>Abaixo, mostramos um exemplo de execução do início ao fim, incluindo os resultados e os recursos computacionais utilizados. Esse exemplo foi realizado no <strong>Google Colab</strong>, mas você pode adaptá-lo facilmente para qualquer ambiente com Python instalado.</p>
+<blockquote class="blockquote">
+<p><strong>Importante:</strong> para rodar o método, é necessário que você tenha um grafo (<code>networkx.Graph</code>) representando sua rede e uma tabela (<code>pandas.DataFrame</code>) com os atributos dos nós e uma variável-alvo binária (0 ou 1)</p>
+</blockquote>
+<ol type="1">
+<li><p><strong>Clonando o repositório:</strong> o primeiro passo é clonar o repositório ou baixar o código-fonte do projeto.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/TUeEMM/LSD-ATNG.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Criando o grafo:</strong> nesse exemplo, usamos o nosso grafo. No seu caso, substitua pelo seu próprio grafo, construído com a biblioteca <code>networkx</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>edge_index <span class="op">=</span> data.edge_index <span class="co"># Extrai a matriz de arestas dos dados</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>num_nodes <span class="op">=</span> data.num_nodes <span class="co"># Obtém o número total de nós presentes no grafo</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.Graph() <span class="co"># Cria um novo grafo não direcionado</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Adiciona todos os nós ao grafo, que são numerados de 0 a num_nodes - 1</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>G.add_nodes_from(<span class="bu">range</span>(num_nodes))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Converte os índices das arestas em uma lista de tuplas (u, v), onde u e v</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># são os nós que compõem a aresta</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> <span class="bu">list</span>(<span class="bu">zip</span>(edge_index[<span class="dv">0</span>].tolist(), edge_index[<span class="dv">1</span>].tolist()))</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>G.add_edges_from(edges) <span class="co"># Adiciona as arestas ao grafo</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Criando a tabela de atributos:</strong> construímos uma tabela contendo os atributos dos nós e o rótulo binário. Novamente, você usará seus próprios dados.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Acessa os atributos dos nós do grafo `G`, no caso armazenados sob a chave 'node_feat'</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>attributes <span class="op">=</span> G[<span class="st">'node_feat'</span>]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>lu <span class="op">=</span> pd.DataFrame(attributes) <span class="co"># Cria o DataFrame com atributos dos nós</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>lu[<span class="st">'target'</span>] <span class="op">=</span> binary_target <span class="op">==</span> <span class="dv">1</span> <span class="co"># Cria a coluna 'target' em lu</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>lu.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Executando o método <code>find_groups</code>:</strong> com o grafo e seus atributos preparados, basta chamar a função com os parâmetros adequados. O método irá retornar os subgrupos identificados, acompanhados de suas métricas.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imgs/Article4/execucao-algoritmo.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div></li>
+</ol>
+<blockquote class="blockquote">
+<p><strong>Observação:</strong> esta execução foi realizada em um computador com processador Ryzen 5 1600X (3.6GHz), 16 GB de RAM DDR4 (2666MHz). Utilizamos o <strong>Twitch Dataset</strong>, contendo 1.912 nós, cada um com 128 atributos e 1 rótulo binário, além de 64.510 arestas. A execução do método levou aproximadamente 16 minutos e consumiu cerca de 8 GB de memória RAM.</p>
+</blockquote>
+<hr>
+</section>
+<section id="conclusão" class="level2">
+<h2 class="anchored" data-anchor-id="conclusão">Conclusão</h2>
+<p>A aplicação prática do método de Local Subgroup Discovery (LSD) em grafos com atributos demonstrou sua capacidade de identificar subgrupos excepcionais em contextos locais, ao contrário do tradicional Subgroup Discovery (SD), que utiliza comparações globais. Os resultados evidenciam que o uso de grupos de referência locais permite capturar padrões mais relevantes e discriminativos, tanto em termos de estrutura quanto de atributos. O repositório disponível permite a replicação e adaptação do método a diferentes bases de dados, incentivando seu uso em problemas reais de análise de redes.</p>
+<hr>
+</section>
+<section id="referência" class="level2">
+<h2 class="anchored" data-anchor-id="referência">Referência</h2>
+<p>Heinrich, Carl Vico, Tommie Lombarts, Jules Mallens, Luc Tortike, David Wolf, and Wouter Duivesteijn. 2025. “Local Subgroup Discovery on Attributed Network Graphs.” In International Symposium on Intelligent Data Analysis, 195–208. Springer.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
