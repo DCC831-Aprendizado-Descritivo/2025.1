@@ -40,12 +40,10 @@ Infelizmente, os algoritmos para mineração de padrões são extremamente custo
 Para resolver a problemática acima, o algoritmo introduz o **BinaPs**, uma solução que vê o problema por meio da lente de aprendizado de máquina ao invés de construção de conjuntos. Para entender melhor as duas perspectivas, considere as diferenças principais do **BinaPs** para algoritmos tradicionais:
 
 - **Apriori, Eclat, FP-Growth**:
-
   - Padrões escolhidos por frequência
   - Padrões redundantes encontrados
   - Apenas otimizados por heurísticas
   - Calculado na CPU
-
 - **BinaPs**:
   - Funções diferenciáveis para descoberta de padrões
   - Padrões menos redundantes
@@ -55,14 +53,14 @@ Para resolver a problemática acima, o algoritmo introduz o **BinaPs**, uma solu
 
 ### Funcionamento
 
-Inspirado por decoders e encoders, o algoritmo tem como objetivo pegar os atributos de um item, codificar eles em o mesmo número ou menos de neurônios no processo e retornar para o número inicial como representado pela @fig-encdec.
+Inspirado por decoders e encoders, o algoritmo tem como objetivo obter os atributos de um item, codificar eles em o mesmo número ou menos de neurônios no processo e retornar para o número inicial como representado pela @fig-encdec.
 
 ![Encoder e Decoder - Fonte: o autor][Imagem: Figura 1 - Encoder e Decoder]{#fig-encdec width=90% fig-align="center"}
 
 O BinaPs contém algumas otimizações e considerações quando considerado com outras rede neurais, dentre elas:
 
 - Os neurônios e pesos finais são binários $\{0, 1\}$
-- Viês é usado para evitar overfitting
+- Viés é usado para evitar overfitting
 - Normalização da função de perda para evitar saídas de apenas $\{1\}$ ou $\{0\}$ em bases densas e esparsas.
 - Gated Straight-Through Estimator para não penalizar os neurônios desligados
 
@@ -78,7 +76,7 @@ O **BinaPs** foi comparado com três outros competidores na área de mineração
 
 Dados sintéticos foram escolhidos pois é possível inserir ou estudar padrões reais nos dados previamente, podendo assim comparar os resultados dos algoritmos com o "ground truth", ou seja, o que assumimos ser a verdade.
 
-Para medir a performance dos algoritmos foi usado a **F1-score**, uma medida calculada pela média harmonica do _precision_ e do _recall_, comumente usada em aprendizado de máquina para avaliar a performance de modelos.
+Para medir a performance dos algoritmos foi usado a **F1-score**, uma medida calculada pela média harmônica do _precision_ e do _recall_, comumente usada em aprendizado de máquina para avaliar a performance de modelos.
 
 #### Escalabilidade
 
@@ -163,7 +161,7 @@ Ao contrário dos dados sintéticos, não temos como saber quais padrões são "
 Tabela comparativa dos datasets [^1]
 :::
 
-Em alguns casos, os outros algoritmos não conseguiram rodar em até 3 dias ou dentre 256GB de RAM. Tais cenários foram marcados com n/a ou infinito (@tbl-padroes).
+Em alguns casos, os outros algoritmos não conseguiram rodar em até 3 dias ou com 256GB de RAM. Tais cenários foram marcados com $n/a$ ou $\infty$ (@tbl-padroes).
 
 O **BinaPs** retornou resultados menos redundantes, facilitando interpretabilidade. Além disso, foram notados algumas falhas em outros algoritmos, dentre eles:
 
@@ -185,7 +183,7 @@ Foi possível encontrar padrões antes conhecidos de genes relacionados, como os
 
 Outro exemplo foi o dos genes SF3A1, RRP7A e Z82190 onde os dois primeiros codificam proteínas que são parte do ribossomo (que por sua conta é a fábrica de proteínas da célula), já o terceiro não é caracterizado. O padrão destes juntos é uma dica que pode guiar estudos futuros nessa área.
 
-Por final, ao analisar padrões de variantes entre alelos, o BinaPs sugere que variantes raras normalmente acompanhadas de comuns podem acontecer de um para o outro "$0 \mid 1$" como na literatura, mas muitas vezes também acontece em "1 \mid 0", ou seja, os raros no alelo que antes havia comuns e vice-versa. Os autores não sabem se isso têm significado biológico, sugerindo que isso seja analisado por profissionais da área.
+Por final, ao analisar padrões de variantes entre alelos, o BinaPs sugere que variantes raras normalmente acompanhadas de comuns podem acontecer de um para o outro "$0 \mid 1$" como na literatura, mas muitas vezes também acontece em "$1 \mid 0$", ou seja, os raros no alelo que antes havia comuns e vice-versa. Os autores não sabem se isso têm significado biológico, sugerindo que isso seja analisado por profissionais da área.
 
 ## Execução
 
