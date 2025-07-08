@@ -1,11 +1,17 @@
 ---
-title: 'Artigo 6: Exceptional Subitizing Patterns: Exploring Mathematical Abilities of Finnish Primary School Children with Piecewise Linear Regression'
-page-layout: full
+title: "Artigo 6: Exceptional Subitizing Patterns: Exploring Mathematical Abilities of Finnish Primary School Children with Piecewise Linear Regression"
+format: html
+lang: pt-BR
+toc: true
 ---
 
-### **Introdução**
+# **Artigo 6: Exceptional Subitizing Patterns: Exploring Mathematical Abilities of Finnish Primary School Children with Piecewise Linear Regression**
 
-A subitização é uma das primeiras habilidades numéricas que emergem no desenvolvimento cognitivo infantil. Trata-se da capacidade de reconhecer automaticamente, de forma rápida e precisa, pequenas quantidades de objetos geralmente até três ou quatro sem a necessidade de contagem explícita. Essa habilidade, observável já em bebês e em animais, é considerada uma manifestação do chamado “sistema número aproximado” (ANS – Approximate Number System), e representa um alicerce importante para o desenvolvimento posterior de competências matemáticas mais elaboradas, como a contagem, o cálculo mental e o raciocínio algébrico.
+---
+
+## **Introdução**
+
+A subitização é uma das primeiras habilidades numéricas que emergem no desenvolvimento cognitivo infantil. Trata-se da capacidade de reconhecer automaticamente, de forma rápida e precisa, pequenas quantidades de objetos geralmente até três ou quatro sem a necessidade de contagem explícita. Essa habilidade, observável já em bebês e em animais, é considerada uma manifestação do chamado “sistema número aproximado” (ANS – Approximate Number System), e representa um alicerce importante para o desenvolvimento posterior de competências matemáticas mais elboradas, como a contagem, o cálculo mental e o raciocínio algébrico.
 
 Estudos na área da psicologia cognitiva e neurociência vêm mostrando que o desempenho em tarefas de subitização está fortemente associado à fluência aritmética e pode servir como um indicador precoce de dificuldades de aprendizagem, como a discalculia. Assim, entender como essa habilidade se manifesta, quais variáveis influenciam sua eficiência e como ela se relaciona com outras dimensões do desempenho matemático é essencial tanto para a pesquisa quanto para a prática pedagógica.
 
@@ -13,21 +19,21 @@ Estudos na área da psicologia cognitiva e neurociência vêm mostrando que o de
 
 O artigo busca aplicar esses métodos para identificar sutilezas no comportamento de crianças em idade escolar, com o objetivo de favorecer tanto o diagnóstico precoce de dificuldades cognitivas quanto o desenvolvimento de estratégias educacionais mais personalizadas. Ao integrar ciência de dados, psicologia do desenvolvimento e educação, a pesquisa exemplifica o potencial das abordagens interdisciplinares na geração de novos insights e soluções práticas.
 
-### **O que é subitização?**
+## **O que é subitização?**
 
 Subitização é a capacidade de reconhecer a quantidade de poucos itens (geralmente 1 a 4\) de forma imediata e sem contagem. Quando a quantidade de objetos ultrapassa esse limite, o tempo de resposta aumenta, pois o indivíduo precisa contar. Isso cria um ponto de inflexão natural nos gráficos que relacionam tempo de resposta e quantidade de itens. Alterações nesses padrões podem indicar dificuldades como a discalculia, tornando essa habilidade um importante marcador de desenvolvimento cognitivo.
 
-### **Ferramentas e metodologia utilizadas**
+## **Ferramentas e metodologia utilizadas**
 
-#### **Mineração de Modelos Excepcionais (EMM)**
+### **Mineração de Modelos Excepcionais (EMM)**
 
 Ao contrário da mineração de subgrupos convencional, que se concentra em anomalias em variáveis individuais, a Mineração de Modelos Excepcionais (EMM) investiga as conexões entre variáveis. No contexto deste artigo, o objetivo é identificar grupos de crianças que exibem uma relação atípica entre a quantidade de itens e o tempo de resposta, em comparação com a maioria.
 
-#### **Regressão Linear Segmentada**
+### **Regressão Linear Segmentada**
 
 O modelo matemático adotado é uma regressão linear segmentada, ideal para capturar dois comportamentos distintos: um trecho inicial com tempo de resposta estável (subitização) e outro com crescimento mais acentuado (contagem). O modelo estima os coeficientes de cada trecho e o ponto de transição entre eles (breakpoint).
 
-#### **Avaliação dos subgrupos**
+### **Avaliação dos subgrupos**
 
 A qualidade dos subgrupos identificados é medida pela diferença entre o erro de um modelo global (treinado com todos os dados) e de um modelo local (treinado apenas com o subgrupo). Se o modelo local for muito melhor, o subgrupo é considerado “excepcional”.
 
@@ -37,7 +43,7 @@ Este procedimento assegura que cada instância (cada criança) seja representada
 
 Durante o processo de achatamento da base de dados, os autores aplicaram diferentes funções de agregação para transformar séries temporais ou listas de valores (vindas das tarefas cognitivas) em atributos únicos por criança. Essas funções foram extraídas da literatura e escolhidas de acordo com sua relevância para o desempenho cognitivo. Entre as principais, destacam-se:
 
-## Funções de Agregação Utilizadas
+!## Funções de Agregação Utilizadas
 
 | Nome da Função                | Descrição                                                                 | Exemplo de Aplicação                                     |
 |------------------------------|---------------------------------------------------------------------------|-----------------------------------------------------------|
@@ -50,7 +56,7 @@ Durante o processo de achatamento da base de dados, os autores aplicaram diferen
 | IcNumD / SNumD               | Intercepto e inclinação da regressão entre tempo de resposta e a distância entre dois números. | Medidas de sensibilidade numérica (NC).                   |
 | IcNumR / SNumR               | Intercepto e inclinação da regressão entre tempo de resposta e a razão entre os números comparados. | Avaliação da dificuldade relativa na tarefa NC.           |
 
-#### **Modelo matemático**
+### **Modelo matemático**
 
 Para modelar a relação entre o tempo de resposta das crianças e o número de itens apresentados na tarefa de enumeração (Dot Enumeration – DE), os autores utilizaram uma regressão linear segmentada, uma técnica que permite representar dois comportamentos distintos com uma única equação.
 
@@ -82,7 +88,7 @@ O gráfico acima ilustra o modelo de regressão linear segmentada utilizado para
 
 Após esse ponto, a curva se torna mais inclinada, indicando a fase de contagem, em que o tempo de resposta cresce proporcionalmente à quantidade de estímulos. A linha vermelha pontilhada marca o ponto de transição entre esses dois comportamentos cognitivos. Essa modelagem permite captar com precisão onde ocorre a mudança de estratégia e é central para identificar padrões atípicos nas curvas individuais.
 
-#### **Avaliação da qualidade dos subgrupos**
+### **Avaliação da qualidade dos subgrupos**
 
 Para determinar se um subgrupo de crianças apresenta um padrão de subitização realmente distinto da população geral, os autores utilizaram métricas baseadas em erro quadrático e verossimilhança estatística. 
 
@@ -94,17 +100,17 @@ De forma intuitiva, a soma dos erros quadráticos (SSR) representa o total de �
 
 Imagine que queremos ajustar uma linha aos tempos de resposta de um grupo de crianças. Se a linha passar perto de todos os pontos, os erros individuais (diferença entre valor observado e previsto) serão pequenos e, ao elevá-los ao quadrado e somá-los, o SSR será baixo. Já se a linha estiver distante dos pontos, os erros serão grandes, e o SSR também será elevado.
 
-#### **Pré-processamento dos dados**
+### **Pré-processamento dos dados**
 
 O estudo foi conduzido com base na base de dados do projeto **Fu**nctional **N**umerical **A**ssessment (FUNA), um levantamento em larga escala desenvolvido na Finlândia e Suécia com o objetivo de investigar habilidades matemáticas e dificuldades como discalculia e dislexia em estudantes do ensino fundamental. A base é composta por tarefas cognitivas administradas de forma cronometrada e em uma ordem quasi-aleatória, com tarefas mais simples apresentadas primeiro.
 
 Diferentemente de conjuntos de dados tabulares tradicionais, o FUNA registra múltiplas medições por criança e por tarefa, o que exigiu dos autores uma abordagem específica de pré-processamento. Para tornar os dados compatíveis com os algoritmos de mineração utilizados, os registros foram transformados em uma estrutura agregada por meio do processo de “achatamento” (flattening). Esse processo gerou atributos únicos por criança, como tempo médio de resposta em acertos, proporção de acertos e métricas derivadas da literatura, como o IES (Inverse Efficiency Score).
 
-#### **Implementação**
+### **Implementação**
 
 A implementação da metodologia apresentada no artigo foi disponibilizada por seus autores no repositório [FUNA\_EMM](https://github.com/RianneSchouten/FUNA_EMM), que contém os scripts em Python responsáveis pela execução do pipeline completo de análise, incluindo pré-processamento, modelagem e avaliação dos subgrupos identificados.
 
-##### **Configuração do ambiente**
+#### **Configuração do ambiente**
 
 A configuração do ambiente exige a criação de um ambiente virtual e a instalação das dependências listadas no arquivo requirements.txt. No entanto, foi necessário realizar ajustes manuais nas versões de bibliotecas, uma vez que o arquivo original apresentava inconsistências. O procedimento padrão inclui:
 
@@ -112,11 +118,11 @@ python \-m venv venv
 venv/Scripts/activate  \# ou source venv/bin/activate no Linux/macOS  
 pip install \-r requirements.txt
 
-##### **Acesso aos dados**
+#### **Acesso aos dados**
 
 Os autores não disponibilizaram o conjunto completo de dados do estudo. Em vez disso, apenas uma amostra de 5% dos dados reais do dataset FUNA foi tornada pública. Essa amostra contém atributos semi-identificadores (como sexo, idioma e ano escolar) e medidas extraídas de tarefas cognitivas, como tempo de resposta, número de acertos e escores compostos. Embora limitada, essa porção permite a reprodução parcial dos experimentos descritos no artigo.
 
-##### **Execução dos testes**
+#### **Execução dos testes**
 
 O código principal (main.py) é parametrizado para rodar diferentes configurações do experimento. A mineração de padrões é realizada por meio de **busca em feixe (beam search)** combinada com o **Weighted Coverage Scheme (WCS)**, que penaliza a sobreposição entre subgrupos. Alguns dos parâmetros ajustáveis incluem:
 
@@ -126,7 +132,7 @@ O código principal (main.py) é parametrizado para rodar diferentes configuraç
 * min\_size: tamanho mínimo de um subgrupo (por exemplo, 5% da amostra).  
 * run\_beam\_search, make\_dfd, run\_redun\_metrics: ativam métricas como entropia conjunta (JE), similaridade de Jaccard (JSIM) e validação por distribuição de falsas descobertas (DFD).
 
-##### **Resultados gerados**
+#### **Resultados gerados**
 
 A saída da execução é organizada em diretórios contendo:
 
@@ -136,11 +142,11 @@ A saída da execução é organizada em diretórios contendo:
 
 Embora a ausência do dataset completo limite a reprodutibilidade total do estudo, o repositório permite compreender a lógica de funcionamento do pipeline e testar a metodologia em conjuntos de dados alternativos.
 
-##### **Adaptação para outras bases de dados**
+#### **Adaptação para outras bases de dados**
 
 Para aplicar essa metodologia em um conjunto de dados próprio, o usuário precisará preparar os dados no formato esperado pelo pipeline. Isso significa garantir que cada instância (por exemplo, cada estudante) seja representada por um vetor fixo de atributos numéricos, derivados por meio de funções de agregação (como média, mediana, proporção de acertos ou IES). Após esse pré-processamento, basta ajustar os parâmetros no script main.py e apontar o caminho do novo arquivo de entrada. Essa flexibilidade permite que a técnica seja aplicada em outros contextos, como avaliações educacionais, triagens clínicas ou estudos cognitivos em populações distintas.
 
-### **Resultados encontrados**
+## **Resultados encontrados**
 
 A análise conduzida pelos autores foi dividida em duas etapas principais. Na primeira, aplicou-se a regressão linear segmentada ao conjunto completo de dados com o objetivo de verificar se o padrão esperado de subitização seria reproduzido. O modelo confirmou esse comportamento: crianças responderam rapidamente a estímulos com até 3 ou 4 itens, indicando reconhecimento imediato (subitização), e passaram a responder de forma mais lenta a partir desse ponto, caracterizando o início da contagem consciente. O ponto de inflexão (breakpoint) foi consistentemente localizado entre 3 e 4 elementos, alinhado à literatura sobre desenvolvimento numérico.
 
@@ -174,7 +180,7 @@ Além disso, o estudo não leva em conta possíveis variáveis de confusão que 
 
 Por fim, a base de dados utilizada é composta exclusivamente por crianças finlandesas, um país com características educacionais e sociais bastante específicas. Isso pode limitar a generalização dos achados para outras populações e contextos culturais.
 
-#### **Questões éticas**
+### **Questões éticas**
 
 O estudo levanta preocupações relevantes sobre o uso de dados sensíveis, especialmente por envolver crianças:
 
@@ -186,7 +192,7 @@ O estudo levanta preocupações relevantes sobre o uso de dados sensíveis, espe
 
 Esses aspectos mostram como a linha entre avanço científico e exposição indevida é tênue, especialmente ao lidar com dados de populações vulneráveis como crianças.
 
-### **Conclusão**
+## **Conclusão**
 
 O artigo demonstra como técnicas modernas de mineração de dados, como a Mineração de Modelos Excepcionais (EMM) combinada com regressão linear segmentada, podem contribuir significativamente para o diagnóstico precoce de dificuldades cognitivas e o aprimoramento de estratégias educacionais. A capacidade de identificar subgrupos de alunos com padrões atípicos de desempenho, como no caso da subitização, oferece um novo horizonte para o desenvolvimento de ferramentas pedagógicas mais precisas, inclusivas e adaptadas às necessidades reais dos estudantes.
 
@@ -195,6 +201,9 @@ Contudo, os mesmos métodos que revelam padrões ricos e úteis também trazem c
 Além disso, é fundamental reconhecer os limites da própria metodologia. A confiabilidade dos resultados depende da qualidade dos dados, da validação estatística adequada e da consideração de variáveis contextuais frequentemente ausentes. Uma leitura crítica e interdisciplinar dos achados é essencial para evitar conclusões simplistas ou generalizações indevidas.
 
 Como cientistas de dados e educadores, devemos buscar não apenas identificar padrões excepcionais, mas também exercer uma responsabilidade igualmente excepcional. Isso implica combinar competência técnica com sensibilidade ética, promovendo avanços que sejam não apenas cientificamente sólidos, mas também socialmente justos, transparentes e benéficos para todos os envolvidos.
+
+## **Referências**
+SCHOUTEN, Rianne M.; DUIVESTEIJN, Wouter; RÄSÄNEN, Pekka; PAUL, Jacob M.; PECHENIZKIY, Mykola. Exceptional subitizing patterns: exploring mathematical abilities of Finnish primary school children with piecewise linear regression. In: MACHINE LEARNING AND KNOWLEDGE DISCOVERY IN DATABASES. APPLIED DATA SCIENCE TRACK: European Conference, ECML PKDD 2024, Vilnius, Lithuania, September 9–13, 2024. Proceedings, Part X. Cham: Springer, 2024. p. 66–82. DOI: 10.1007/978-3-031-70381-2_5.
 
 [image2]: <data:image/png;base64,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>
 
