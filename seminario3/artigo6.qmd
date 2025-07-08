@@ -7,10 +7,6 @@ number-sections: true
 toc: true
 ---
 
-# **Artigo 6: Exceptional Subitizing Patterns: Exploring Mathematical Abilities of Finnish Primary School Children with Piecewise Linear Regression**
-
----
-
 ## **Introdução**
 
 A subitização é uma das primeiras habilidades numéricas que emergem no desenvolvimento cognitivo infantil. Trata-se da capacidade de reconhecer automaticamente, de forma rápida e precisa, pequenas quantidades de objetos geralmente até três ou quatro sem a necessidade de contagem explícita. Essa habilidade, observável já em bebês e em animais, é considerada uma manifestação do chamado “sistema número aproximado” (ANS – Approximate Number System), e representa um alicerce importante para o desenvolvimento posterior de competências matemáticas mais elboradas, como a contagem, o cálculo mental e o raciocínio algébrico.
