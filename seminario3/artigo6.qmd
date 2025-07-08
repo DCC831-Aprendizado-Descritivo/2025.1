@@ -1,7 +1,9 @@
 ---
 title: "Artigo 6: Exceptional Subitizing Patterns: Exploring Mathematical Abilities of Finnish Primary School Children with Piecewise Linear Regression"
+page-layout: full
 format: html
 lang: pt-BR
+number-sections: true
 toc: true
 ---
 
